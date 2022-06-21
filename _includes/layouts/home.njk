@@ -14,7 +14,58 @@ section: home
    {# <script src="{{ '_includes/assets/js/district-boundaries_simplified2.geojson' | url }}" defer></script> #}
 
    <script type="text/javascript">
+
+
+      // LOAD POST DATA FROM /districts.json
+      let postData = [];
+      document.addEventListener('DOMContentLoaded', function (event) {
+         fetch('/districts.json')
+         .then((response) => response.json())
+         .then((data_server) => { 
+            
+            postData = data_server;
+
+            // LOAD DISTRICT GEOJSON VIA AJAX
+            var districtBoundaries = new L.GeoJSON.AJAX("_includes/assets/js/district-boundaries_simplified.geojson",{
+                  style: myStyle,
+                  onEachFeature: function (feature, layer) {
+
+                     match = postData.find((element) => element.id === feature.properties.slug); //get matching post from POST JSON
+
+                     Object.assign(feature.properties, match); //add properties of matching post to matching feature
+
+                     layer.bindPopup('<h1>'+feature.properties.title+'</h1><p>slug: '+feature.properties.summary+'</p>');
+                    }
+               });
+
+            // ADD DISTRICT BOUNDARIES TO MAP
+            districtBoundaries.on('data:loaded', function() {
+               map.addLayer(this);
+               //console.log(this);
+
+               console.log(districtBoundaries._layers);
+
+            });
+         });
+      });
+
+
       
+
+      // Define a style
+      var myStyle = {
+           "strokeColor": "#ffffff",
+           "weight": .5,
+           "opacity": 1,
+           "smoothFactor" : 0 
+       };
+
+
+
+
+      
+
+      // CREATE MAP
       var map = L.map('map').setView([46.85, -109.45], 5);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -22,38 +73,6 @@ section: home
          attribution: '© OpenStreetMap'
       }).addTo(map);
 
-
-      var districtBoundaries = new L.GeoJSON.AJAX("_includes/assets/js/district-boundaries_simplified.geojson");
-      districtBoundaries.on('data:loaded', function() {
-
-         map.addLayer(this);
-         console.log(this);
-      });
-
-
-        // // load GeoJSON from an external file
-        // $.getJSON("_includes/assets/js/district-boundaries_simplified.geojson",function(data){
-        //   // add GeoJSON layer to the map once the file is loaded
-        //   L.geoJson(data, {
-        //       onEachFeature: function (feature, layer) {
-        //           layer.on('click', showName);
-
-        //           //POPUPS
-        //           var popupContent = '<table>';
-        //           for (var p in feature.properties) {
-        //               popupContent += '<tr><td>' + p + '</td><td>'+ feature.properties[p] + '</td></tr>';
-        //           }
-        //           popupContent += '</table>';
-        //           layer.bindPopup(popupContent).openPopup();
-        //       }
-        //   }).addTo(map);
-        //   console.log(data);
-        // });
-
-        // function showName(e) {
-        //      console.log(e.target.feature.properties.DISTRICT_N);
-        //      var targetDistrict = e.target.feature.properties.DISTRICT_N;
-        //  }
 
 
    </script>

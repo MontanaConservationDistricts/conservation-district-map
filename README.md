@@ -127,3 +127,18 @@ DEBUG=* npx @11ty/eleventy
 This is an ongoing project and I welcome contributions and suggestions! Feel free to submit a PR.
 
 If you need any help with setting up Netlify CMS, you can reach out to the Netlify team in the [Netlify CMS Gitter](https://gitter.im/netlify/netlifycms).
+
+
+# Eric's Notes
+
+Commiting all files and Pushing (different things) changes from local repository to remote will trigger build on netlify. Remember to also build the site with the build command found in package.json.
+
+build
+```
+npx eleventy
+```
+
+push (may need to resolve conflict with --force or with "git pull origin master")
+```
+git push origin master
+```

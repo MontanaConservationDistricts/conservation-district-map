@@ -1,0 +1,32 @@
+---
+permalink: /districts.json
+---
+
+
+[
+{% set postslist = collections.post %}
+  {% for post in postslist | reverse %}
+    {
+      "title": "{{ post.data.title }}",
+      "id": "{{ post.data.id }}",
+      "summary": "{{ post.data.summary }}",
+      "content": "{{ post.templateContent | safe }}"
+    }
+  {% if loop.last == false %},{% endif %} 
+  {% endfor %}
+]
+
+
+
+
+
+
+
+{# [
+{% for post in collections.post %} 
+  { 
+    "title":"{% post.data.title %}",
+  }
+{% if loop.last == false %},{% endif %} {% endfor %}
+] #}
+

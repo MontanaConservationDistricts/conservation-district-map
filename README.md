@@ -138,7 +138,8 @@ build
 npx eleventy
 ```
 
-push (may need to resolve conflict with --force or with "git pull origin master")
+commit and push (may need to resolve conflict with --force or with "git pull origin master")
 ```
+git add -A && git commit -m "Your Message"
 git push origin master
 ```

@@ -3,4 +3,24 @@ layout: layouts/base.njk
 section: home
 ---
 
+ <div id="map"></div>
+
+ <style type="text/css">
+ 	
+ 	#map { height: 500px; }
+
+ </style>
+
+ <script>
+
+ var map = L.map('map').setView([46.85, -109.45], 5);
+
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+
+ </script>
+
 {{ layoutContent | safe }}
+

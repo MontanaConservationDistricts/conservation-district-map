@@ -1,11 +1,13 @@
 ---
-title: This is the first example post
+title: Gallatin County Conservation District
+id: gallatin
+location: '{"type":"Polygon","coordinates":[[[-110.7845107,45.0142518],[-110.7845107,45.7461656],[-111.3052181,45.7387284],[-111.3049046,44.6330998],[-111.1347415,44.521291],[-111.1235206,45.0185502],[-110.7845107,45.0142518]]]}'
+date: 2019-01-01T00:00:00.000Z
+author: Eric Rannestad
+summary: Why contemplating our mortality can be a powerful catalyst for change
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.
-date: 2019-01-01T00:00:00.000Z
-author: John Appleseed
-summary: Why contemplating our mortality can be a powerful catalyst for change
 tags:
   - tech
   - environment

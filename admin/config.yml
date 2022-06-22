@@ -15,27 +15,27 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Anonymous" }
-      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Title", name: "title", widget: "string" , required: true}
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - { label: "Author", name: "author", widget: "string", default: "Anonymous", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
         media_folder: "/static/img"
         choose_url: true
+        required: false
         media_library:
           config:
             multiple: false
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Geospatial ID", name: "id", widget: "string" } 
       - label: "Contact"
         name: "contact"
         widget: "object"
         collapsed: false
         fields:
           - {label: "Website", name: "website", widget: "string", required: false}
+          - {label: "Email", name: "employeeEmail", widget: "string",required: false}
+          - {label: "Phone", name: "employeePhone", widget: "string",required: false}
           - label: "Social Media"
             name: "social"
             widget: "object"
@@ -46,24 +46,18 @@ collections:
               - {label: "Twitter", name: "twitter", widget: "string",required: false}
               - {label: "Newsletter", name: "newsletter", widget: "string",required: false}
               - {label: "Other", name: "other", widget: "string",required: false}
-          - label: "Employee Contact"
-            name: "employee-name"
-            widget: "object"
-            collapsed: true
-            fields: 
-              - {label: "Public", name: "public", widget: "boolean", default: true}
-              - {label: "Employee Name", name: "employeeName", widget: "string",required: false}
-              - {label: "Position", name: "employeePosition", widget: "string",required: false}
-              - {label: "Email", name: "employeeEmail", widget: "string",required: false}
-              - {label: "Phone", name: "employeePhone", widget: "string",required: false}
           - label: "Office Address"
             name: "address"
             widget: "object"
             collapsed: true
             fields: 
-              - {label: "Street Address", name: "street", widget: "string"}
-              - {label: "City", name: "city", widget: "string"}
-              - {label: "Postal Code", name: "post-code", widget: "string"}
+              - {label: "Street Address", name: "street", widget: "string",required: false}
+              - {label: "City", name: "city", widget: "string",required: false}
+              - {label: "Postal Code", name: "post-code", widget: "string",required: false}
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"],required: true }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Geospatial ID", name: "id", widget: "string",required: true } 
+      
 
   # Our pages e.g. About
   - name: "pages"

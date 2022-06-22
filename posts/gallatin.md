@@ -1,10 +1,12 @@
 ---
 title: Gallatin County Conservation District
-id: gallatin
-location: '{"type":"Polygon","coordinates":[[[ -110.7845107,45.0142518],[-110.7845107,45.7461656],[-111.3052181,45.7387284],[-111.3049046,44.6330998],[-111.1347415,44.521291],[-111.1235206,45.0185502],[-110.7845107,45.0142518 ]]]}'
 date: 2019-01-01T00:00:00.000Z
 author: Eric Rannestad
 summary: Why contemplating our mortality can be a powerful catalyst for change
+thumbnail: /static/img/wildlife-speakers-posters_final_digital4-1-.jpg
+location: '{"type":"Polygon","coordinates":[[[
+  -110.7845107,45.0142518],[-110.7845107,45.7461656],[-111.3052181,45.7387284],[-111.3049046,44.6330998],[-111.1347415,44.521291],[-111.1235206,45.0185502],[-110.7845107,45.0142518
+  ]]]}'
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.
@@ -13,6 +15,7 @@ tags:
   - environment
   - politics
   - sports
+id: gallatin
 ---
 Leverage agile blockchain frameworks to provide a robust blockchain synopsis for high level blockchain overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 

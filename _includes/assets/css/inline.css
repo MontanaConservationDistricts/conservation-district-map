@@ -1,7 +1,7 @@
 :root {
 	--primary: blue;
-	--secondary: white;
-	--background: #FFF0EB;
+	--secondary: yellow;
+	--background: white;
 }
 
 *, *:before, *:after {
@@ -12,7 +12,7 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: "Avenir", "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+	font-family: "Raleway", "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -20,10 +20,6 @@ body {
 	height: 100vh;
 	grid-template-rows: auto 1fr auto;
 	background-color: var(--background);
-}
-
-main {
-	max-width: 37.5em;
 }
 
 p,
@@ -52,10 +48,6 @@ footer {
 	padding: 1em;
 }
 
-main {
-	padding-bottom: 2em;
-}
-
 main :first-child,
 main > article :first-child {
 	margin-top: 0;
@@ -82,7 +74,7 @@ pre {
 header > em {
 	display: block;
 	font-size: 2em;
-	margin: .67em 0;
+	/*margin: .67em 0;*/
 	font-weight: bold;
 	font-style: normal;
 }
@@ -112,7 +104,7 @@ header nav li a[href]:not(:hover) {
 }
 
 header nav li a[data-current="current item"] {
-	background-color: white;
+	background-color: var(--secondary);
 }
 
 /* Posts List */

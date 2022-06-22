@@ -26,7 +26,7 @@ tags:
   - area-6
 id: gallatin
 ---
-## BOARD OF SUPERVISORS 
+## BOARD OF SUPERVISORS
 
 Mike Hansen, Chair/Urban Supervisor
 
@@ -38,7 +38,7 @@ Loren Blanksma, Vice Chair
 
 406-282-7960 \
 22874 Norris Rd., Bozeman, MT 59718\
-With CD since 2011 
+With CD since 2011
 
 Jason Camp
 
@@ -70,7 +70,7 @@ Bob Logar, Urban Supervisor
 406-599-1856 PO Box 780, Manhattan, MT 59741\
 With CD since 2015 
 
-## ADVISORY TO THE DISTRICT 
+## ADVISORY TO THE DISTRICT
 
 John Schutter, Associate Supervisor 
 
@@ -83,7 +83,7 @@ Chris Mahony, NRCS District Conservationist
 406-522-4012 3710\
  Fallon St. Suite B, Bozeman, MT 59718 
 
-## DISTRICT EMPLOYEES 
+## DISTRICT EMPLOYEES
 
 Becky Clements, District Administrator
 

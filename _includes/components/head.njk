@@ -6,7 +6,10 @@
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
+  {% set js %}
+    {% include "assets/js/jquery.smoothState.js" %}
+  {% endset %}
+  <script>{{ js | jsmin | safe }}</script>
   {% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}
@@ -15,12 +18,10 @@
     {% include "assets/css/components.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
-
-  {% set js %}
-    {% include "assets/js/jquery.smoothState.js" %}
+  {% set js %}  
+    {% include "assets/js/inline.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
-  <script type="text/javascript"> $('#main').smoothState(); </script>
 
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />

@@ -3,7 +3,7 @@
 
 	{% include "components/head.njk" %}
 
-	<body>
+	<body data-barba="wrapper">
 
 		<header>
 			<em>
@@ -15,16 +15,10 @@
 		<main>
 			{% include "components/map.njk" %}
 
-			<section id="main" class="overlay">
+			<section id="main" class="overlay" data-barba="container" data-barba-namespace="page-a">
 				{{ layoutContent | safe }}
 			</section>
 
-				<script type="text/javascript">				
-				// Calculate the offset
-				var offset = document.querySelector('.overlay').offsetWidth*0.4;
-				// Then move the map
-				map.panBy(new L.Point(offset, 0), {animate: false});		
-				</script>
 		</main>
 
 		{% include "components/footer.njk" %}

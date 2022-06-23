@@ -143,3 +143,6 @@ commit and push (may need to resolve conflict with --force or with "git pull ori
 git add -A && git commit -m "Your Message"
 git push origin master
 ```
+
+###Helpful Links
+-https://jdsteinbach.com/intro-11ty-slides/#/26

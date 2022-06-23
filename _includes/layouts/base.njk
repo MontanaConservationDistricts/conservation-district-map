@@ -13,7 +13,18 @@
 		</header>
 
 		<main>
-			{{ layoutContent | safe }}
+			{% include "components/map.njk" %}
+
+			<section id="main" class="overlay">
+				{{ layoutContent | safe }}
+			</section>
+
+				<script type="text/javascript">				
+				// Calculate the offset
+				var offset = document.querySelector('.overlay').offsetWidth*0.4;
+				// Then move the map
+				map.panBy(new L.Point(offset, 0), {animate: false});		
+				</script>
 		</main>
 
 		{% include "components/footer.njk" %}

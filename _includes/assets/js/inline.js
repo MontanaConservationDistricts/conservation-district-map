@@ -7,3 +7,13 @@ if (window.netlifyIdentity) {
     }
   });
 }
+
+
+// $(function($) {
+//   $('#main').smoothState();
+//   console.log($('#main'));
+// });
+
+
+
+

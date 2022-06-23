@@ -1,0 +1,49 @@
+/******************/
+/*     OVERLAY    */
+/******************/
+
+section.overlay {
+    position: absolute;
+    top: 0vh;
+    right: 0px;
+    height: auto;
+    width: auto;
+    z-index: 10000;
+}
+
+section.page, section.post {
+    width: 800px;
+    height: 100vh;
+    padding: 48px; 
+    background-color: white; 
+    overflow: scroll;    
+}
+
+section.post {
+    margin: 64px;
+    width: 600px;
+    height: auto;  
+    max-height: calc(100vh - 128px);
+    padding: 48px; 
+    background-color: white;
+    border-radius: 8px;
+    overflow: scroll;
+}
+
+header, footer {
+    z-index: 1;
+}
+
+
+/*******************/
+/*       MAP       */
+/*******************/
+
+#map { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; 
+    width: 100%; 
+    z-index: 0;
+}

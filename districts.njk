@@ -8,7 +8,8 @@ permalink: /districts.json
     {
       "title": "{{ post.data.title }}",
       "id": "{{ post.data.id }}",
-      "summary": "{{ post.data.summary }}"
+      "summary": "{{ post.data.summary }}",
+      "permalink": "{{ post.url | url }}"
       {# "content": "{{ post.templateContent | safe }}" #}
     }
   {% if loop.last == false %},{% endif %} 

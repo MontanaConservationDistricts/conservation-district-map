@@ -60,8 +60,13 @@ collections:
             widget: "list"
             summary: '{{fields.socialItem}} - {{fields.link}}'
             fields:
-              - {label: "Item", name: "socialItem", widget: "list", default: "", required: true}
-              - {label: "Link", name: "socialItemUrl", widget: "string", default: "", required: true}
+              - label: "Item", name: "socialItem", widget: "select", options:
+                - {label: "Facebook", value: "facebook"}
+                - {label: "Instagram", value: "instagram"}
+                - {label: "Twitter", value: "twitter"}
+                - {label: "Newsletter", value: "newsletter"}
+                - {label: "Other", value: "other"}
+              - {label: "Link", name: "socialItemUrl", widget: "string", default: "", required: true }
 
 
 

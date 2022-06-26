@@ -53,33 +53,21 @@ collections:
           - {label: "Website", name: "website", widget: "string", required: false}
           - {label: "Email", name: "employeeEmail", widget: "string",required: false}
           - {label: "Phone", name: "employeePhone", widget: "string",required: false}
-
-
           - label: "Social Media"
             name: "social"
             widget: "list"
-            summary: '{{fields.socialItem}} - {{fields.link}}'
+            summary: '{{fields.socialItem}} - {{fields.socialItemUrl}}'
             fields:
-              - label: "Item", name: "socialItem", widget: "select", options:
-                - {label: "Facebook", value: "facebook"}
-                - {label: "Instagram", value: "instagram"}
-                - {label: "Twitter", value: "twitter"}
-                - {label: "Newsletter", value: "newsletter"}
-                - {label: "Other", value: "other"}
+              - label: "Social Item"
+                name: "socialItem"
+                widget: "select"
+                options: 
+                  - {label: "Facebook", value: "facebook"}
+                  - {label: "Instagram", value: "instagram"}
+                  - {label: "Twitter", value: "twitter"}
+                  - {label: "Newsletter", value: "newsletter"}
+                  - {label: "Other", value: "other"}
               - {label: "Link", name: "socialItemUrl", widget: "string", default: "", required: true }
-
-
-
-          # - label: "Social Media"
-          #   name: "social"
-          #   widget: "object"
-          #   collapsed: true
-          #   fields: 
-          #     - {label: "Facebook", name: "facebook", widget: "string",required: false}
-          #     - {label: "Instagram", name: "instagram", widget: "string",required: false}
-          #     - {label: "Twitter", name: "twitter", widget: "string",required: false}
-          #     - {label: "Newsletter", name: "newsletter", widget: "string",required: false}
-          #     - {label: "Other", name: "other", widget: "string",required: false}
           - label: "Office Address"
             name: "address"
             widget: "object"

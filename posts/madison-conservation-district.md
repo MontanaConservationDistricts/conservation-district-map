@@ -1,7 +1,5 @@
 ---
 title: Madison Conservation District
-id: madison
-location: '{"type":"Polygon","coordinates":[[[-111.57931,44.5737212],[-111.5957551,45.4620952],[-112.5121553,45.4597323],[-112.4570578,44.4694597],[-111.9110031,44.5543936],[-111.57931,44.5737212]]]}'
 date: 2022-06-21T19:55:59.114Z
 author: Eric Rannestad
 summary: The Madison Conservation District was established in 1946 to encourage
@@ -9,10 +7,35 @@ summary: The Madison Conservation District was established in 1946 to encourage
   the Madison Conservation District still maintains this focus, by working with
   diverse properties on stewardship activities to ensure healthy and productive
   landscapes.
+thumbnail: /static/img/277564921_346859280819083_4974017836143626518_n.png
+contact:
+  website: https://madisoncd.net/
+  employeeEmail: ericrannestad@gmail.com
+  employeePhone: "8603919518"
+  social:
+    - socialItemUrl: instagram.com
+      socialItem: instagram
+    - socialItemUrl: twitter.com
+      socialItem: twitter
+    - socialItemUrl: mailchimp.com
+      socialItem: newsletter
+    - socialItemUrl: macdnet.org
+      socialItem: other
+  address:
+    street: 6022 Bell Creek Logging Rd
+    city: Deming
+    post-code: "98244"
 overlay:
-  width: "600px"
+  width: 600px
+style:
+  primaryColor: "#1b2b68"
+  secondaryColor: "#3196bc"
+  area: right
+  width: 800px
+location: '{"type":"Polygon","coordinates":[[[-111.57931,44.5737212],[-111.5957551,45.4620952],[-112.5121553,45.4597323],[-112.4570578,44.4694597],[-111.9110031,44.5543936],[-111.57931,44.5737212]]]}'
 tags:
-  - post
+  - area-6
+id: madison
 ---
 #### Purpose
 

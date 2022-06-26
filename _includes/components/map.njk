@@ -1,7 +1,79 @@
 <div id="map"></div>
 
-   
 <script>
+
+
+
+/////////////////////////
+//	    MAP STYLES     //
+/////////////////////////   
+
+// CREATE MAP
+var map = L.map('map', {
+  	zoomDelta: 0.5,
+  	zoomSnap: 0.5
+});
+
+// Set Initial Active Area
+function defineViewport(x, y, w, h) {
+
+	map.setActiveArea({
+		position: "absolute",
+		left: 0,
+		top: 0,
+		width: w,
+		height: h
+	});
+
+}
+
+var openingView = [46.85, -109.45]
+var openingZoom = 7
+
+map.setView(openingView, openingZoom);
+
+// var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//   	maxZoom: 19,
+//   	attribution: '© OpenStreetMap'
+// }).addTo(map);
+
+
+
+
+var basemapPane = map.createPane('basemap').style.zIndex = 100;
+var Basemap = L.tileLayer(
+  "https://api.mapbox.com/styles/v1/macdadmin/cl4v39qhm001t15qs1kg62ayn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q", {
+    pane: 'basemap'
+  }
+).addTo(map);
+
+var topPane = map.createPane('top').style.zIndex = 450;
+map.getPane('top').style.pointerEvents = 'none';
+
+var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q', {
+        //attribution: '©OpenStreetMap, ©CartoDB',
+        pane: 'top',
+   	//	tileSize: 512,
+}).addTo(map);
+
+// var token ="pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q";
+// var gl = L.mapboxGL({
+//     accessToken: token,
+//     pane: 'top-pane',
+//     offset: -1,
+//     tileSize: 256*2,
+//     style: 'mapbox://styles/macdadmin/ckry56epi7pnn1bruotbmpb8y'
+// }).addTo(map);
+
+
+
+
+
+
+////////////////////////////////
+//	    DISTRICTS GEOJSON     //
+//////////////////////////////// 
+
 
 // LOAD POST DATA FROM /districts.json
    let postData = [];
@@ -12,55 +84,126 @@
          
          postData = data_server;
 
+         console.log(postData);
+
+
          // LOAD DISTRICT GEOJSON VIA AJAX
          var districtBoundaries = new L.GeoJSON.AJAX("/_includes/assets/js/district-boundaries_simplified.geojson",{
-               style: myStyle,
-               onEachFeature: function (feature, layer) {
+                style: baseStyle,
+                onEachFeature: function (feature, layer) {
 
-                  match = postData.find((element) => element.id === feature.properties.slug); //get matching post from POST JSON
+	               	// ON EACH FEATURE: JOIN POST DATA WITH GEOJSON
+		            match = postData.find((element) => element.id === feature.properties.slug);
+		            Object.assign(feature.properties, match);
 
-                  Object.assign(feature.properties, match); //add properties of matching post to matching feature
+	               	// BIND POPUP
+		            layer.bindPopup(''); //unclear why this is needed... popup content managed with "onclick" event
 
-                  // console.log(feature);
-                  // console.log(postData);
+	              	layer.on({
+			            // ON EACH FEATURE: CLICKED
+				        click: function(e) {
 
-                  layer.bindPopup('<h3>' + feature.properties.title + '</h3>' + '<p>' + feature.properties.summary + '</p>' + '<a href="' + feature.properties.permalink + '"> View District </a>');
-               
+						  	featureGlobal = e.target;
+
+						  	console.log('clicked: set "featureGlobal" as "' + featureGlobal.feature.properties.slug + '"');
+							districtBoundaries.setStyle(baseStyle);
+							featureGlobal.setStyle(selectStyle);
+							featureGlobal.bringToFront();
+						  	barba.go(feature.properties.permalink);
+						  	
+						  	if (document.querySelector('.selected')){
+						  		console.log('remove "selected class"')
+						  		document.querySelector('.selected').classList.remove('selected');
+						  	}
+						  	featureGlobal._path.classList.add("selected"); //returns svg DOM object
+
+							featureGlobal.bringToFront(); // bring to front
+
+						  	// REBIND POPUP ON CLICK
+					    	e.target.bindPopup(e.target.feature.properties.title, {className: 'hide-popup'}).openPopup();
+					    	//e.target.unbindPopup();
+							//console.log(featureGlobal);
+
+
+						},
+			            // ON EACH FEATURE: HOVERED
+						mouseover: function(e) {
+							//e.target.bringToFront();
+							//featureGlobal.bringToFront();
+
+							function customTip() {
+							    e.target.unbindTooltip();
+							    if(!e.target.isPopupOpen()) {
+							    	e.target.bindTooltip(e.target.feature.properties.title).openTooltip();
+							    };
+							}
+							customTip();
+						},
+						mouseout: function(e) {
+							//e.target.bringToBack();
+							//console.log(e.target.getStyle());
+							//e.target.setStyle(baseStyle);
+						}
+				    });
                }
-            });
+            })
 
-         // ADD DISTRICT BOUNDARIES TO MAP
-         districtBoundaries.on('data:loaded', function() {
+
+         	// ADD DISTRICT BOUNDARIES TO MAP
+         	districtBoundaries.on('data:loaded', function() {
             map.addLayer(this);
-            //console.log(this);
 
-            console.log(districtBoundaries._layers);
+
+		  	// INTERACTIONS BTW MAP + DISTRICT BOUNDARIES  
+            map.on({
+			    // RESET ON BASEMAP CLICK
+			    click: function(e) {
+				  	console.log('clicked: basemap');
+				  	districtBoundaries.setStyle(baseStyle); //reset district boundaries style
+				  	featureGlobal = {} // clear global feature
+
+				  	// REMOVE SELECTED CLASS
+				  	if (document.querySelector('.selected')){
+				  		console.log('remove "selected class"')
+				  		document.querySelector('.selected').classList.remove('selected');
+				  	}
+
+			    	// NAVIGATE TO ROOT
+				  	if (barba) { 
+					  	barba.go('/') // barba
+				  	} else { 
+				  		window.location.href = '/'; // fallback
+				  	}
+				}
+			});
+
 
          });
       });
+
+	  	
    });
 
    
+   /////////////////////////
+   //	   MAP STYLES     //
+   /////////////////////////
 
-   // Define a style
-   var myStyle = {
-        "strokeColor": "#ffffff",
-        "weight": .5,
-        "opacity": 1,
-        "smoothFactor" : 0 
+   // BASIC STYLE
+   var baseStyle = {
+       	// "color": "orange",
+ 	    // "fillColor": "blue",
+ 	    // "fillOpacity": 0,
+ 	    // "weight": 1,
+        "smoothFactor" : 0,
+
+    };
+   	var selectStyle = {
+       	//"color": "blue",
+ 	    //"fillColor": "blue",
+ 	    // "weight": 3,
+        "smoothFactor" : 0,
     };
 
-   
-
-   // CREATE MAP
-   var map = L.map('map', {
-      zoomDelta: 0.5,
-      zoomSnap: 0.5
-   }).setView([46.85, -109.45], 6);
-
-   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap'
-   }).addTo(map);
 
 </script>

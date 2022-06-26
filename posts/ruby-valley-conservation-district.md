@@ -9,6 +9,8 @@ summary: The Ruby Valley Conservation District works to improve and restore the
   landscape scale conifer removal to small scale, natural process stream
   restoration. Look below to learn more about recent projects the RVCD has been
   working on.
+overlay:
+  width: "600px"
 tags:
   - post
 ---

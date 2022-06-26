@@ -9,6 +9,8 @@ summary: The Madison Conservation District was established in 1946 to encourage
   the Madison Conservation District still maintains this focus, by working with
   diverse properties on stewardship activities to ensure healthy and productive
   landscapes.
+overlay:
+  width: "600px"
 tags:
   - post
 ---

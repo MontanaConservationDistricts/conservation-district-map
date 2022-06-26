@@ -12,13 +12,8 @@ contact:
     street: GCD Office
     city: Manhattan
     post-code: "59741"
-  social:
-    facebook: https://www.facebook.com/gallatinconservationdistrict
-    instagram: https://www.instagram.com/gallatincd/
-    other: https://www.youtube.com/channel/UCgOn-CHGmzNVfTkEkOQ1IbQ
-location: '{"type":"Polygon","coordinates":[[[
-  -110.7845107,45.0142518],[-110.7845107,45.7461656],[-111.3052181,45.7387284],[-111.3049046,44.6330998],[-111.1347415,44.521291],[-111.1235206,45.0185502],[-110.7845107,45.0142518
-  ]]]}'
+overlay:
+  width: "600px"
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.

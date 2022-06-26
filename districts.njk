@@ -9,7 +9,10 @@ permalink: /districts.json
       "title": "{{ post.data.title }}",
       "id": "{{ post.data.id }}",
       "summary": "{{ post.data.summary }}",
-      "permalink": "{{ post.url | url }}"
+      "permalink": "{{ post.url | url }}",
+      "overlay": {
+        "width": "{{ post.data.overlay.width }}"
+      }
       {# "content": "{{ post.templateContent | safe }}" #}
     }
   {% if loop.last == false %},{% endif %} 

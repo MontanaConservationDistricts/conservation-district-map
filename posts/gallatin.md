@@ -13,7 +13,12 @@ contact:
     city: Manhattan
     post-code: "59741"
 overlay:
-  width: "600px"
+  width: 600px
+style:
+  area: left
+  width: 600px
+  primaryColor: "#2a4938"
+  secondaryColor: "#639b7c"
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.

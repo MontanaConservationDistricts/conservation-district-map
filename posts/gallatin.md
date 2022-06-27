@@ -25,9 +25,9 @@ contact:
   primaryEmail: eric@macdnet.org
   primaryPhone: "8603919518"
   social:
-    - socialItemUrl: www.facebook.com
+    - socialItemUrl: https://www.facebook.com
       socialItem: facebook
-    - socialItemUrl: www.instagram.com
+    - socialItemUrl: https://www.instagram.com
       socialItem: instagram
 thumbnail: /static/img/gallatin-cd_badge_white.png
 overlay:

@@ -2,16 +2,34 @@
 title: Gallatin County Conservation District
 date: 2019-01-01T00:00:00.000Z
 author: Eric Rannestad
-summary: Gallatin County Conservation District
-thumbnail: /static/img/gallatin-cd_badge_white.png
+summary: Gallatin Conservation District is a subdivision of state government and
+  receives the majority of funds through a county tax assessment on real
+  property.  A landowner with property valued at $100,000 can expect to pay
+  approximately $1.00 a year in tax to the GCD. A non-paid elected board of five
+  supervisors and two appointed urban supervisors governs district business. The
+  GCD also appoints Associate Supervisors who serve as advisories to the board.
+  The GCD covers all portions of the county except the major portions of the
+  cities of Belgrade and Bozeman. Click here for Bozeman map. Click here for
+  Belgrade map.
+logo: /static/img/gallatin-cd_badge_white.png
 contact:
   website: https://gallatincd.org/
   employeeEmail: becky@gallatincd.org
   employeePhone: 282-4350
   address:
     street: GCD Office
-    city: Manhattan
-    post-code: "59741"
+    city: Bozeman
+    post-code: "59718"
+    addressLine1: 426 N Tracy Ave
+    state: Montana
+  primaryEmail: eric@macdnet.org
+  primaryPhone: "8603919518"
+  social:
+    - socialItemUrl: www.facebook.com
+      socialItem: facebook
+    - socialItemUrl: www.instagram.com
+      socialItem: instagram
+thumbnail: /static/img/gallatin-cd_badge_white.png
 overlay:
   width: 600px
 style:

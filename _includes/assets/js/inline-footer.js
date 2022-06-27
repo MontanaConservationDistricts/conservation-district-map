@@ -5,6 +5,7 @@
 var featureGlobal = {} //empty object populated by clicking features on the map
 
 
+
 // MAP CENTER & ACTIVE AREA
 function centerMap(selectedFeature, w) {
 
@@ -71,7 +72,7 @@ barba.init({
 	  leave(data) {
 
 	  	if (featureGlobal.feature){
-			centerMap(true, featureGlobal.feature.properties.overlay.width);
+			centerMap(true, featureGlobal.feature.properties.style.width);
 	  	} else {
 			centerMap(false, '0px');
 	  	}

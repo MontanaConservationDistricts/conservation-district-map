@@ -8,13 +8,40 @@ permalink: /districts.json
     {
       "title": "{{ post.data.title }}",
       "id": "{{ post.data.id }}",
+      "postDate": "{{ post.data.date }}",
+      "author": "{{ post.data.author }}",
+      "summary": "{{ post.data.summary }}",
+      "logo": "{{ post.data.logo }}",
       "summary": "{{ post.data.summary }}",
       "permalink": "{{ post.url | url }}",
-      "overlay": {
-        "width": "{{ post.data.overlay.width }}"
-      }
+      "style": { {# changed from 'overlay' #}
+        "area": "{{ post.data.style.area }}",
+        "width": "{{ post.data.style.width }}", {# Was 'overlay' #}
+        "primaryColor": "{{ post.data.style.primaryColor }}",
+        "secondaryColor": "{{ post.data.style.secondaryColor }}"
+      },
+      "contact": {
+        "website": "{{ post.data.contact.website }}",
+        "employeeEmail": "{{ post.data.contact.primaryEmail }}",
+        "employeePhone": "{{ post.data.contact.primaryPhone }}",
+        "social": {
+          {% for item in post.data.contact.social %}
+            "{{ item.socialItem }}" : "{{ item.socialItemUrl }}"{% if loop.last == false %},{% endif %} 
+          {% endfor %}
+        },
+        "address": {
+          "addressLine1": "{{ post.data.contact.address.addressLine1 }}",
+          "addressLine2": "{{ post.data.contact.address.addressLine2 }}",
+          "city": "{{ post.data.contact.address.city }}",
+          "state": "{{ post.data.contact.address.state }}",
+          "zip": "{{ post.data.contact.address.zipCode }}"
+        }
+      },
+      "tags": "{{ post.data.tags }}"
       {# "content": "{{ post.templateContent | safe }}" #}
     }
   {% if loop.last == false %},{% endif %} 
   {% endfor %}
 ]
+
+

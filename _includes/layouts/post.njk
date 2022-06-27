@@ -58,8 +58,8 @@ section: post
     {% if (contact.social | length) %}
     <div>
         {% for item in contact.social %}
-            <li>
-                <a target="_blank" href=" '{{ item.socialItemUrl }}' ">
+            <li class="prevent" data-barba-prevent="all">
+                <a target="_blank" href="{{ item.socialItemUrl }}" >
                     {{ item.socialItem }}
                 </a>
             </li>

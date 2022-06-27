@@ -65,7 +65,8 @@ barba.hooks.after(() => {
 
 //init barba with a simple opacity transition 
 barba.init({
-  	debug: true,
+  prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
+	debug: true,
 	transitions: [{
 	  sync: true,
 	  name: 'opacity-transition',

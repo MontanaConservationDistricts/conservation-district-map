@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "npm-run-all --parallel bundle:*",
     "bundle:eleventy": "eleventy --serve --quiet",
-    "bundle:parcel": "parcel styles/* --dist-dir _site/_assets",
+    "bundle:parcel": "parcel _assets/* --dist-dir _site/_includes/assets",
 
     "build": "run-s prod:*",
     "prod:eleventy": "eleventy",
-    "prod:parcel": "parcel build styles/* --dist-dir _site/_assets"
+    "prod:parcel": "parcel build _assets/* --dist-dir _site/_includes/assets"
   },
   "repository": {
     "type": "git",

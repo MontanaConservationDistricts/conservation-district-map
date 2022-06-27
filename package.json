@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel bundle:*",
     "bundle:eleventy": "eleventy --serve --quiet",
-    "bundle:parcel": "parcel _assets/* --dist-dir _site/_includes/assets",
+    "bundle:parcel": "PARCEL_WORKERS=0 parcel _assets/* --dist-dir _site/_includes/assets",
 
     "build": "run-s prod:*",
     "prod:eleventy": "eleventy",
@@ -44,7 +44,9 @@
     "html-minifier": "^4.0.0",
     "jquery": "^3.6.0",
     "leaflet": "^1.8.0",
-    "uglify-js": "^3.15.1"
+    "uglify-js": "^3.15.1",
+    "parcel": "^2.6.2"
+
   }
 
 }

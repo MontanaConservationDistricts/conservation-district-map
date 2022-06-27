@@ -17,8 +17,9 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
   <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js" crossorigin=""></script>
 
- {#  {% set scss %}
-    {% include "/assets/css/main.scss" %}
+
+  {# {% set scss %}
+    {% include "styles/main.scss" %}
   {% endset %}
   <style>{{ scss | safe }}</style> #}
 
@@ -26,10 +27,10 @@
     {% include "assets/js/leaflet.activearea.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
-  {% set scss %}
-    {% include "assets/css/inline.scss" %}
+  {% set css %}
+    {% include "assets/css/inline.css" %}
   {% endset %}
-  <style>{{ scss | cssmin | safe }}</style>
+  <style>{{ css | cssmin | safe }}</style>
   {% set css %}
     {% include "assets/css/components.css" %}
   {% endset %}
@@ -40,8 +41,13 @@
   <script>{{ js | jsmin | safe }}</script>
 
 
+  <!--------------------------------------> 
+  <!--            BOOTSTRAP             --> 
+  <!--------------------------------------> 
 
-
+  <!-- ADD COMPILED CSS IN _SITE FOLDER --> 
+  <link rel="stylesheet" href="/assets/main.css"> 
+  <script type="module" href="/assets/main.js"></script>
 
 
 </head>

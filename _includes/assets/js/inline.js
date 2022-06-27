@@ -8,4 +8,3 @@ if (window.netlifyIdentity) {
   });
 }
 
-

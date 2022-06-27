@@ -1,12 +1,17 @@
 {
-  "name": "Montana Conservation Districts",
+  "name": "conservation-district-map",
   "version": "1.0.3",
   "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
   "scripts": {
-    "build": "npx eleventy",
-    "watch": "npx eleventy --watch",
-    "serve": "npx eleventy --serve",
-    "debug": "DEBUG=* npx eleventy"
+
+
+    "dev": "npm-run-all --parallel bundle:*",
+    "bundle:eleventy": "eleventy --serve --quiet",
+    "bundle:parcel": "parcel styles/* --dist-dir _site/_assets",
+
+    "build": "run-s prod:*",
+    "prod:eleventy": "eleventy",
+    "prod:parcel": "parcel build styles/* --dist-dir _site/_assets"
   },
   "repository": {
     "type": "git",
@@ -24,19 +29,25 @@
   "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
+    "@parcel/transformer-sass": "^2.6.2",
     "luxon": "^2.3.0",
     "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
-    "parcel": "^2.6.2"
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.6.2",
+    "sass": "^1.53.0"
   },
   "dependencies": {
     "@11ty/eleventy-navigation": "^0.3.2",
+    "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1",
     "clean-css": "^5.2.4",
     "eleventy-sass": "^1.3.1",
     "html-minifier": "^4.0.0",
+    "jquery": "^3.6.0",
     "leaflet": "^1.8.0",
-    "sass": "^1.53.0",
     "uglify-js": "^3.15.1"
   }
+
 }
+

@@ -155,3 +155,9 @@ git push origin master
 ### Helpful Links
 -https://jdsteinbach.com/intro-11ty-slides/#/26
 
+### Old Scripts
+    "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy",
+

@@ -17,15 +17,19 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
   <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js" crossorigin=""></script>
 
+ {#  {% set scss %}
+    {% include "/assets/css/main.scss" %}
+  {% endset %}
+  <style>{{ scss | safe }}</style> #}
 
   {% set js %}  
     {% include "assets/js/leaflet.activearea.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
-  {% set css %}
-    {% include "assets/css/inline.css" %}
+  {% set scss %}
+    {% include "assets/css/inline.scss" %}
   {% endset %}
-  <style>{{ css | cssmin | safe }}</style>
+  <style>{{ scss | cssmin | safe }}</style>
   {% set css %}
     {% include "assets/css/components.css" %}
   {% endset %}

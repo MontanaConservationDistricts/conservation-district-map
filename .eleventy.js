@@ -15,6 +15,20 @@ module.exports = function(eleventyConfig) {
   // post to a new file like this:
   // eleventyConfig.addLayoutAlias("post", "layouts/my_new_post_layout.njk");
 
+
+
+
+  // ELEVENTY SASS (ADDED BY ERIC)
+  // const eleventySass = require("eleventy-sass");
+  // module.exports = function(eleventyConfig) {
+  //   eleventyConfig.addPlugin(eleventySass);
+  //   return { dir: { input: "src", output: "_site" } };
+  // };
+
+
+
+
+
   // Merge data instead of overriding
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);

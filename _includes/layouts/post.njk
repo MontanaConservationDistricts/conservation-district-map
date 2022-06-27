@@ -7,7 +7,47 @@ section: post
 <section class="post overlay-inner">
 
   <article>
-    <h1>{{ title }}</h1>
+    
+
+    {# PRIMARY CONTACT INFORMATION #}
+    <div>
+        {% if (contact.logo) %}
+       <div class="logo-container">
+          <img class="logo" src={{ logo }}>
+       </div>
+       {% endif %}
+       <h1>{{ title }}</h1>
+    </div>
+
+
+    {# PRIMARY CONTACT INFORMATION #}
+    {% if (contact.website) or (contact.primaryEmail)  or (contact.primaryPhone) %}
+    <div>
+      <div>
+        <ul>
+          {% if contact.website %}
+          <li> 
+            <p>Website</p>
+            <a href= "{{ contact.website }}">{{ contact.website }}</a>
+          </li>
+          {% endif %}
+          {% if contact.primaryEmail %}
+          <li>
+            <p>Email</p>
+            <a href= "{{ contact.primaryEmail }}">{{ contact.primaryEmail }}</a>
+          </li>
+          {% endif %}
+          {% if contact.primaryPhone %}
+          <li>
+            <p>Phone</p>
+            <a href= "{{ contact.primaryPhone }}">{{ contact.primaryPhone }}</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
     <p>
       <small>
         <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>

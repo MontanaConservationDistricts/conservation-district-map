@@ -144,5 +144,14 @@ git add -A && git commit -m "Your Message"
 git push origin master
 ```
 
-###Helpful Links
+### Nunjucts
+```
+{{ object | dump | safe }} 
+<pre>{{ contact.social | dump('\t') }}</pre>
+
+```
+
+
+### Helpful Links
 -https://jdsteinbach.com/intro-11ty-slides/#/26
+

@@ -3,32 +3,36 @@ layout: layouts/base.njk
 section: post
 ---
 
-
 <section class="post overlay-inner">
 
   <article>
+
+    <div>
+      <a class="close-button" script="close();"> X </a>
+    </div>
     
 
     {# PRIMARY CONTACT INFORMATION #}
     <div>
-        {% if (contact.logo) %}
-       <div class="logo-container">
-          <img class="logo" src={{ logo }}>
-       </div>
-       {% endif %}
+        {# {% if (contact.logo) %} #}
+        <div class="logo-container">
+          <img class="logo" src="{{ logo }}">
+        </div>
+        {# {% endif %} #}
        <h1>{{ title }}</h1>
     </div>
 
 
     {# PRIMARY CONTACT INFORMATION #}
-    {% if (contact.website) or (contact.primaryEmail)  or (contact.primaryPhone) %}
+    {% if (contact | length) %}
     <div>
       <div>
+        <h3> CONTACT INFORMATION </h3>
         <ul>
           {% if contact.website %}
           <li> 
             <p>Website</p>
-            <a href= "{{ contact.website }}">{{ contact.website }}</a>
+            <a target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a>
           </li>
           {% endif %}
           {% if contact.primaryEmail %}
@@ -45,6 +49,21 @@ section: post
           {% endif %}
         </ul>
       </div>
+    </div>
+    {% endif %}
+
+    {# SOCIAL MEDIA #}
+    <pre>{{ contact.social | dump('\t') }}</pre>
+
+    {% if (contact.social | length) %}
+    <div>
+        {% for item in contact.social %}
+            <li>
+                <a target="_blank" href=" '{{ item.socialItemUrl }}' ">
+                    {{ item.socialItem }}
+                </a>
+            </li>
+        {% endfor %}
     </div>
     {% endif %}
 

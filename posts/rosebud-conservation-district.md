@@ -1,5 +1,6 @@
 ---
 title: Rosebud Conservation District
+titleShort: Rosebud
 date: 2022-06-26T19:50:50.488Z
 author: Eric Rannestad
 summary: RCD shares an office building (The Forsyth USDA Center) with the
@@ -7,16 +8,16 @@ summary: RCD shares an office building (The Forsyth USDA Center) with the
   and the Montana Department of Agriculture (DOA). Conservation districts
   provide a link to many state and federal agencies.
 logo: /static/img/rosebud.jpeg
-contact:
-  social: []
-  website: https://www.rosebudcd.com/
-  employeePhone: 406.351.8012
-thumbnail: /static/img/rosebud.jpeg
 style:
   area: right
   width: 600px
   primaryColor: "#21325f"
   secondaryColor: "#6fc8e2"
+contact:
+  social: []
+  website: https://www.rosebudcd.com/
+  employeePhone: 406.351.8012
+thumbnail: /static/img/rosebud.jpeg
 tags:
   - post
 id: rosebud

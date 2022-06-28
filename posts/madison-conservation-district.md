@@ -1,5 +1,6 @@
 ---
 title: Madison Conservation District
+titleShort: Madison
 date: 2022-06-21T19:55:59.114Z
 author: Eric Rannestad
 summary: The Madison Conservation District was established in 1946 to encourage

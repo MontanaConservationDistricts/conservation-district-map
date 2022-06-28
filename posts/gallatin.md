@@ -1,5 +1,6 @@
 ---
-title: Gallatin County Conservation District
+title: Gallatin Conservation District
+titleShort: Gallatin
 date: 2019-01-01T00:00:00.000Z
 author: Eric Rannestad
 summary: Gallatin Conservation District is a subdivision of state government and

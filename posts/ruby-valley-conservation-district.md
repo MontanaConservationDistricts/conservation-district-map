@@ -1,7 +1,6 @@
 ---
 title: Ruby Valley Conservation District
-id: ruby-valley
-location: '{"type":"Polygon","coordinates":[[[-111.9705693,46.0945583],[-111.5532292,46.285852],[-111.484112,45.8973831],[-111.4945212,44.9763185],[-111.8864628,45.3230161],[-111.9705693,46.0945583]]]}'
+titleShort: Ruby Valley
 date: 2022-06-21T19:59:56.271Z
 author: Eric Rannestad
 summary: The Ruby Valley Conservation District works to improve and restore the
@@ -10,9 +9,15 @@ summary: The Ruby Valley Conservation District works to improve and restore the
   restoration. Look below to learn more about recent projects the RVCD has been
   working on.
 overlay:
-  width: "600px"
+  width: 600px
+style:
+  area: right
+  primaryColor: "#822929"
+  secondaryColor: "#cb6262"
+location: '{"type":"Polygon","coordinates":[[[-111.9705693,46.0945583],[-111.5532292,46.285852],[-111.484112,45.8973831],[-111.4945212,44.9763185],[-111.8864628,45.3230161],[-111.9705693,46.0945583]]]}'
 tags:
   - post
+id: ruby-valley
 ---
 # Ramshorn Creek Restoration
 

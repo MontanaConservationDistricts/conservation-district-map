@@ -20,15 +20,15 @@ section: post
     <button type="button" class="btn-close" aria-label="Close"></button>
     
 
-    {# PRIMARY CONTACT INFORMATION #}
+    {# HEADER #}
     <div class="row g-5 mb-5">
-        {# {% if (contact.logo) %} #}
+        {% if (logo) %}
         <div class="col-4">
           <img class="logo" src="{{ logo }}">
         </div>
-        {# {% endif %} #}
-        <div class="col-8">
-          <h1>{{ title }}</h1>
+        {% endif %}
+        <div class="{{ 'col-8' if logo else 'col-12'}}">
+          <h1 class="display-3">{{ title }}</h1>
         </div>
     </div>
 
@@ -41,32 +41,27 @@ section: post
       </div>
     </div>
 
+    <p class="lead"> {{ summary }} </p>
 
     {# PRIMARY CONTACT INFORMATION #}
     {% if (contact | length) %}
-    <div class="row">
-      <div class="col-6">
-        <h6> CONTACT INFORMATION </h6>
-        <ul>
+    <div>
+      <div>
+        <h6> Contact Information </h6>
+        <dl class="row">
           {% if contact.website %}
-          <li> 
-            <p>Website</p>
-            <a target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a>
-          </li>
+            <dt class="col-sm-3">Website</dt>
+            <dd class="col-sm-9"><a target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
           {% endif %}
           {% if contact.primaryEmail %}
-          <li>
-            <p>Email</p>
-            <a href= "{{ contact.primaryEmail }}">{{ contact.primaryEmail }}</a>
-          </li>
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9"><a href= "{{ contact.primaryEmail }}">{{ contact.primaryEmail }}</a></dd>
           {% endif %}
           {% if contact.primaryPhone %}
-          <li>
-            <p>Phone</p>
-            <a href= "{{ contact.primaryPhone }}">{{ contact.primaryPhone }}</a>
-          </li>
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9"><a href= "{{ contact.primaryPhone }}">{{ contact.primaryPhone }}</a></dd>
           {% endif %}
-        </ul>
+        </dl>
       </div>
     </div>
     {% endif %}

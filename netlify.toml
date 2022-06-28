@@ -1,6 +1,6 @@
 [build]
   publish = "_site"
-  command = "eleventy parcel build '_assets/*' --dist-dir _site/_includes/assets"
+  command = "eleventy && parcel build '_assets/*' --dist-dir _site/_includes/assets"
 
 # REDIRECT and HEADERS examples
 

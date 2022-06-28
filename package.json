@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel bundle:*",
     "bundle:eleventy": "eleventy --serve --quiet",
-    "bundle:parcel": "PARCEL_WORKERS=0 parcel '_assets/*' --dist-dir _site/_includes/assets",
+    "bundle:parcel": "parcel '_assets/*' --dist-dir _site/_includes/assets",
 
     "build": "run-s prod:*",
     "prod:eleventy": "eleventy",

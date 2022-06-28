@@ -9,7 +9,7 @@
 
     "build": "run-s prod:*",
     "prod:eleventy": "eleventy",
-    "prod:parcel": "parcel build '_assets/*' --dist-dir _site/_includes/assets"
+    "prod:parcel": " npx -p parcel parcel build '_assets/*' --dist-dir _site/_includes/assets"
   },
   "repository": {
     "type": "git",

@@ -67,35 +67,38 @@ section: post
             <dl class="row">
               {% if contact.website %}
                 <dt class="col-sm-1"><i class="m-1 bi bi-link-45deg text-primary"></i></dt>
-                <dd class="col-11"><a class="link-primary barba-prevent" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
+                <dd class="col-sm-11"><a class="link-primary barba-prevent" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
               {% endif %}
               {% if contact.primaryEmail %}
                 <dt class="col-sm-1"> <i class="m-1 bi bi-envelope text-primary"></i></dt>
-                <dd class="col-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
+                <dd class="col-sm-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
               {% endif %}
               {% if contact.primaryPhone %}
 
                 <dt class="col-sm-1"><i class="m-1 bi bi-telephone text-primary"></i></dt>
-                <dd class="col-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
+                <dd class="col-sm-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
               {% endif %}
             </dl>
           </div>
           {% endif %}
 
           {# SOCIAL MEDIA #}
-          <pre>{{ contact.social | dump('\t') }}</pre>
+          {# <pre>{{ contact.social | dump('\t') }}</pre> #}
 
           {% if (contact.social | length) %}
-          <div>
-              {% for item in contact.social %}
-                  <li class="prevent" data-barba-prevent="all">
-                      <a target="_blank" href="{{ item.socialItemUrl }}" >
-                          {{ item.socialItem }}
-                      </a>
-                  </li>
-              {% endfor %}
-          </div>
+            <div id="{{ id }}-social" class="row">
+                <h6> Social Media </h6>
+                {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
+                <dl class="row">
+                  {% for item in contact.social %}
+                    <dt class="col-sm-1"><i class="{{ socialArray[item.socialItem] }} m-1 bi text-primary"></i> </dt>
+                    <dd class="col-sm-11"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
+                  {% endfor %}
+                </dl>
+            </div>
           {% endif %}
+
+
 
           <p>
             <small>

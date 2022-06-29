@@ -50,10 +50,6 @@ footer {
 	padding: 1em;
 }
 
-main :first-child,
-main > article :first-child {
-	margin-top: 0;
-}
 
 pre {
 	font-size: 14px;
@@ -188,3 +184,6 @@ button {
 		font-size: 1.1rem;
 	}
 }
+
+
+

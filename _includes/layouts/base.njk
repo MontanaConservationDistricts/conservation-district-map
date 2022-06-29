@@ -7,7 +7,7 @@
 
 		<header>
 			<em>
-				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
+				<a href="{{ '/' | url }}" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on top" onmouseover="copy(this, 'Copy Number')" >{{ metadata.title }}</a>
 			</em>
 			{% include "components/nav.njk" %}
 		</header>

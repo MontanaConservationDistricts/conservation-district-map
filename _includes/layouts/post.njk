@@ -13,157 +13,113 @@ section: post
 
 
 
-<section class="post overlay-inner  ">
-
-  <article class="container p-0">
+<article class="post"> 
+  
+  <div class="overlay-inner">
 
     <button type="button" class="btn-close" aria-label="Close"></button>
-    
 
     {# HEADER #}
-    <div class="row g-5 mb-5">
-        {% if (logo) %}
-        <div class="col-4">
-          <img class="logo" src="{{ logo }}">
+    <div class="post-header ">
+
+        <div class="row g-5 mb-5">
+            {% if (logo) %}
+            <div class="col-4">
+              <img class="logo" src="{{ logo }}">
+            </div>
+            {% endif %}
+            <div class="{{ 'col-8' if logo else 'col-12'}}">
+              <h3 class="display-3">{{ titleShort }}</h3>
+              <h4 class="heading-6">Conservation District</h4>
+            </div>
         </div>
-        {% endif %}
-        <div class="{{ 'col-8' if logo else 'col-12'}}">
-          <h1 class="display-3">{{ title }}</h1>
-        </div>
+
+        <ul id="navbar" style="" class="sticky-top justify-content-end navbar navbar-light bg-light px-3">
+          <li class="nav-item">
+            <a class="nav-link barba-prevent active" aria-current="page" href="#{{ id }}-summary">Summary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link barba-prevent" href="#{{ id }}-contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link barba-prevent" href="#{{ id }}-social">Social</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link barba-prevent" href="#{{ id }}-stories">Stories</a>
+          </li>
+        </ul>
     </div>
 
-    <div class="row g-2 mb-5">
-      <div class="col-6">
-        <div class="p-3 border bg-light">Custom column padding</div>
-      </div>
-      <div class="col-6">
-        <div class="p-3 border bg-light">Custom column padding</div>
-      </div>
-    </div>
+    {# BODY #}
 
-    <p class="lead"> {{ summary }} </p>
+    <div class="post-content dynamic-height">
 
-    {# PRIMARY CONTACT INFORMATION #}
-    {% if (contact | length) %}
-    <div>
-      <div>
-        <h6> Contact Information </h6>
-        <dl class="row">
-          {% if contact.website %}
-            <dt class="col-sm-3">Website</dt>
-            <dd class="col-sm-9"><a target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
+      <div class="row  scrollspy-container" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="600" tabindex="0">
+
+          <div id="{{ id }}-summary" class="row">
+            <p class="lead"> {{ summary }} </p>
+          </div>  
+
+         {# PRIMARY CONTACT INFORMATION #}
+          {% if (contact | length) %}
+          <div id="{{ id }}-contact" class="row">
+            <h6> Contact Information </h6>
+            <dl class="row">
+              {% if contact.website %}
+                <dt class="col-sm-1"><i class="m-1 bi bi-link-45deg text-primary"></i></dt>
+                <dd class="col-11"><a class="link-primary barba-prevent" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
+              {% endif %}
+              {% if contact.primaryEmail %}
+                <dt class="col-sm-1"> <i class="m-1 bi bi-envelope text-primary"></i></dt>
+                <dd class="col-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
+              {% endif %}
+              {% if contact.primaryPhone %}
+
+                <dt class="col-sm-1"><i class="m-1 bi bi-telephone text-primary"></i></dt>
+                <dd class="col-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
+              {% endif %}
+            </dl>
+          </div>
           {% endif %}
-          {% if contact.primaryEmail %}
-            <dt class="col-sm-3">Email</dt>
-            <dd class="col-sm-9"><a href= "{{ contact.primaryEmail }}">{{ contact.primaryEmail }}</a></dd>
+
+          {# SOCIAL MEDIA #}
+          <pre>{{ contact.social | dump('\t') }}</pre>
+
+          {% if (contact.social | length) %}
+          <div>
+              {% for item in contact.social %}
+                  <li class="prevent" data-barba-prevent="all">
+                      <a target="_blank" href="{{ item.socialItemUrl }}" >
+                          {{ item.socialItem }}
+                      </a>
+                  </li>
+              {% endfor %}
+          </div>
           {% endif %}
-          {% if contact.primaryPhone %}
-            <dt class="col-sm-3">Phone</dt>
-            <dd class="col-sm-9"><a href= "{{ contact.primaryPhone }}">{{ contact.primaryPhone }}</a></dd>
+
+          <p>
+            <small>
+              <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
+            </small>
+          </p>
+
+          {{ layoutContent | safe }}
+
+          {% if tags %}
+            <p>
+            {% for tag in tags %}
+              {%- if tag != "post" -%}
+                {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+              {%- endif -%}
+            {% endfor %}
+            </p>
           {% endif %}
-        </dl>
+
       </div>
     </div>
-    {% endif %}
-
-    {# SOCIAL MEDIA #}
-    <pre>{{ contact.social | dump('\t') }}</pre>
-
-    {% if (contact.social | length) %}
-    <div>
-        {% for item in contact.social %}
-            <li class="prevent" data-barba-prevent="all">
-                <a target="_blank" href="{{ item.socialItemUrl }}" >
-                    {{ item.socialItem }}
-                </a>
-            </li>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <p>
-      <small>
-        <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
-      </small>
-    </p>
-
-    {{ layoutContent | safe }}
-
-    {% if tags %}
-      <p>
-      {% for tag in tags %}
-        {%- if tag != "post" -%}
-          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-          <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-        {%- endif -%}
-      {% endfor %}
-      </p>
-    {% endif %}
-
-  </article>
-
-  <nav>
-    <a href="{{ '/blog/' | url }}">← Blog index</a>
-  </nav>
 
 
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-
-<p class="user-select-all">This paragraph will be entirely selected when clicked by the user.</p>
-<p class="user-select-auto">This paragraph has default select behavior.</p>
-<p class="user-select-none">This paragraph will not be selectable when clicked by the user.</p>
-
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button>
-
-
-
-
-
-  
-
-</section>
+  </div>   
+</article>
 

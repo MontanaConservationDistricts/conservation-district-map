@@ -6,8 +6,6 @@
 /* ------------------ begin customization -------------- */   
 /* ----------------------------------------------------- */  
 
-/* Variables: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss */
-
 
 
 
@@ -42,6 +40,8 @@ $theme-colors: (
 //            TYPOGRAPHY            //
 //////////////////////////////////////
 
+$font-size-base: 1rem;
+
 $headings-margin-bottom:      $spacer * .5;
 $headings-font-family:        null;
 $headings-font-style:         null;
@@ -67,6 +67,10 @@ $theme-color-interval:      8% !default;
 
 $font-family-sans-serif: 'Raleway', sans-serif;;
 
+.scrollspy{
+	position: relative;
+}
+
 
 /* ----------------------------------------------------- */  
 /* -------------- end customization -------------------- */  
@@ -74,4 +78,5 @@ $font-family-sans-serif: 'Raleway', sans-serif;;
 
 
 @import "~bootstrap/scss/bootstrap.scss";
+
 

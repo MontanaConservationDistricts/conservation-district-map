@@ -1,3 +1,4 @@
+
 //////////////////////////////////////////////
 //             MAPPING FUNCTIONS            //
 //////////////////////////////////////////////
@@ -65,7 +66,7 @@ barba.hooks.after(() => {
 
 //init barba with a simple opacity transition 
 barba.init({
-  prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
+  prevent: ({ el }) => el.classList && el.classList.contains('barba-prevent'),
 	debug: true,
 	transitions: [{
 	  sync: true,
@@ -107,3 +108,43 @@ barba.init({
 });
 
 	
+
+//////////////////////////////////////////////
+//                  UI                      //
+//////////////////////////////////////////////
+
+function copy(elem, messageClicked){
+  navigator.clipboard.writeText(elem.textContent);
+  console.log(elem.textContent);
+	var tooltip = bootstrap.Tooltip.getOrCreateInstance(elem, {
+		customClass: "overlay-tootip",
+		trigger: "hover focus",
+		html: true,
+		title: "<span id='update-on-click'>📋</span>",
+		container: "body",
+		delay: {"show": 0, "hide": 300}
+	}); // Returns a Bootstrap tooltip instance
+	// console.log(tooltip);
+	tooltip.show();
+
+	elem.onclick = function(elem) {
+			tooltipContent = document.querySelector('.tooltip #update-on-click');
+			tooltipContent.innerHTML="Copied!"
+	}
+	elem.onmouseout = function(elem) {
+			setTimeout(() => {
+		  	tooltip.hide();
+			}, "300");
+	}
+}
+
+// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+//   return new bootstrap.Tooltip(tooltipTriggerEl, {
+// 		customClass: "overlay-tootip",
+// 		trigger: "manual",
+// 		title: "<p>Copied</p>",
+// 		container: "body",
+// 		delay: { "show": "100", "hide": "1000" }
+//   })
+// })

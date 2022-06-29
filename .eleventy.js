@@ -4,6 +4,7 @@ const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
+
 module.exports = function(eleventyConfig) {
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
@@ -14,18 +15,6 @@ module.exports = function(eleventyConfig) {
   // layout: post. If you don’t want to rewrite all of those values, just map
   // post to a new file like this:
   // eleventyConfig.addLayoutAlias("post", "layouts/my_new_post_layout.njk");
-
-
-
-
-  // ELEVENTY SASS (ADDED BY ERIC)
-  // const eleventySass = require("eleventy-sass");
-  // module.exports = function(eleventyConfig) {
-  //   eleventyConfig.addPlugin(eleventySass);
-  //   return { dir: { input: "src", output: "_site" } };
-  // };
-
-
 
 
 
@@ -66,6 +55,7 @@ module.exports = function(eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
+
   // Minify JS
   eleventyConfig.addFilter("jsmin", function(code) {
     let minified = UglifyJS.minify(code);
@@ -102,7 +92,7 @@ module.exports = function(eleventyConfig) {
   let markdownItAnchor = require("markdown-it-anchor");
   let options = {
     html: true,
-    breaks: true,
+    breaks: false,
     linkify: true
   };
   let opts = {
@@ -112,6 +102,18 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownIt(options)
     .use(markdownItAnchor, opts)
   );
+
+  // Add within your config module
+  const md = new markdownIt({
+    html: true,
+    breaks: false,
+    linkify: true
+  });
+
+  eleventyConfig.addFilter("markdown", (content) => {
+    return md.render(content);
+  });
+
 
   return {
     templateFormats: ["md", "njk", "html", "liquid", "11ty"],

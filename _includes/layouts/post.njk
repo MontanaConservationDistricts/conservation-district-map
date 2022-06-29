@@ -57,7 +57,7 @@ section: post
       <div class="row  scrollspy-container" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="600" tabindex="0">
 
           <div id="{{ id }}-summary" class="row">
-            <p class="lead"> {{ summary }} </p>
+            <p class="lead"> {{ summary | markdown | safe }} </p>
           </div>  
 
          {# PRIMARY CONTACT INFORMATION #}

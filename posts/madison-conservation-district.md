@@ -14,11 +14,11 @@ contact:
   employeeEmail: ericrannestad@gmail.com
   employeePhone: "8603919518"
   social:
-    - socialItemUrl: instagram.com
+    - socialItemUrl: https://instagram.com
       socialItem: instagram
-    - socialItemUrl: twitter.com
+    - socialItemUrl: https://github.com/MontanaConservationDistricts/conservation-district-map/tree/master/_includes/assets
       socialItem: twitter
-    - socialItemUrl: mailchimp.com
+    - socialItemUrl: www.mailchimp.com
       socialItem: newsletter
     - socialItemUrl: macdnet.org
       socialItem: other

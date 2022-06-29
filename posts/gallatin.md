@@ -7,10 +7,16 @@ summary: >-
   Gallatin Conservation District promotes and guides the conservation and
   management of natural resources in Gallatin County, Montana. The district
   serves all areas except the major portions of the cities of Belgrade and
-  Bozeman. Click here for Bozeman map. Click here for Belgrade map. <br><br> Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/).
-  Bozeman. Click here for Bozeman map. Click here for Belgrade map.
-  Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/)
-  Learn More
+  Bozeman. Click here for Bozeman map. Click here for Belgrade map. <br><br>
+  Gallatin Conservation District administers [stream (310
+  permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and
+  resources](https://gallatincd.org/programs-services/),
+  [education](https://gallatincd.org/education-outreach/), and a number of
+  [conservation resources](https://gallatincd.org/district-resources/).
+  Bozeman. 
+
+
+  Click here for Bozeman map. Click here for Belgrade map. Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/) Learn More
 logo: /static/img/gallatin-cd_badge_white.png
 contact:
   website: https://gallatincd.org/

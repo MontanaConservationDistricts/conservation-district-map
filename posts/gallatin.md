@@ -3,15 +3,14 @@ title: Gallatin Conservation District
 titleShort: Gallatin
 date: 2019-01-01T00:00:00.000Z
 author: Eric Rannestad
-summary: Gallatin Conservation District is a subdivision of state government and
-  receives the majority of funds through a county tax assessment on real
-  property.  A landowner with property valued at $100,000 can expect to pay
-  approximately $1.00 a year in tax to the GCD. A non-paid elected board of five
-  supervisors and two appointed urban supervisors governs district business. The
-  GCD also appoints Associate Supervisors who serve as advisories to the board.
-  The GCD covers all portions of the county except the major portions of the
-  cities of Belgrade and Bozeman. Click here for Bozeman map. Click here for
-  Belgrade map.
+summary: >-
+  Gallatin Conservation District promotes and guides the conservation and
+  management of natural resources in Gallatin County, Montana. The district
+  serves all areas except the major portions of the cities of Belgrade and
+  Bozeman. Click here for Bozeman map. Click here for Belgrade map.
+
+
+  Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/).
 logo: /static/img/gallatin-cd_badge_white.png
 contact:
   website: https://gallatincd.org/

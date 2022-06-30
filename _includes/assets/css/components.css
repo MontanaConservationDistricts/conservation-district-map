@@ -18,6 +18,10 @@
     z-index: 1000;
 }*/
 
+.overlay {
+    z-index: 3000;
+}
+
 .overlay.post {
     position: absolute;
     margin: 64px;
@@ -28,6 +32,19 @@
     max-height: calc(100vh - 128px);
     background-color: #fff;
     border-radius: 8px;
+    overflow: scroll;
+    -webkit-box-shadow: 0 8px 20px 2px rgb(0 0 0 / 25%);
+    box-shadow: 0 8px 20px 2pxrgba(0,0,0,.25);
+}
+
+.overlay.page {
+    position: absolute;
+    margin: 0px;
+    width: 800px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #fff;
     overflow: scroll;
     -webkit-box-shadow: 0 8px 20px 2px rgb(0 0 0 / 25%);
     box-shadow: 0 8px 20px 2pxrgba(0,0,0,.25);
@@ -54,7 +71,14 @@
 .post .btn-close{
     margin: 4px;
     position: absolute;
+    padding: 12px;
+    top: 0;
+    left: 0;
     z-index: 2000;
+}
+
+.page .btn-close{
+    margin: 4px;
     padding: 12px;
     top: 0;
     left: 0;

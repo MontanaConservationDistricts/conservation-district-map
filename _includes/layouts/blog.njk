@@ -4,14 +4,26 @@ section: blog
 permalink: /blog/index.html
 ---
 
-<section class="page">
+<section class="overlay page">
+    
+    <div class="overlay-inner">
 
+      <button type="button" class="btn-close" onclick="resetMap();" aria-label="Close"></button>
 
-	<h1>{{ title }}</h1>
+      {# HEADER #}
+      	<div class="container">
 
-	{{ layoutContent | safe }}
+	        <div class="row g-5">
+	            <div class="{{ 'col-8' if logo else 'col-12'}}">
+					<h1>{{ title }}</h1>
+	            </div>
+	        </div>
+      	</div>
+      	<div class="container">
+			{{ layoutContent | safe }}
 
-	{% set postslist = collections.post %}
-	{% include "components/postslist.njk" %}
-
+			{% set postslist = collections.post %}
+			{% include "components/postslist.njk" %}
+      	</div>
+  </div>
 </section>

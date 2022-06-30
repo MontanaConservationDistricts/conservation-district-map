@@ -38,18 +38,11 @@ collections:
         - {label: "URL", name: "url", widget: "hidden", default: "/"}
     - label: "Map Settings"
       name: "map"
-      file: "_data/settings-map.json"
+      file: "_data/settingsMap.json"
       extension: "json"
       description: "Map Settings"
       fields:
-        - label: "Conservation District GeoJSON Data File"
-          name: "geojson"
-          widget: "file"
-          default: "district-boundaries_simplified.geojson"
-          media_library:
-            media_folder: "static/geospatial"
-            config:
-              multiple: false
+        - {label: "Conservation District GeoJSON Data File", name: "geojson", widget: "file", media_folder: '/static/geospatial',default: "district-boundaries_simplified.geojson", multiple: false}
         - {label: "Default Map Center", name: "center", widget: "map", required: false }
         - {label: "Default Zoom", name: "zoom", widget: "number", required: false, min: 1, max: 20, default: 6.5 }
 

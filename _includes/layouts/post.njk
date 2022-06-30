@@ -3,6 +3,7 @@ layout: layouts/base.njk
 section: post
 ---
 
+
 <article class="post"> 
   
   <div class="overlay-inner">
@@ -44,7 +45,7 @@ section: post
 
     <div class="post-content dynamic-height">
 
-      <div class="row  scrollspy-container" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="600" tabindex="0">
+      <div class="row">
 
           <div id="{{ id }}-summary" class="row">
             <p class="lead"> {{ summary | markdown | safe }} </p>
@@ -114,4 +115,3 @@ section: post
 
   </div>   
 </article>
-

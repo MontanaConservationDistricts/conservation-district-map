@@ -154,6 +154,8 @@ git push origin master
 
 ### Helpful Links
 -https://jdsteinbach.com/intro-11ty-slides/#/26
+-http://ohdotfive.apostrophenow.org/howtos/pushing-data-to-the-browser.html
+-https://codehunter.cc/a/express/accessing-express-js-local-variables-in-client-side-javascript-nunjucks
 
 ### Old Scripts
     "build": "npx eleventy",

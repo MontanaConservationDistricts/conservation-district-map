@@ -1,7 +1,5 @@
 <div id="map"></div>
-
 <script>
-
 
 
 /////////////////////////
@@ -25,11 +23,18 @@ function defineViewport(x, y, w, h) {
 		width: w,
 		height: h
 	});
-
 }
 
-var openingView = [46.85, -109.45]
-var openingZoom = 7
+if (settings.mapSettings.center.coordinates){
+	var openingView = [settings.mapSettings.center.coordinates[1], settings.mapSettings.center.coordinates[0]]
+} else {
+	var openingView = [46.85, -109.45]
+}
+if (settings.mapSettings.zoom){
+	var openingZoom = settings.mapSettings.zoom
+} else {
+	var openingZoom = 6.5
+}
 
 map.setView(openingView, openingZoom);
 
@@ -37,9 +42,6 @@ map.setView(openingView, openingZoom);
 //   	maxZoom: 19,
 //   	attribution: '© OpenStreetMap'
 // }).addTo(map);
-
-
-
 
 var basemapPane = map.createPane('basemap').style.zIndex = 100;
 var Basemap = L.tileLayer(

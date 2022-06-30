@@ -1,0 +1,5 @@
+{
+  "geojson": "/static/geospatial/district-boundaries_simplified.geojson",
+  "center": "{\"type\":\"Point\",\"coordinates\":[-109.9403686,47.0875637]}",
+  "zoom": 7
+}

@@ -1,3 +1,7 @@
 {
-  "siteTitle": "Montana Conservation Districts"
+  "siteTitle": "Montana Conservation Districts",
+  "siteStyling": {
+    "primaryColorOverride": "#731717",
+    "secondaryColorOverride": "#f95757"
+  }
 }

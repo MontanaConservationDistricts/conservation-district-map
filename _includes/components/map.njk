@@ -89,7 +89,7 @@ var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie
 
 
          // LOAD DISTRICT GEOJSON VIA AJAX
-         var districtBoundaries = new L.GeoJSON.AJAX("/_includes/assets/js/district-boundaries_simplified.geojson",{
+         var districtBoundaries = new L.GeoJSON.AJAX(settings.mapSettings.geojson,{
                 style: baseStyle,
                 onEachFeature: function (feature, layer) {
 

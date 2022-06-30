@@ -9,13 +9,28 @@
 /*     OVERLAY    */
 /******************/
 
-.overlay {
+/*.overlay.post {
     position: absolute;
     top: 0vh;
     right: 0px;
     height: auto;
     width: auto;
     z-index: 1000;
+}*/
+
+.overlay.post {
+    position: absolute;
+    margin: 64px;
+    width: 600px;
+    top: 0;
+    right: 0;
+    height: auto;
+    max-height: calc(100vh - 128px);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: scroll;
+    -webkit-box-shadow: 0 8px 20px 2px rgb(0 0 0 / 25%);
+    box-shadow: 0 8px 20px 2pxrgba(0,0,0,.25);
 }
 
 .overlay-inner {
@@ -25,28 +40,18 @@
     width: 100%;
 }
 
-article.page, article.post {
+/*.page, .post {
     width: 800px;
     height: 100vh;
     background-color: white; 
     overflow: scroll; 
     -webkit-box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.25); 
     box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.25);   
-}
+}*/
 
-article.post {
-    margin: 64px;
-    width: 600px;
-    height: auto;  
-    max-height: calc(100vh - 128px);
-    background-color: white;
-    border-radius: 8px;
-    overflow: scroll;
-    -webkit-box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.25); 
-    box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.25);
-}
 
-article .btn-close{
+
+.post .btn-close{
     margin: 4px;
     position: absolute;
     z-index: 2000;
@@ -69,9 +74,9 @@ header, footer {
 }
 
 .post-content{
-    padding: 48px;
-    height: 800px;
-    overflow: ;
+    /*padding: 48px;*/
+    /*height: 800px;*/
+    /*overflow: ;*/
 }
 
 .overlay-tooltip {
@@ -112,9 +117,9 @@ div.leaflet-overlay-pane path:hover {
 }
 
 .leaflet-interactive.selected {
-    stroke: var(--primary);
+    stroke: var(--bs-primary);
     stroke-width: 1.5;
-    fill: #93D6E5 !important;
+    fill: var(--bs-accent) !important;
     fill-opacity:  .2;
     filter: drop-shadow(0px 5px 5px rgb(0 0 0 / 0.2));
 }
@@ -123,7 +128,7 @@ div.leaflet-overlay-pane path:hover {
 .leaflet-interactive {
     stroke: var(--bs-primary);
     stroke-width: 1;
-    fill: var(--primary) !important;
+    fill: var(--bs-primary) !important;
     fill-opacity:  0;
     stroke-opacity: .3;
 }
@@ -138,4 +143,17 @@ div.leaflet-overlay-pane path:hover {
 
 .leaflet-basemap-pane{
     mix-blend-mode: darken;
+}
+
+.leaflet-verticalcenter {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    bottom: 0%; /* possible because the placeholder's parent is the map */
+    transform: translateY(-50%); /* using the CSS3 Transform technique */
+    padding-top: 10px;
+}
+
+.leaflet-verticalcenter .leaflet-control {
+    margin-bottom: 10px;
 }

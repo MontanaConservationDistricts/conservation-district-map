@@ -25,5 +25,19 @@ console.log( settings );
 //    UPDATE CSS VARIABLE STYLES    //
 //////////////////////////////////////
 
-if (generalSettings.primaryColorOverride) { root.style.setProperty('--bs-primary', settings.generalSettings.primaryColorOverride)};
-if (generalSettings.secondaryColorOverride) { root.style.setProperty('--bs-secondary', settings.generalSettings.secondaryColorOverride)};
+let root = document.documentElement;
+
+if (generalSettings.siteStyling.primaryColorOverride) { 
+  var updatedPrimaryColor = generalSettings.siteStyling.primaryColorOverride;
+  root.style.setProperty('--bs-primary', updatedPrimaryColor);
+  root.style.setProperty('--bs-primary', updatedPrimaryColor);
+  root.style.setProperty('--bs-heading-color', updatedPrimaryColor);
+  root.style.setProperty('--bs-link-color', updatedPrimaryColor);
+  root.style.setProperty('--bs-link-color', updatedPrimaryColor);
+  root.style.setProperty('--bs-body-color', updatedPrimaryColor);
+};
+
+if (generalSettings.siteStyling.secondaryColorOverride) { 
+  var updatedSecondaryColor = generalSettings.siteStyling.secondaryColorOverride;
+  root.style.setProperty('--bs-secondary', updatedSecondaryColor)
+}

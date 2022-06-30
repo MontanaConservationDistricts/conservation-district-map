@@ -3,115 +3,114 @@ layout: layouts/base.njk
 section: post
 ---
 
+<section class="overlay post">
+    
+    <div class="overlay-inner">
 
-<article class="post"> 
-  
-  <div class="overlay-inner">
+      <button type="button" class="btn-close" onclick="resetMap();" aria-label="Close"></button>
 
-    <button type="button" class="btn-close" onclick="resetMap();" aria-label="Close"></button>
+      {# HEADER #}
+      <div class="post-header ">
 
-    {# HEADER #}
-    <div class="post-header ">
+          <div class="row g-5">
+              {% if (logo) %}
+              <div class="col-4">
+                <img class="logo" src="{{ logo }}">
+              </div>
+              {% endif %}
+              <div class="{{ 'col-8' if logo else 'col-12'}}">
+                <h3 class="display-3">{{ titleShort }}</h3>
+                <h4 class="heading-6">Conservation District</h4>
+              </div>
+          </div>
 
-        <div class="row g-5 mb-5">
-            {% if (logo) %}
-            <div class="col-4">
-              <img class="logo" src="{{ logo }}">
+          {# <ul id="navbar" style="" class="sticky-top justify-content-end navbar navbar-light bg-light px-3">
+            <li class="nav-item">
+              <a class="nav-link barba-prevent active" aria-current="page" href="#{{ id }}-summary">Summary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link barba-prevent" href="#{{ id }}-contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link barba-prevent" href="#{{ id }}-social">Social</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link barba-prevent" href="#{{ id }}-stories">Stories</a>
+            </li>
+          </ul> #}
+      </div>
+
+      {# BODY #}
+
+      <div class="post-content dynamic-height">
+
+        <div class="container">
+
+            <div id="{{ id }}-summary" class="row">
+              <p class="lead"> {{ summary | markdown | safe }} </p>
+            </div>  
+
+           {# PRIMARY CONTACT INFORMATION #}
+            {% if (contact | length) %}
+            <div id="{{ id }}-contact" class="row">
+              <h6> Contact Information </h6>
+              <dl class="row">
+                {% if contact.website %}
+                  <dt class="col-sm-1"><a href="{{ contact.website }}"><i class="m-1 bi bi-link-45deg" ></i></a></dt>
+                  <dd class="col-sm-11"><a class="barba-prevent bs-link-color" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
+                {% endif %}
+                {% if contact.primaryEmail %}
+                  <dt class="col-sm-1"><a href="{{ contact.primaryEmail }}"><i class="m-1 bi bi-envelope"></i></a></dt>
+                  <dd class="col-sm-11" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
+                {% endif %}
+                {% if contact.primaryPhone %}
+
+                  <dt class="col-sm-1"><a href="{{ contact.primaryPhone }}"><i class="m-1 bi bi-telephone "></i></a></dt>
+                  <dd class="col-sm-11" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
+                {% endif %}
+              </dl>
             </div>
             {% endif %}
-            <div class="{{ 'col-8' if logo else 'col-12'}}">
-              <h3 class="display-3">{{ titleShort }}</h3>
-              <h4 class="heading-6">Conservation District</h4>
-            </div>
-        </div>
 
-        {# <ul id="navbar" style="" class="sticky-top justify-content-end navbar navbar-light bg-light px-3">
-          <li class="nav-item">
-            <a class="nav-link barba-prevent active" aria-current="page" href="#{{ id }}-summary">Summary</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link barba-prevent" href="#{{ id }}-contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link barba-prevent" href="#{{ id }}-social">Social</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link barba-prevent" href="#{{ id }}-stories">Stories</a>
-          </li>
-        </ul> #}
-    </div>
+            {# SOCIAL MEDIA #}
+            {# <pre>{{ contact.social | dump('\t') }}</pre> #}
 
-    {# BODY #}
-
-    <div class="post-content dynamic-height">
-
-      <div class="row">
-
-          <div id="{{ id }}-summary" class="row">
-            <p class="lead"> {{ summary | markdown | safe }} </p>
-          </div>  
-
-         {# PRIMARY CONTACT INFORMATION #}
-          {% if (contact | length) %}
-          <div id="{{ id }}-contact" class="row">
-            <h6> Contact Information </h6>
-            <dl class="row">
-              {% if contact.website %}
-                <dt class="col-sm-1"><i class="m-1 bi bi-link-45deg text-primary"></i></dt>
-                <dd class="col-sm-11"><a class="link-primary barba-prevent" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
-              {% endif %}
-              {% if contact.primaryEmail %}
-                <dt class="col-sm-1"> <i class="m-1 bi bi-envelope text-primary"></i></dt>
-                <dd class="col-sm-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
-              {% endif %}
-              {% if contact.primaryPhone %}
-
-                <dt class="col-sm-1"><i class="m-1 bi bi-telephone text-primary"></i></dt>
-                <dd class="col-sm-11" ><a class="link-primary barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
-              {% endif %}
-            </dl>
-          </div>
-          {% endif %}
-
-          {# SOCIAL MEDIA #}
-          {# <pre>{{ contact.social | dump('\t') }}</pre> #}
-
-          {% if (contact.social | length) %}
-            <div id="{{ id }}-social" class="row">
-                <h6> Social Media </h6>
-                {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
-                <dl class="row">
-                  {% for item in contact.social %}
-                    <dt class="col-sm-1"><i class="{{ socialArray[item.socialItem] }} m-1 bi text-primary"></i> </dt>
-                    <dd class="col-sm-11"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
-                  {% endfor %}
-                </dl>
-            </div>
-          {% endif %}
+            {% if (contact.social | length) %}
+              <div id="{{ id }}-social" class="row">
+                  <h6> Social Media </h6>
+                  {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
+                  <dl class="row">
+                    {% for item in contact.social %}
+                      <dt class="col-sm-1"><a href="{{ item.socialItemUrl }}"><i class="{{ socialArray[item.socialItem] }} m-1 bi"></i></a></dt>
+                      <dd class="col-sm-11"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
+                    {% endfor %}
+                  </dl>
+              </div>
+            {% endif %}
 
 
-          {{ layoutContent | safe }}
+            {{ layoutContent | safe }}
 
-          {% if tags %}
+            {% if tags %}
+              <p>
+              {% for tag in tags %}
+                {%- if tag != "post" -%}
+                  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                  <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+                {%- endif -%}
+              {% endfor %}
+              </p>
+            {% endif %}
+
             <p>
-            {% for tag in tags %}
-              {%- if tag != "post" -%}
-                {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-                <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-              {%- endif -%}
-            {% endfor %}
+              <small>
+                <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
+              </small>
             </p>
-          {% endif %}
 
-          <p>
-            <small>
-              <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
-            </small>
-          </p>
-
+        </div>
       </div>
-    </div>
 
 
-  </div>   
-</article>
+    </div>   
+</section>

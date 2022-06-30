@@ -32,12 +32,13 @@ if (generalSettings.siteStyling.primaryColorOverride) {
   root.style.setProperty('--bs-primary', updatedPrimaryColor);
   root.style.setProperty('--bs-primary', updatedPrimaryColor);
   root.style.setProperty('--bs-heading-color', updatedPrimaryColor);
-  root.style.setProperty('--bs-link-color', updatedPrimaryColor);
-  root.style.setProperty('--bs-link-color', updatedPrimaryColor);
   root.style.setProperty('--bs-body-color', updatedPrimaryColor);
 };
 
 if (generalSettings.siteStyling.secondaryColorOverride) { 
   var updatedSecondaryColor = generalSettings.siteStyling.secondaryColorOverride;
-  root.style.setProperty('--bs-secondary', updatedSecondaryColor)
+  root.style.setProperty('--secondary', updatedSecondaryColor);
+  root.style.setProperty('--bs-secondary', updatedSecondaryColor);
+  root.style.setProperty('--bs-link-color', updatedSecondaryColor);
+  root.style.setProperty('--bs-link-hover-color', updatedSecondaryColor);
 }

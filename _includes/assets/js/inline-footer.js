@@ -6,9 +6,9 @@
 var featureGlobal = {} //empty object populated by clicking features on the map
 
 
-
 // MAP CENTER & ACTIVE AREA
 function centerMap(selectedFeature, w) {
+	console.log("------- CENTERING MAP -------")
 
   if (selectedFeature == true) {
     var centerCoordinates = featureGlobal.getBounds().getCenter();
@@ -36,6 +36,20 @@ function centerMap(selectedFeature, w) {
 
   map.setView(new L.LatLng(centerCoordinates.lat, centerCoordinates.lng), map.getZoom() );
 
+	console.log("------- CENTERED -------")
+}
+
+function resetMap() {
+	console.log("------- RESETTING MAP ----")
+
+	if (document.querySelector('.selected')){ // removes any css .selected styling rules
+		document.querySelector('.selected').classList.remove('selected');
+	} 
+
+	featureGlobal = {}; //empty selected feature
+	barba.go("/"); // barba transition to home
+	centerMap(); // center map with reset center coords and activeArea
+	console.log("------- RESET -----------");
 }
 
 
@@ -72,18 +86,16 @@ barba.init({
 	  sync: true,
 	  name: 'opacity-transition',
 	  leave(data) {
-
+	  	console.log("------- ON DATA LEAVE -------");
 	  	if (featureGlobal.feature){
-			centerMap(true, featureGlobal.feature.properties.style.width);
+				centerMap(true, featureGlobal.feature.properties.style.width);
 	  	} else {
-			centerMap(false, '0px');
+				centerMap(false, '0px');
 	  	}
-
+			console.log("------- DATA LEFT -------");
 	    return gsap.to(data.current.container, {
 	      opacity: 0
 	    });
-
-
 	  },
 	  enter(data) {
 

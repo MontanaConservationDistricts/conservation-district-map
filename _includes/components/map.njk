@@ -54,7 +54,7 @@ map.getPane('top').style.pointerEvents = 'none';
 var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q', {
         //attribution: '©OpenStreetMap, ©CartoDB',
         pane: 'top',
-   	//	tileSize: 512,
+   		//tileSize: 512,
 }).addTo(map);
 
 // var token ="pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q";
@@ -151,37 +151,37 @@ var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie
 
          	// ADD DISTRICT BOUNDARIES TO MAP
          	districtBoundaries.on('data:loaded', function() {
-            map.addLayer(this);
 
+	         	console.log("------- ADDING DISTRICTS -------");
+	            map.addLayer(this);
 
-		  	// INTERACTIONS BTW MAP + DISTRICT BOUNDARIES  
-            map.on({
-			    // RESET ON BASEMAP CLICK
-			    click: function(e) {
-				  	console.log('clicked: basemap');
-				  	districtBoundaries.setStyle(baseStyle); //reset district boundaries style
-				  	featureGlobal = {} // clear global feature
+			  	// INTERACTIONS BTW MAP + DISTRICT BOUNDARIES  
+	            map.on({
+				    // RESET ON BASEMAP CLICK
+				    click: function(e) {
+					  	console.log('clicked: basemap');
+					  	districtBoundaries.setStyle(baseStyle); //reset district boundaries style
+					  	featureGlobal = {} // clear global feature
 
-				  	// REMOVE SELECTED CLASS
-				  	if (document.querySelector('.selected')){
-				  		console.log('remove "selected class"')
-				  		document.querySelector('.selected').classList.remove('selected');
-				  	}
+					  	// REMOVE SELECTED CLASS
+					  	if (document.querySelector('.selected')){
+					  		console.log('remove "selected class"')
+					  		document.querySelector('.selected').classList.remove('selected');
+					  	}
 
-			    	// NAVIGATE TO ROOT
-				  	if (barba) { 
-					  	barba.go('/') // barba
-				  	} else { 
-				  		window.location.href = '/'; // fallback
-				  	}
-				}
-			});
+				    	// NAVIGATE TO ROOT
+					  	if (barba) { 
+						  	barba.go('/') // barba
+					  	} else { 
+					  		window.location.href = '/'; // fallback
+					  	}
+					}
+				});
 
-
-         });
+	         	console.log("------- ADDED -------");
+	         });
       });
 
-	  	
    });
 
    

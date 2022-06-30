@@ -3,21 +3,11 @@ layout: layouts/base.njk
 section: post
 ---
 
-
-
-
-
-
-
-
-
-
-
 <article class="post"> 
   
   <div class="overlay-inner">
 
-    <button type="button" class="btn-close" aria-label="Close"></button>
+    <button type="button" class="btn-close" onclick="resetMap();" aria-label="Close"></button>
 
     {# HEADER #}
     <div class="post-header ">
@@ -34,7 +24,7 @@ section: post
             </div>
         </div>
 
-        <ul id="navbar" style="" class="sticky-top justify-content-end navbar navbar-light bg-light px-3">
+        {# <ul id="navbar" style="" class="sticky-top justify-content-end navbar navbar-light bg-light px-3">
           <li class="nav-item">
             <a class="nav-link barba-prevent active" aria-current="page" href="#{{ id }}-summary">Summary</a>
           </li>
@@ -47,7 +37,7 @@ section: post
           <li class="nav-item">
             <a class="nav-link barba-prevent" href="#{{ id }}-stories">Stories</a>
           </li>
-        </ul>
+        </ul> #}
     </div>
 
     {# BODY #}
@@ -99,13 +89,6 @@ section: post
           {% endif %}
 
 
-
-          <p>
-            <small>
-              <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
-            </small>
-          </p>
-
           {{ layoutContent | safe }}
 
           {% if tags %}
@@ -118,6 +101,12 @@ section: post
             {% endfor %}
             </p>
           {% endif %}
+
+          <p>
+            <small>
+              <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
+            </small>
+          </p>
 
       </div>
     </div>

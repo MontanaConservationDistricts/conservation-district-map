@@ -10,6 +10,49 @@ logo_url: "/static/site-branding/MACD-Logo_Rect_Blue.png"
 
 
 collections:
+  # Our pages e.g. About
+  - label: "Settings"
+    name: "settings"
+    files:
+    - label: "General Settings"
+      name: "general"
+      file: "_data/settings.json"
+      extension: "json"
+      description: "General Site Settings"
+      fields:
+        - {label: "Site Title", name: "siteTitle", widget: "string", required: true, default: "Conservation District Map" }
+        - label: "Site Styling"
+          name: "siteStyling"
+          widget: "object"
+          fields:
+            - { label: 'Primary Color Override', name: 'primaryColorOverride', widget: 'color', allowInput: true, required: false }
+            - { label: 'Secondary Color Override', name: 'secondaryColorOverride', widget: 'color', allowInput: true, required: false }
+    - label: "Site Metadata"
+      name: "metadata"
+      file: "_data/metadata.json"
+      extension: "json"
+      description: "Metadata for the site"
+      fields:
+        - {label: "Metadata Title", name: "title", widget: "string", required: true, default: "Montana Conservation District Map"}
+        - {label: "Metadata Description", name: "description", widget: "string",required: true, default: "A map for learning about Montana's Conservation Districts."}
+        - {label: "URL", name: "url", widget: "hidden", default: "/"}
+    - label: "Map Settings"
+      name: "map"
+      file: "_data/settings-map.json"
+      extension: "json"
+      description: "Map Settings"
+      fields:
+        - label: "Conservation District GeoJSON Data File"
+          name: "geojson"
+          widget: "file"
+          default: "district-boundaries_simplified.geojson"
+          media_library:
+            media_folder: "static/geospatial"
+            config:
+              multiple: false
+        - {label: "Default Map Center", name: "center", widget: "map", required: false }
+        - {label: "Default Zoom", name: "zoom", widget: "number", required: false, min: 1, max: 20, default: 6.5 }
+
   # Our blog posts
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "District" # Used in the UI
@@ -46,14 +89,14 @@ collections:
             default:              
               - { label: "Justify Right", value: "right" }
           - { label: "Popup Width", name: "width", widget: "string", required: false }
-          - { label: 'Organization Primary Color', name: 'primaryColor', widget: 'color', allowInput: true }
-          - { label: 'Organization Secondary Color', name: 'secondaryColor', widget: 'color', allowInput: true }
+          - { label: 'Organization Primary Color', name: 'primaryColor', widget: 'color', allowInput: true, required: false }
+          - { label: 'Organization Secondary Color', name: 'secondaryColor', widget: 'color', allowInput: true, required: false }
       - label: "Contact"
         name: "contact"
         widget: "object"
         collapsed: true
         fields:
-          - {label: "Website", name: "website", widget: "string", required: false}
+          - {label: "Website", name: "website", widget: "string", required: false, hint: "https://..."}
           - {label: "Email", name: "primaryEmail", widget: "string",required: false}
           - {label: "Phone", name: "primaryPhone", widget: "string",required: false}
           
@@ -66,11 +109,11 @@ collections:
                 name: "socialItem"
                 widget: "select"
                 options: 
-                  - {label: "Facebook", value: "facebook"}
-                  - {label: "Instagram", value: "instagram"}
-                  - {label: "Twitter", value: "twitter"}
-                  - {label: "Newsletter", value: "newsletter"}
-                  - {label: "Other", value: "other"}
+                  - {label: "Facebook", value: "facebook", hint: "https://..." }
+                  - {label: "Instagram", value: "instagram", hint: "https://..." }
+                  - {label: "Twitter", value: "twitter", hint: "https://..."}
+                  - {label: "Newsletter", value: "newsletter", hint: "https://..."}
+                  - {label: "Other", value: "other", hint: "https://..."}
               - {label: "Link", name: "socialItemUrl", widget: "string", default: "", required: true }
           
           - label: "Office Address"
@@ -85,7 +128,7 @@ collections:
               - {label: "Postal Code", name: "post-code", widget: "string",required: false}
       - { label: "Tags", name: "tags", widget: "list", default: [""],required: true }
       - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Geospatial ID", name: "id", widget: "string",required: true } 
+      - { label: "Geospatial ID", name: "id", widget: "string", required: true } 
       
 
   # Our pages e.g. About
@@ -105,3 +148,6 @@ collections:
           - { label: "Key", name: "key", widget: "string" }
           - { label: "Order", name: "order", widget: "number", default: 0 }
       - { label: "Body", name: "body", widget: "markdown" }
+
+
+

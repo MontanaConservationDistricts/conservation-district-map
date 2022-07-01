@@ -3,27 +3,35 @@ title: Rosebud Conservation District
 titleShort: Rosebud
 date: 2022-06-26T19:50:50.488Z
 author: Eric Rannestad
-summary: RCD shares an office building (The Forsyth USDA Center) with the
-  Natural Resources & Conservation Services ( NRCS), Farm Service Agency (FSA)
-  and the Montana Department of Agriculture (DOA). Conservation districts
-  provide a link to many state and federal agencies.
+summary: Initially founded in 1942 as the Carterville Thurlow Soil Conservation
+  District, the Rosebud Conservation District provide services and assistance to
+  local producers in the interest of preserving and protecting land and natural
+  resources for future generations. RCD is governed by a board of 7 supervisors,
+  5 elected officials and 2 officials appointed by the city of Colstrip.
 logo: /static/img/rosebud.jpeg
 style:
   area: right
   width: 600px
-  primaryColor: "#21325f"
-  secondaryColor: "#6fc8e2"
+  primaryColor: "#771313"
+  secondaryColor: "#b17465"
 contact:
-  social: []
+  social:
+    - socialItemUrl: https://www.facebook.com/RosebudCD
+      socialItem: facebook
   website: https://www.rosebudcd.com/
   employeePhone: 406.351.8012
+  primaryPhone: 406-351-8012
+  primaryEmail: rosebudcd29@gmail.com
 thumbnail: /static/img/rosebud.jpeg
+locations:
+  - state: MT
+    addressLabel: Office (Shared with USDA)
+    addressLine1: PO Box 1200
+    addressLine2: Forsyth USDA Office
+    city: Forsyth
+    hours: Mon – Fri, 8 am – 5 pm
+    post-code: "59327"
 tags:
-  - post
+  - area-4
 id: rosebud
 ---
-The Rosebud Conservation District regularly hosts a meeting of local people to give feedback on the state of natural resources, environmental concerns, and provide opportunities to address environmental problems with meaningful solutions.  Rosebud Conservation District uses this information to support grant requests and help the local Natural Resources Conservation Service (NRCS) prioritize local funding opportunities.
-
-This year the Rosebud Conservation District has elected to get your feedback via a survey, included below.  You can complete the survey by hand and mail or deliver it to the Rosebud Conservation District in Forsyth OR you can call the Rosebud conservation office, and someone will visit with you over the phone and record your input.
-
-Thank you for taking the time to give us your feedback so that we can help ensure our activities and the activities of our partners are as positive for the people of Rosebud County as possible.  We will consider all of the responses we receive before July 1, 2022 in our next planning sessions.

@@ -3,20 +3,17 @@ title: Beaverhead Conservation District
 titleShort: Beaverhead
 date: 2022-06-30T12:14:33.771Z
 author: Eric Rannestad
-summary: >-
-  ###### About Gallatin CD
-
-
-  *Gallatin Conservation District* promotes and guides the conservation and management of natural resources in Gallatin County, Montana. The district serves all areas except the major portions of the cities of Belgrade and Bozeman. Click here for Bozeman map. Click here for Belgrade map. Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/). Bozeman. 
-
-
-  Click here for Bozeman map. Click here for Belgrade map. Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/) 
-
-
-  Learn More
-logo: /static/img/gallatin-cd_badge_white.png
+summary: The Beaverhead Conservation District was formed in 1950 by local
+  citizens to provide technical assistance to landowners in carrying out soil
+  and water conservation practices. The district works with stakeholders in
+  southwest Montana to protect natural resources through sustainable
+  agriculture, 310 permitting, and conservation. Beaverhead CD is a partner of
+  the [Beaverhead Watershed
+  Committee](https://beaverheadcd.org/category/featured/) and [Beaverhead County
+  Collaborative](https://beaverheadcd.org/category/beaverhead-county-collaborative/).
+logo: /static/img/beaverhead-cd-logo-01.png
 contact:
-  website: https://gallatincd.org/
+  website: https://beaverheadcd.org/
   employeeEmail: becky@gallatincd.org
   employeePhone: 282-4350
   address:
@@ -25,46 +22,30 @@ contact:
     post-code: "59718"
     addressLine1: 426 N Tracy Ave
     state: Montana
-  primaryEmail: eric@macdnet.org
-  primaryPhone: "8603919518"
+  primaryEmail: beaverheadcd@gmail.com
+  primaryPhone: 406-683-3802
   social:
-    - socialItemUrl: https://www.facebook.com
+    - socialItemUrl: https://www.facebook.com/BeaverheadCD/
       socialItem: facebook
-    - socialItemUrl: https://www.instagram.com
-      socialItem: instagram
 thumbnail: /static/img/gallatin-cd_badge_white.png
 overlay:
   width: 600px
 style:
-  area: left
+  area: right
   width: 600px
-  primaryColor: "#2a4938"
-  secondaryColor: "#639b7c"
+  primaryColor: ""
+  secondaryColor: ""
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.
+locations:
+  - state: MT
+    addressLabel: Office Address
+    addressLine1: 420 Barrett Street
+    city: Dillon
+    hours: Tues & Thurs, 8 am – 5pm
+    post-code: "59725"
 tags:
   - area-6
 id: beaverhead
 ---
-## DISTRICT EMPLOYEES
-
-Becky Clements, District Administrator
-
-becky@gallatincd.org \
-With CD since 2019 
-
-Sydney Lyons, Education & Outreach Director
-
-sydney@gallatincd.org \
-With CD since 2021 
-
-Elizabeth Emeline, Natural Resource Specialist
-
-elizabeth@gallatincd.org \
-With CD since 2021 
-
-Leia Miller, Education Specialist 
-
-leia@gallatincd.org \
-With CD since 2017

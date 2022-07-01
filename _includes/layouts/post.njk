@@ -46,9 +46,11 @@ section: post
 
         <div class="container">
 
+            {% if (summary) %}
             <div id="{{ id }}-summary" class="row">
               <p class="lead"> {{ summary | markdown | safe }} </p>
             </div>  
+            {% endif %}
 
            {# PRIMARY CONTACT INFORMATION #}
             {% if (contact | length) %}

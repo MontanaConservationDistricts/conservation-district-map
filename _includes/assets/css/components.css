@@ -1,4 +1,16 @@
 /***************************/
+/*        BRANDING         */
+/***************************/
+
+svg.site-logotype {
+    width: 80px;
+}
+svg.site-logotype g path {
+    fill: var(--bs-primary);
+}
+
+
+/***************************/
 /*    GENERAL STRUCTURE    */
 /***************************/
 

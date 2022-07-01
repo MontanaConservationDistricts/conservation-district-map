@@ -3,6 +3,8 @@ const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const svgContents = require("eleventy-plugin-svg-contents");
+
 
 
 module.exports = function(eleventyConfig) {
@@ -17,6 +19,8 @@ module.exports = function(eleventyConfig) {
   // eleventyConfig.addLayoutAlias("post", "layouts/my_new_post_layout.njk");
 
 
+  // Add SVG inline from nunjucks
+  eleventyConfig.addPlugin(svgContents);
 
   // Merge data instead of overriding
   // https://www.11ty.dev/docs/data-deep-merge/

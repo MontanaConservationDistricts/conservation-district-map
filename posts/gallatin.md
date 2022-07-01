@@ -8,6 +8,9 @@ summary: >-
 
 
   *Gallatin Conservation District* promotes and guides the conservation and management of natural resources in Gallatin County, Montana. The district serves all areas of the county except for portions of Belgrade and Bozeman. Gallatin Conservation District administers [stream (310 permits)](https://gallatincd.org/310-permit-forms-info/), offers [programs and resources](https://gallatincd.org/programs-services/), [education](https://gallatincd.org/education-outreach/), and a number of [conservation resources](https://gallatincd.org/district-resources/).
+
+
+  Monday-Friday  9:00 AM – 3:00 PM, with exception of fieldwork, professional training, and meeting days.
 logo: /static/img/gallatin-cd_badge_white.png
 contact:
   website: https://gallatincd.org/
@@ -15,17 +18,20 @@ contact:
   employeePhone: 282-4350
   address:
     street: GCD Office
-    city: Bozeman
-    post-code: "59718"
-    addressLine1: 426 N Tracy Ave
+    city: Manhattan
+    post-code: "59741"
+    addressLine1: 120 South 5th Street
     state: Montana
-  primaryEmail: eric@macdnet.org
-  primaryPhone: "8603919518"
+    addressLine2: "Suites B102-B104 "
+  primaryEmail: becky@gallatincd.org
+  primaryPhone: 406-282-4350
   social:
-    - socialItemUrl: https://www.facebook.com
+    - socialItemUrl: https://www.facebook.com/gallatinconservationdistrict
       socialItem: facebook
-    - socialItemUrl: https://www.instagram.com
+    - socialItemUrl: https://www.instagram.com/gallatincd/
       socialItem: instagram
+    - socialItemUrl: https://www.youtube.com/channel/UCgOn-CHGmzNVfTkEkOQ1IbQ
+      socialItem: other
 thumbnail: /static/img/gallatin-cd_badge_white.png
 overlay:
   width: 600px

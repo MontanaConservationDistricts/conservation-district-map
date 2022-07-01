@@ -2,14 +2,14 @@ backend:
   name: github
   repo: MontanaConservationDistricts/conservation-district-map
   branch: master # Branch to update (optional; defaults to master)
-  open_authoring: true
-  
+  publish_mode: editorial_workflow
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 logo_url: "/static/site-branding/MACD-Logo_Rect_Blue.png"
+
 
 collections:
   # Our pages e.g. About

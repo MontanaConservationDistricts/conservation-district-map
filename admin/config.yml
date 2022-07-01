@@ -92,7 +92,6 @@ collections:
           - {label: "Website", name: "website", widget: "string", required: false, hint: "https://..."}
           - {label: "Email", name: "primaryEmail", widget: "string",required: false}
           - {label: "Phone", name: "primaryPhone", widget: "string",required: false}
-          
           - label: "Social Media"
             name: "social"
             widget: "list"
@@ -108,17 +107,19 @@ collections:
                   - {label: "Newsletter", value: "newsletter", hint: "https://..."}
                   - {label: "Other", value: "other", hint: "https://..."}
               - {label: "Link", name: "socialItemUrl", widget: "string", default: "", required: true }
-          
-          - label: "Office Address"
-            name: "address"
-            widget: "object"
-            collapsed: true
-            fields: 
-              - {label: "Address Line 1", name: "addressLine1", widget: "string",required: false}
-              - {label: "Address Line 2", name: "addressLine2", widget: "string",required: false}
-              - {label: "City", name: "city", widget: "string",required: false}
-              - {label: "State", name: "state", widget: "string", default: "MT", required: false}
-              - {label: "Postal Code", name: "post-code", widget: "string",required: false}
+      - label: "Locations"
+        name: "locations"
+        widget: "list"
+        collapsed: true
+        summary: '{{fields.addressLabel}}'
+        fields:
+            - {label: "Label", name: "addressLabel", widget: "string",required: false}
+            - {label: "Address Line 1", name: "addressLine1", widget: "string",required: false}
+            - {label: "Address Line 2", name: "addressLine2", widget: "string",required: false}
+            - {label: "City", name: "city", widget: "string",required: false}
+            - {label: "State", name: "state", widget: "string", default: "MT", required: false}
+            - {label: "Postal Code", name: "post-code", widget: "string",required: false}
+            - {label: "Hours for Address", name: "hours", widget: "string",required: false}    
       - { label: "Tags", name: "tags", widget: "list", default: [""],required: true }
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Geospatial ID", name: "id", widget: "string", required: true } 

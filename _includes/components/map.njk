@@ -8,8 +8,8 @@
 
 // CREATE MAP
 var map = L.map('map', {
-  	zoomDelta: 0.5,
-  	zoomSnap: 0.5,
+  	zoomDelta: 1,
+  	zoomSnap: 1,
 	scrollWheelZoom: false
 });
 
@@ -33,7 +33,7 @@ if (settings.mapSettings.center.coordinates){
 if (settings.mapSettings.zoom){
 	var openingZoom = settings.mapSettings.zoom
 } else {
-	var openingZoom = 6.5
+	var openingZoom = 6
 }
 
 map.setView(openingView, openingZoom);
@@ -56,7 +56,6 @@ map.getPane('top').style.pointerEvents = 'none';
 var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q', {
         //attribution: '©OpenStreetMap, ©CartoDB',
         pane: 'top',
-   		//tileSize: 512,
 }).addTo(map);
 
 // var token ="pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q";
@@ -69,6 +68,18 @@ var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie
 // }).addTo(map);
 
 
+var basemapPane = map.createPane('texture').style.zIndex = 200;
+L.GridLayer.texture = L.GridLayer.extend({
+    createTile: function (coords) {
+        var tile = document.createElement('img');
+		tile.src ='/static/geospatial/texture-tile-2.png';
+        return tile;
+    },
+});
+L.gridLayer.textureMap = function(opts) {
+    return new L.GridLayer.texture(opts);
+};
+map.addLayer( L.gridLayer.textureMap() );
 
 
 
@@ -179,8 +190,8 @@ var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie
 					  	}
 					}
 				});
-
 	         	console.log("------- ADDED -------");
+
 	         });
       });
 

@@ -124,6 +124,11 @@ barba.init({
 //                  UI                      //
 //////////////////////////////////////////////
 
+// iniialize all tooltips
+const tooltipTriggerList = document.querySelectorAll('.basic-tooltip[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
 function copy(elem, messageClicked){
   navigator.clipboard.writeText(elem.textContent);
   console.log(elem.textContent);
@@ -148,6 +153,8 @@ function copy(elem, messageClicked){
 			}, "300");
 	}
 }
+
+
 
 // var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 // var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

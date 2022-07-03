@@ -1,3 +1,27 @@
+
+/*******************/
+/*      HEADER     */
+/*******************/
+
+header .masthead {
+    display: flex;
+    align-content: baseline;
+}
+
+header .site-title {
+    margin:  12px;
+}
+
+/*******************/
+/*       NAV       */
+/*******************/
+
+.main-navigation a.nav-link {
+    color: var(--bs-primary) !important;
+}
+
+
+
 /*******************/
 /*       MAP       */
 /*******************/

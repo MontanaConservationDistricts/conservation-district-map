@@ -4,15 +4,9 @@
 	{% include "components/head.njk" %}
 
 	<body data-barba="wrapper">
+      
+      	{% include "components/header.njk" %}
 
-		<header>
-
-			{{ "/static/site-branding/MACD-Logotype.svg" | svgContents('site-logotype') | safe }}
-
-			<h1 class="site-title display-6 text-primary"><a href="{{ '/' | url }}" >{{ settings.siteTitle }}</a></h1>
-			{% include "components/nav.njk" %}
-
-		</header>
 
 		<main>
 			{% include "components/map.njk" %}

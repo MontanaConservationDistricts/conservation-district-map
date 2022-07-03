@@ -1,4 +1,4 @@
-<nav>
+{# <nav class="navbar navbar-expand-sm">
   {% set navPages = collections.all | eleventyNavigation %}
   <ul>
   {%- for entry in navPages %}
@@ -7,4 +7,23 @@
     </li>
   {%- endfor %}
   </ul>
+</nav> #}
+
+<nav class="main-navigation navbar navbar-expand-sm">
+  {% set navPages = collections.all | eleventyNavigation %}
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{ "/static/site-branding/MACD-Logotype.svg" | svgContents('site-logotype') | safe }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav display-4">
+        {%- for entry in navPages %}
+        <li class="nav-item ">
+          <a class="nav-link" aria-current="page" href="{{ entry.url | url }}">{{ entry.title }}</a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
 </nav>

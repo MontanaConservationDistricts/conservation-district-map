@@ -4,20 +4,18 @@
 /*******************/
 
 header .masthead {
-    display: flex;
-    align-content: baseline;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: var(--site-margin);
+    margin-right: var(--site-margin);
+    /*display: flex;*/
+    /*align-content: baseline;*/
+    /*justify-content: end;*/
 }
 
-header .site-title {
-    margin:  12px;
-}
-
-/*******************/
-/*       NAV       */
-/*******************/
-
-.main-navigation a.nav-link {
-    color: var(--bs-primary) !important;
+header .masthead .header-right {
+    margin-left: auto;
 }
 
 
@@ -37,8 +35,8 @@ header .site-title {
 
 .leaflet-tile-pane {
     z-index: 200;
-    mix-blend-mode: lighten;
-    opacity: 30%;
+    /*mix-blend-mode: lighten;*/
+    opacity: 70%;
 }
 
 .leaflet-overlay-pane {
@@ -95,11 +93,17 @@ div.leaflet-overlay-pane path:hover {
     position: absolute;
     z-index: 1000;
     pointer-events: none;
-    bottom: 0%; /* possible because the placeholder's parent is the map */
+    /*bottom: 0%;  possible because the placeholder's parent is the map */
     transform: translateY(-50%); /* using the CSS3 Transform technique */
     padding-top: 10px;
 }
 
 .leaflet-verticalcenter .leaflet-control {
     margin-bottom: 10px;
+}
+
+.leaflet-left .leaflet-control, .leaflet-top .leaflet-control {
+    margin-top: var(--site-margin);
+    margin-left: var(--site-margin);
+    z-index: 4000;
 }

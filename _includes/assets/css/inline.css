@@ -1,3 +1,12 @@
+
+/***************************/
+/*    GENERAL STRUCTURE    */
+/***************************/
+
+:root {
+  --site-margin: 48px;
+}
+
 /***************************/
 /*        BRANDING         */
 /***************************/
@@ -12,12 +21,6 @@ svg.site-logotype g path {
 .site-title a{
 	color: var(--bs-primary) !important;
 }
-
-
-/***************************/
-/*    GENERAL STRUCTURE    */
-/***************************/
-
 
 
 
@@ -126,12 +129,6 @@ header, footer {
 
 
 
-
-
-
-
-
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -144,7 +141,7 @@ body {
 
 body {
 	display: grid;
-	padding: 12px;
+    padding: var(--site-margin);
 	height: 100vh;
 	grid-template-rows: auto 1fr auto;
 	background-color: var(--background);

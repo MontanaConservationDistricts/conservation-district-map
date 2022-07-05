@@ -13,18 +13,6 @@ var map = L.map('map', {
 	scrollWheelZoom: false
 });
 
-// Set Initial Active Area
-function defineViewport(x, y, w, h) {
-
-	map.setActiveArea({
-		position: "absolute",
-		left: 0,
-		top: 0,
-		width: w,
-		height: h
-	});
-}
-
 if (settings.mapSettings.center.coordinates){
 	var openingView = [settings.mapSettings.center.coordinates[1], settings.mapSettings.center.coordinates[0]]
 } else {
@@ -36,6 +24,21 @@ if (settings.mapSettings.zoom){
 	var openingZoom = 6
 }
 
+mapVerticalCenter = 120; //sets initial vertical offset
+mapHorizontalCenter = 0; //sets initial vertical offset (overwritten in centerMap function)
+
+// Set Initial Active Area
+var defineViewport = function(x, y, w, h) {
+	map.setActiveArea({
+		position: "absolute",
+		left: x,
+		top: y,
+		width: w,
+		height: h
+	});
+}
+defineViewport("0px","0px", window.innerWidth - mapHorizontalCenter + "px", window.innerHeight - mapVerticalCenter + "px");
+
 map.setView(openingView, openingZoom);
 
 // var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -46,7 +49,7 @@ map.setView(openingView, openingZoom);
 var basemapPane = map.createPane('basemap').style.zIndex = 100;
 var Basemap = L.tileLayer(
   "https://api.mapbox.com/styles/v1/macdadmin/cl52ur84v000214picho24m4d/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q", {
-    pane: 'basemap'
+    	pane: 'basemap'
   }
 ).addTo(map);
 
@@ -72,7 +75,7 @@ var basemapPane = map.createPane('texture').style.zIndex = 200;
 L.GridLayer.texture = L.GridLayer.extend({
     createTile: function (coords) {
         var tile = document.createElement('img');
-		tile.src ='/static/geospatial/texture-tile-2.png';
+		tile.src ='/static/geospatial/paper-1.png';
         return tile;
     },
 });
@@ -193,34 +196,21 @@ map.addLayer( L.gridLayer.textureMap() );
 	         	console.log("------- ADDED -------");
 
 	         });
+
+         	//centerMap(false, '0px', mapVerticalCenter);
       });
 
    });
 
+var mapbuttons_div = L.DomUtil.create('div', 'mapbuttons leaflet-bar leaflet-control');
+var zoom = L.control.zoom(
+    {
+        position: 'topleft'
+     }
+);
 
-// Create additional Control placeholders
-function addControlPlaceholders(map) {
-    var corners = map._controlCorners,
-        l = 'leaflet-',
-        container = map._controlContainer;
-
-    function createCorner(vSide, hSide) {
-        var className = l + vSide + ' ' + l + hSide;
-
-        corners[vSide + hSide] = L.DomUtil.create('div', className, container);
-    }
-
-    createCorner('verticalcenter', 'left');
-    createCorner('verticalcenter', 'right');
-}
-addControlPlaceholders(map);
-
-// Change the position of the Zoom Control to a newly created placeholder.
-map.zoomControl.setPosition('verticalcenterleft');
-
-// You can also put other controls in the same placeholder.
-//L.control.scale({position: 'verticalcenterright'}).addTo(map);
-
+zoom.addTo(map);
+mapbuttons_div.appendChild(zoom.getContainer()); // works
 
    
    /////////////////////////

@@ -6,7 +6,7 @@ var featureGlobal = {} //empty object populated by clicking features on the map
 
 
 // MAP CENTER & ACTIVE AREA
-function centerMap(selectedFeature, w) {
+function centerMap(selectedFeature, w, h) {
 	console.log("------- CENTERING MAP -------")
 
   if (selectedFeature == true) {
@@ -27,11 +27,12 @@ function centerMap(selectedFeature, w) {
     var overlayWidth = 0;
     console.log('no selectedFeature overlay, width is: ' + overlayWidth + 'px' );
   }
-    
-  var activeAreaWidth = window.innerWidth - overlayWidth;
-  console.log('setting active area width to: '+ activeAreaWidth + 'px')
 
-  defineViewport("0px", "0px", activeAreaWidth.toString() + "px", "100vh");
+  var activeAreaHeight = window.innerHeight - h;
+  var activeAreaWidth = window.innerWidth - overlayWidth;
+  console.log('setting active area width to: '+ activeAreaWidth + activeAreaHeight)
+
+  defineViewport("0px", "0px", activeAreaWidth.toString() + "px", activeAreaHeight.toString() + "px");
 
   map.setView(new L.LatLng(centerCoordinates.lat, centerCoordinates.lng), map.getZoom() );
 
@@ -47,7 +48,7 @@ function resetMap() {
 
 	featureGlobal = {}; //empty selected feature
 	barba.go("/"); // barba transition to home
-	centerMap(); // center map with reset center coords and activeArea
+	centerMap(false, '0px', mapVerticalCenter); // center map with reset center coords and activeArea
 	console.log("------- RESET -----------");
 }
 
@@ -87,9 +88,9 @@ barba.init({
 	  leave(data) {
 	  	console.log("------- ON DATA LEAVE -------");
 	  	if (featureGlobal.feature){
-				centerMap(true, featureGlobal.feature.properties.style.width);
+				centerMap(true, featureGlobal.feature.properties.style.width, mapVerticalCenter);
 	  	} else {
-				centerMap(false, '0px');
+				centerMap(false, '0px', mapVerticalCenter);
 	  	}
 			console.log("------- DATA LEFT -------");
 	    return gsap.to(data.current.container, {

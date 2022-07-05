@@ -2,14 +2,15 @@
 <header>
   
   <div class="masthead">
-    
+
+    <div class="header-right"></div>
+      <a class="site-logo" href="#">{{ "/static/site-branding/MACD-Logotype.svg" | svgContents('site-logotype') | safe }}</a>
+    </div>
+
       {# {{ "/static/site-branding/MACD-Logotype.svg" | svgContents('site-logotype') | safe }} #}
 
       {# <h1 class="site-title display-5 text-primary"><a href="{{ '/' | url }}" >{{ settings.siteTitle }}</a></h1> #}
 
   </div>
-
-
-  {% include "components/nav.njk" %}
 
 </header>

@@ -1,8 +1,8 @@
 ---
 layout: layouts/base.njk
-title: Stories
+title: Districts
 date: 2016-01-01T00:00:00.000Z
-permalink: /stories/index.html
+permalink: /districts/index.html
 eleventyNavigation:
   key: 
   order: 

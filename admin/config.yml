@@ -1,16 +1,16 @@
 backend:
   name: git-gateway
+  identity_url: "https://mt-conservation-district-map.netlify.app/.netlify/identity"
+  gateway_url: "https://mt-conservation-district-map.netlify.app/.netlify/git/github"
   repo: MontanaConservationDistricts/conservation-district-map
   branch: master # Branch to update (optional; defaults to master)
-  open_authoring: true
+  # open_authoring: true
   
-
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 logo_url: "/static/site-branding/MACD-Logo_Rect_Blue.png"
-publish_mode: editorial_workflow
 
 collections:
   # Our pages e.g. About
@@ -48,6 +48,31 @@ collections:
         - {label: "Conservation District GeoJSON Data File", name: "geojson", widget: "file", media_folder: '/static/geospatial',default: "district-boundaries_simplified.geojson", multiple: false}
         - {label: "Default Map Center", name: "center", widget: "map", required: false }
         - {label: "Default Zoom", name: "zoom", widget: "number", required: false, min: 1, max: 20, default: 6.5 }
+
+
+# Our blog posts
+  - name: "stories" # Used in routes, e.g., /admin/collections/blog
+    label: "Stories" # Used in the UI
+    folder: "stories" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Story Title", name: "title", widget: "string" , required: true}
+      - { label: "Slug", name: "slug", widget: "string" , required: true}
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - { label: "Author", name: "author", widget: "string", default: "Anonymous", required: false }
+      - { label: "Summary", name: "summary", widget: "markdown", required: false}
+      - label: "Featured Image"
+        name: "featuredImage"
+        widget: "image"
+        media_folder: "/static/img"
+        choose_url: true
+        required: false
+        media_library:
+          config:
+            multiple: false
+      - {label: "Story Marker", name: "location", widget: "map", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
 
   # Our blog posts
   - name: "blog" # Used in routes, e.g., /admin/collections/blog

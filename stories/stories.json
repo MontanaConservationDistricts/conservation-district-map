@@ -1,0 +1,8 @@
+{
+  "layout": "layouts/stories.njk",
+  "permalink": "stories/{{ title | slug }}/index.html",
+  "author": "Anonymous",
+  "tags": [
+    "story"
+  ]
+}

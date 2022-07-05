@@ -1,0 +1,35 @@
+---
+permalink: /stories.json
+---
+{
+  "type": "FeatureCollection",
+  "features": [
+
+    {% set storylist = collections.story %}
+      {% for story in storylist | reverse %}
+
+        {
+          "type": "Feature",
+          "geometry": {{ story.data.location | dump | safe }},
+          "properties": {
+            "title": "{{ story.data.title }}",
+            "slug": "{{ story.data.slug }}",
+            "date": "{{ story.data.date }}",
+            "author": "{{ story.data.author }}",
+            "featuredImage": "{{ story.data.featuredImage }}",
+            "permalink": "{{ story.url | url }}",
+            "summary": {{ story.data.summary | dump | safe }},
+            "style": {
+              "width": "{{ story.data.style.width }}",
+              "primaryColor": "{{ story.data.style.primaryColor}}",
+              "secondaryColor": "{{ story.data.style.secondaryColor}}"
+            }
+
+          }
+
+        }
+      {% if loop.last == false %},{% endif %} 
+    {% endfor %}
+
+  ]
+}

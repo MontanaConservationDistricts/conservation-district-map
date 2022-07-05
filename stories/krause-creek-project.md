@@ -7,6 +7,10 @@ summary: Flathead Conservation District teams up to restore and repair a creek
   channel and riparian corridor.
 featuredImage: /static/img/wildlife-speakers-posters_final_digital4-1-.jpg
 location: '{"type":"Point","coordinates":[-114.0701366,47.6500629]}'
+style:
+  width: 600px
+  primaryColor: ""
+  secondaryColor: ""
 ---
 Each spring, Krause Creek rages through Don and Mary Garner’s property with an unnatural hydrology that is leading to big problems. In the first two weeks of November, volunteers from all over the state laced up their work boots and fueled up with coffee to get underway on a project to restore this local stream. Krause Creek is a seasonally flowing stream that originates in the Swan Mountains and terminates in Echo Lake just north of Bigfork, in Flathead County. Don and Mary reached out to the Flathead Conservation District for help with a project focused on a 1,600-foot section that flows through their property. 
 

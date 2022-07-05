@@ -85,6 +85,8 @@ L.gridLayer.textureMap = function(opts) {
 map.addLayer( L.gridLayer.textureMap() );
 
 
+globalLayerState = [] // declare array for handling active/disabled layers on toggle
+
 
 
 ////////////////////////////////
@@ -103,8 +105,8 @@ map.addLayer( L.gridLayer.textureMap() );
 
 
          // LOAD DISTRICT GEOJSON VIA AJAX
-         var districtBoundaries = new L.GeoJSON.AJAX(settings.mapSettings.geojson,{
-                style: baseStyle,
+         var districtBoundariesActive = new L.GeoJSON.AJAX(settings.mapSettings.geojson,{
+                style: districtsActive,
                 onEachFeature: function (feature, layer) {
 
 	               	// ON EACH FEATURE: JOIN POST DATA WITH GEOJSON
@@ -122,8 +124,7 @@ map.addLayer( L.gridLayer.textureMap() );
 						  	console.log(featureGlobal);
 
 						  	console.log('clicked: set "featureGlobal" as "' + featureGlobal.feature.properties.slug + '"');
-							districtBoundaries.setStyle(baseStyle);
-							featureGlobal.setStyle(selectStyle);
+							districtBoundariesActive.setStyle(districtsActive);
 							featureGlobal.bringToFront();
 						  	barba.go(feature.properties.permalink);
 						  	
@@ -133,7 +134,7 @@ map.addLayer( L.gridLayer.textureMap() );
 						  	}
 						  	featureGlobal._path.classList.add("selected"); //returns svg DOM object
 
-							featureGlobal.bringToFront(); // bring to front
+							//featureGlobal.bringToFront(); // bring to front
 
 						  	// REBIND POPUP ON CLICK
 					    	e.target.bindPopup(e.target.feature.properties.title, {className: 'hide-popup'}).openPopup();
@@ -164,19 +165,36 @@ map.addLayer( L.gridLayer.textureMap() );
                }
             })
 
+         	var districtBoundariesDisabled = new L.GeoJSON.AJAX(settings.mapSettings.geojson,{
+            	style: districtsDisabled
+            });
+
 
          	// ADD DISTRICT BOUNDARIES TO MAP
-         	districtBoundaries.on('data:loaded', function() {
+         	districtBoundariesActive.on('data:loaded', function() {
 
 	         	console.log("------- ADDING DISTRICTS -------");
+	         	console.log(districtBoundariesActive);
+
+	         	//map.addLayer(storyLayerActive);
+			    var districtsLayerHandler = {
+			    		layerHandlerName: 'districtsLayerHandler',
+						active: true,
+						activeLayer: districtBoundariesActive,
+						disabledLayer: districtBoundariesDisabled
+		     	}
+		     	globalLayerState.push(districtsLayerHandler);
+
 	            map.addLayer(this);
+        		//layerControl.addOverlay(this, "Districts"); // alternatively can add layer to map via layer control
+
 
 			  	// INTERACTIONS BTW MAP + DISTRICT BOUNDARIES  
 	            map.on({
 				    // RESET ON BASEMAP CLICK
 				    click: function(e) {
 					  	console.log('clicked: basemap');
-					  	districtBoundaries.setStyle(baseStyle); //reset district boundaries style
+					  	//districtBoundariesActive.setStyle(baseStyle); //reset district boundaries style
 					  	featureGlobal = {} // clear global feature
 
 					  	// REMOVE SELECTED CLASS
@@ -194,6 +212,7 @@ map.addLayer( L.gridLayer.textureMap() );
 					}
 				});
 	         	console.log("------- ADDED -------");
+	         	loadStories();
 
 	         });
 
@@ -202,36 +221,145 @@ map.addLayer( L.gridLayer.textureMap() );
 
    });
 
-var mapbuttons_div = L.DomUtil.create('div', 'mapbuttons leaflet-bar leaflet-control');
-var zoom = L.control.zoom(
-    {
-        position: 'topleft'
-     }
-);
 
-zoom.addTo(map);
-mapbuttons_div.appendChild(zoom.getContainer()); // works
+
+////////////////////////////////
+//	    STORIES GEOJSON       //
+//////////////////////////////// 
+
+var storiesPane = map.createPane('stories').style.zIndex = 450;
+
+// LOAD POST DATA FROM /stories.json
+let stories = [];
+var loadStories = function() { // CALLED FROM DISTRICTS GEOJSON ASYC FUNCTION
+    fetch('/stories.json')
+     .then((response) => response.json())
+     .then((data_server) => { 
+     
+     	// add json data to variable and parse location data to json format
+    	stories = data_server;
+     	for (var i = stories.features.length - 1; i >= 0; i--) {
+     		stories.features[i].geometry = JSON.parse(stories.features[i].geometry);
+	 	}
+	 	console.log(stories);
+
+     	// add layer group and marker for each story
+		storyLayerActive = new L.GeoJSON(stories, {
+		    pointToLayer: function (feature, latlng) {
+		        return L.circleMarker(latlng, {
+			      	pane: 'stories', // pane option is for individual layers.
+		        	radius: 10,
+					className: 'stories active'
+			    })
+		    },
+		    onEachFeature: function (feature, layer) {
+		    	// BIND POPUP
+	            layer.bindPopup(''); //unclear why this is needed... popup content managed with "onclick" event
+
+              	layer.on({
+		            // ON EACH FEATURE: CLICKED
+			        click: function(e) {
+
+					  	featureGlobal = e.target;
+					  	console.log(featureGlobal);
+
+					  	console.log('clicked: set "featureGlobal" as "' + featureGlobal.feature.properties.slug + '"');
+						//districtBoundariesActive.setStyle(baseStyle);
+						//featureGlobal.setStyle(selectStyle);
+						featureGlobal.bringToFront();
+					  	barba.go(feature.properties.permalink);
+					  	
+					  	if (document.querySelector('.selected')){
+					  		console.log('remove "selected class"')
+					  		document.querySelector('.selected').classList.remove('selected');
+					  	}
+					  	featureGlobal._path.classList.add("selected"); //returns svg DOM object
+
+						//featureGlobal.bringToFront(); // bring to front
+
+					  	// REBIND POPUP ON CLICK
+				    	e.target.bindPopup(e.target.feature.properties.title, {className: 'hide-popup'}).openPopup();
+				    	//e.target.unbindPopup();
+						//console.log(featureGlobal);
+					}, 
+
+			            // ON EACH FEATURE: HOVERED
+						mouseover: function(e) {
+							function customTip() {
+							    e.target.unbindTooltip();
+							    if(!e.target.isPopupOpen()) {
+							    	e.target.bindTooltip(e.target.feature.properties.title).openTooltip();
+							    };
+							}
+							customTip();
+						},
+						mouseout: function(e) {
+							// ...mouseout functions...
+						}
+		    	})
+	        }
+	    });
+
+	    storyLayerDisabled = new L.GeoJSON(stories, {
+		    pointToLayer: function (feature, latlng) {
+		        return L.circleMarker(latlng, {
+			      	pane: 'stories', // pane option is for individual layers.
+		        	radius: 5,
+					className: 'stories disabled'
+			    })
+			}
+	    });
+
+	    //map.addLayer(storyLayerActive);
+	    var storiesLayerHandler = {
+	    		layerHandlerName: 'storiesLayerHandler',
+				active: false,
+				activeLayer: storyLayerActive,
+				disabledLayer: storyLayerDisabled
+     	}
+     	globalLayerState.push(storiesLayerHandler)
+	    map.addLayer(storyLayerDisabled);
+
+		layerControl.addOverlay(storyLayerActive, "Stories"); // alternatively can add layer to map via layer control
+
+  	});
+};
+
+
+
+// LAYER CONTROL
+var dataLayers = {};
+var layerControl = L.control.layers(dataLayers)
+layerControl.addTo(map);
+layerControl.setPosition("topleft")
 
    
-   /////////////////////////
-   //	   MAP STYLES     //
-   /////////////////////////
 
-   // BASIC STYLE
-   var baseStyle = {
-       	// "color": "orange",
- 	    // "fillColor": "blue",
- 	    // "fillOpacity": 0,
- 	    // "weight": 1,
-        "smoothFactor" : 0,
 
-    };
-   	var selectStyle = {
-       	//"color": "blue",
- 	    //"fillColor": "blue",
- 	    // "weight": 3,
-        "smoothFactor" : 0,
-    };
+
+
+/////////////////////////
+//	    MAP STYLES     //
+/////////////////////////
+
+// BASIC STYLE
+var districtsActive = {
+	className: "district-boundaries active",
+	"smoothFactor" : 0
+};
+var districtsDisabled = {
+	className: "district-boundaries disabled",
+	"smoothFactor" : 0
+};
+
+var activeStyle = {
+	className: "active",
+};
+
+var geojsonMarkerOptions = {
+	radius: 10,
+	className: 'stories'
+};
 
 
 </script>

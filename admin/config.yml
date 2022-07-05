@@ -72,6 +72,14 @@ collections:
           config:
             multiple: false
       - {label: "Story Marker", name: "location", widget: "map", required: false }
+      - label: "Style"
+        name: "style"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Popup Width", name: "width", widget: "string", required: false }
+          - { label: 'Story Primary Color', name: 'primaryColor', widget: 'color', allowInput: true, required: false }
+          - { label: 'Story Secondary Color', name: 'secondaryColor', widget: 'color', allowInput: true, required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
   # Our blog posts

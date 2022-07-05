@@ -18,7 +18,22 @@ header .masthead .header-right {
     margin-left: auto;
 }
 
+/*******************/
+/*    MAP NAV      */
+/*******************/
 
+.map-handler-nav .nav-link {
+    padding: 0;
+    opacity: .5;
+}
+.map-handler-nav .nav-link.active:hover, .map-handler-nav .nav-link.active:focus  {
+    color: var(--bs-nav-link-color);
+}
+
+.map-handler-nav .nav-link.active {
+    padding: 0;
+    opacity: 1;
+}
 
 /*******************/
 /*       MAP       */
@@ -58,7 +73,7 @@ div.leaflet-overlay-pane path:hover {
     display: none;
 }
 
-.leaflet-interactive.selected {
+.district-boundaries.active.selected {
     stroke: var(--bs-primary);
     stroke-width: 1.5;
     fill: var(--bs-accent) !important;
@@ -67,23 +82,77 @@ div.leaflet-overlay-pane path:hover {
 }
 
 
-.leaflet-interactive {
+.district-boundaries.active {
     stroke: var(--bs-gray-600);
     stroke-width: 1.5;
     fill: var(--bs-primary) !important;
     fill-opacity:  0;
     stroke-opacity: .3;
 }
+.district-boundaries.disabled {
+    stroke: var(--bs-gray-600);
+    stroke-width: 1.5;
+    fill: var(--bs-primary) !important;
+    fill-opacity:  0;
+    stroke-opacity: .15;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
 
 
-.leaflet-interactive:hover {
+.district-boundaries.active:hover {
     stroke: var(--bs-primary);
     stroke-opacity: .5;
     stroke-width: 1.5;
     fill: #93D6E5 !important;
     fill-opacity:  .2;
 }
-
+.stories.active.selected {
+    stroke: var(--bs-secondary);
+    stroke-width: 2;
+    fill: var(--bs-secondary) !important;
+    fill-opacity:  .7;
+    stroke-opacity: 1;
+/*    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);*/
+}
+.stories.active:hover {
+    stroke: var(--bs-secondary);
+    stroke-width: 2;
+    fill: var(--bs-secondary) !important;
+    fill-opacity:  .7;
+    stroke-opacity: .7;
+/*    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);*/
+}
+.stories.active {
+    stroke: var(--bs-secondary);
+    stroke-width: 1;
+    fill: var(--bs-secondary) !important;
+    fill-opacity:  .7;
+    stroke-opacity: .7;
+}
+.stories.disabled {
+    stroke: var(--bs-secondary);
+    stroke-width: 0;
+    fill: var(--bs-secondary) !important;
+    fill-opacity:  .7;
+    stroke-opacity: 0;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}
 
 .leaflet-basemap-pane{
     mix-blend-mode: darken;

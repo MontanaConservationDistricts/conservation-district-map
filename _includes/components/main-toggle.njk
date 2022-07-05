@@ -1,10 +1,10 @@
 <nav class="main-navigation ">
-      <ul class="nav flex-column display-1">
+      <ul class="flex-column nav display-1 map-handler-nav">
         <li class="nav-item ">
-          <a class="nav-link" aria-current="stories" href="/stories">STORIES</a>
+          <a class="nav-stories nav-link" aria-current="stories" onclick="toggleLayer('storiesLayerHandler', this)" href="#">STORIES</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" aria-current="districts" href="/districts">DISTRICTS</a>
+          <a class="nav-districts nav-link active" aria-current="districts" onclick="toggleLayer('districtsLayerHandler', this)" href="#">DISTRICTS</a>
         </li>
       </ul>
 </nav>

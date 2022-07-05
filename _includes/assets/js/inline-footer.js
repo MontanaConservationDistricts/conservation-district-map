@@ -10,7 +10,12 @@ function centerMap(selectedFeature, w, h) {
 	console.log("------- CENTERING MAP -------")
 
   if (selectedFeature == true) {
-    var centerCoordinates = featureGlobal.getBounds().getCenter();
+  	console.log(featureGlobal);
+  	if (featureGlobal.feature.geometry.type == "Point"){
+  		var centerCoordinates = {"lat" : featureGlobal.feature.geometry.coordinates[1], "lng" : featureGlobal.feature.geometry.coordinates[0]};
+  	} else {
+  		var centerCoordinates = featureGlobal.getBounds().getCenter();
+  	}
     console.log('selectedFeature center: {lat:' + centerCoordinates.lat + ', lng:' + centerCoordinates.lng + '}');
   } else {
     var centerCoordinates = {}
@@ -119,6 +124,35 @@ barba.init({
 	}]
 });
 
+
+function toggleLayer(setLayerHandlerName, toggleMenuItem){
+
+
+		// remove all active layers, add all dissabled layers, if layer handler name is a match, add active layer
+		for (var i = 0; i < globalLayerState.length; i++) {
+			if (globalLayerState[i].layerHandlerName !== setLayerHandlerName) {
+				map.removeLayer(globalLayerState[i].activeLayer);
+				map.addLayer(globalLayerState[i].disabledLayer);
+				globalLayerState[i].active = false;
+			} if (globalLayerState[i].layerHandlerName == setLayerHandlerName) {
+				map.removeLayer(globalLayerState[i].disabledLayer);
+				map.addLayer(globalLayerState[i].activeLayer);
+				globalLayerState[i].active = true;
+			}
+		}
+
+		// get all features
+		var mapHandlerNavItems = document.querySelectorAll('.map-handler-nav .nav-link');
+		console.log(mapHandlerNavItems);
+		for (i=0; i < mapHandlerNavItems.length; i++){
+  		mapHandlerNavItems[i].classList.remove('active');
+  	}
+  	toggleMenuItem.classList.add('active');
+
+		console.log(globalLayerState);
+
+	}
+
 	
 
 //////////////////////////////////////////////
@@ -154,16 +188,3 @@ function copy(elem, messageClicked){
 			}, "300");
 	}
 }
-
-
-
-// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-//   return new bootstrap.Tooltip(tooltipTriggerEl, {
-// 		customClass: "overlay-tootip",
-// 		trigger: "manual",
-// 		title: "<p>Copied</p>",
-// 		container: "body",
-// 		delay: { "show": "100", "hide": "1000" }
-//   })
-// })

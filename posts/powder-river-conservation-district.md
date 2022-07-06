@@ -3,6 +3,7 @@ title: Powder River Conservation District
 titleShort: Powder River
 date: 2022-07-06T21:33:43.842Z
 author: Anonymous
+logo: /static/img/powder-river-square-logo.jpg
 style:
   area:
     - label: Justify Right

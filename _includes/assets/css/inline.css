@@ -105,6 +105,7 @@ svg.site-logotype g path {
 
 header, footer {
     z-index: 1;
+    pointer-events: none;
 }
 
 

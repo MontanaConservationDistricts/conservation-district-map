@@ -22,16 +22,23 @@ header .masthead .header-right {
 /*    MAP NAV      */
 /*******************/
 
-.map-handler-nav .nav-link {
-    padding: 0;
-    opacity: .5;
+.main-navigation{
+    width: 0px;
 }
+.map-handler-nav .nav-link {
+    display: inline-block;
+    padding: 0;
+    opacity: .4;
+    pointer-events: auto;
+}
+/*.map-handler-nav .nav-link:not(.active):hover  {
+}*/
+
 .map-handler-nav .nav-link.active:hover, .map-handler-nav .nav-link.active:focus  {
     color: var(--bs-nav-link-color);
 }
 
 .map-handler-nav .nav-link.active {
-    padding: 0;
     opacity: 1;
 }
 

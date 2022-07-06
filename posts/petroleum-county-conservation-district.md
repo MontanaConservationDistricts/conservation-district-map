@@ -36,5 +36,5 @@ locations:
     addressLabel: USDA Service Center, Winnett
 tags:
   - area-1
-id: petroleum
+id: petroleum-county
 ---

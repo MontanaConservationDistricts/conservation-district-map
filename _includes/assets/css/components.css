@@ -22,14 +22,12 @@ header .masthead .header-right {
 /*    MAP NAV      */
 /*******************/
 
-.main-navigation{
-    width: 0px;
-}
 .map-handler-nav .nav-link {
     display: inline-block;
     padding: 0;
     opacity: .4;
     pointer-events: auto;
+    line-height: 1.1;
 }
 /*.map-handler-nav .nav-link:not(.active):hover  {
 }*/
@@ -40,6 +38,19 @@ header .masthead .header-right {
 
 .map-handler-nav .nav-link.active {
     opacity: 1;
+    box-shadow: 0px 5px;
+}
+
+.nav-link.active .selection-icon {
+    position: absolute;
+    width: 20px !important;
+    height: 20px !important;
+    /*background-color: var(--bs-secondary);*/
+    margin-left: calc( var(--site-margin) * -1 - 40px);
+}
+.nav-link:not(.active) .selection-icon {
+    position: absolute;
+    margin-left: calc( var(--site-margin) * -1 - 80px);
 }
 
 /*******************/
@@ -149,6 +160,7 @@ div.leaflet-overlay-pane path:hover {
     stroke-opacity: .7;
 }
 .stories.disabled {
+    pointer-events: none !important;
     stroke: var(--bs-secondary);
     stroke-width: 0;
     fill: var(--bs-secondary) !important;

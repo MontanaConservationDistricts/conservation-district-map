@@ -20,5 +20,5 @@ locations:
     hours: "Mon, Tue, Thur, Fri: 8 am – 4 pm"
 tags:
   - area-2
-id: custer-county
+id: custer
 ---

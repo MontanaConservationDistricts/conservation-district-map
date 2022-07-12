@@ -22,5 +22,5 @@ locations:
     addressLabel: Office Address
 tags:
   - area-5
-id: eastern-sanders-county
+id: eastern-sanders
 ---

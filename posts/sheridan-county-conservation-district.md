@@ -29,5 +29,5 @@ locations:
     hours: Mon – Wed, 9 am – 3 pm
 tags:
   - area-1
-id: sheridan-county
+id: sheridan
 ---

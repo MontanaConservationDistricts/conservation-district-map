@@ -25,5 +25,5 @@ locations:
     hours: Mon – Thurs, 8 am – 12 pm
 tags:
   - area-1
-id: roosevelt-county
+id: roosevelt
 ---

@@ -36,5 +36,5 @@ locations:
     hours: "Mon - Thurs: 8am – 4:30pm"
 tags:
   - area-1
-id: garfield-county
+id: garfield
 ---

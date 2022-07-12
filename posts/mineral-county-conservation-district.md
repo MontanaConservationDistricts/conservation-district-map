@@ -25,5 +25,5 @@ locations:
     hours: Mon – Thur, 9:00 am – 3:30 pm
 tags:
   - area-5
-id: mineral-county
+id: mineral
 ---

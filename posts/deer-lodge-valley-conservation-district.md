@@ -21,5 +21,5 @@ locations:
     hours: "Mon – Fri: 7:30 am – 4 pm"
 tags:
   - area-5
-id: deer-lodge-valley
+id: deer-lodge
 ---

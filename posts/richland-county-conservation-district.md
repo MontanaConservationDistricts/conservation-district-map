@@ -24,5 +24,5 @@ locations:
     addressLabel: USDA Service Center, Sidney
 tags:
   - area-2
-id: richland-county
+id: richland
 ---

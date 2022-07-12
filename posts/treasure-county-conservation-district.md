@@ -24,5 +24,5 @@ locations:
     hours: Mon, Tues, Thurs 8 am-2 pm
 tags:
   - area-4
-id: treasure-county
+id: treasure
 ---

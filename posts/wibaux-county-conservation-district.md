@@ -23,5 +23,5 @@ locations:
     addressLabel: USDA Service Center, Wibaux
 tags:
   - area-2
-id: wibaux-county
+id: wibaux
 ---

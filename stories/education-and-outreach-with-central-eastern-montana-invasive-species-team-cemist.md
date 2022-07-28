@@ -4,7 +4,8 @@ title: Education and Outreach with Central & Eastern Montana Invasive Species
 slug: cemist
 date: 2022-07-28T22:30:38.873Z
 author: Anonymous
-summary: Test
+summary: Education and Outreach with Central & Eastern Montana Invasive Species
+  Team (CEMIST)
 featuredImage: /static/img/billings-riverfront-park_img_1431-28-.jpeg
 location: '{"type":"Point","coordinates":[-108.5922103,45.7192178]}'
 ---

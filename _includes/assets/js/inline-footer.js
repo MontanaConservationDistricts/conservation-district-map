@@ -6,7 +6,7 @@ var featureGlobal = {} //empty object populated by clicking features on the map
 
 
 // MAP CENTER & ACTIVE AREA
-function centerMap(selectedFeature, w, h) {
+function centerMap(selectedFeature, w, h, zoomLevel) {
 	console.log("------- CENTERING MAP -------")
 
   if (selectedFeature == true) {
@@ -39,7 +39,11 @@ function centerMap(selectedFeature, w, h) {
 
   defineViewport("0px", "0px", activeAreaWidth.toString() + "px", activeAreaHeight.toString() + "px");
 
-  map.setView(new L.LatLng(centerCoordinates.lat, centerCoordinates.lng), map.getZoom() );
+  if (zoomLevel !== undefined) {
+  	zoomLevel == map.getZoom;
+  }
+
+  map.setView(new L.LatLng(centerCoordinates.lat, centerCoordinates.lng), zoomLevel );
 
 	console.log("------- CENTERED -------")
 }
@@ -53,7 +57,7 @@ function resetMap() {
 
 	featureGlobal = {}; //empty selected feature
 	barba.go("/"); // barba transition to home
-	centerMap(false, '0px', mapVerticalCenter); // center map with reset center coords and activeArea
+	centerMap(false, '0px', mapVerticalCenter, mapSettings.zoom); // center map with reset center coords and activeArea
 	console.log("------- RESET -----------");
 }
 

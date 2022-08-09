@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
-  #identity_url: "https://mt-conservation-district-map.netlify.app/.netlify/identity"
-  #gateway_url: "https://mt-conservation-district-map.netlify.app/.netlify/git/github"
+  identity_url: "https://mt-conservation-district-map.netlify.app/.netlify/identity"
+  gateway_url: "https://mt-conservation-district-map.netlify.app/.netlify/git/github"
   repo: MontanaConservationDistricts/conservation-district-map
   branch: master # Branch to update (optional; defaults to master)
   # open_authoring: true

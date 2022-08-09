@@ -47,30 +47,34 @@ var topPane = map.createPane('top').style.zIndex = 450;
 map.getPane('top').style.pointerEvents = 'none';
 
 
-// var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//   	maxZoom: 19,
-//   	attribution: '© OpenStreetMap'
-// }).addTo(map);
-
-var Basemap = L.tileLayer(
-  "https://api.mapbox.com/styles/v1/macdadmin/cl52ur84v000214picho24m4d/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q", {
-    	pane: 'basemap'
-  }
-).addTo(map);
-
-var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q', {
-        //attribution: '©OpenStreetMap, ©CartoDB',
-        pane: 'top',
-}).addTo(map);
-
-// var token ="pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q";
-// var gl = L.mapboxGL({
-//     accessToken: token,
-//     pane: 'top-pane',
-//     offset: -1,
-//     tileSize: 256*2,
-//     style: 'mapbox://styles/macdadmin/ckry56epi7pnn1bruotbmpb8y'
-// }).addTo(map);
+// BASEMAP CONTROLS
+if (mapSettings.layers.basemaps) {
+	for (i=0; i< mapSettings.layers.basemaps.length; i++){
+		if (mapSettings.layers.basemaps[i].customBasemap.enabled == true && mapSettings.layers.basemaps[i].presets == 'custom'){
+				L.tileLayer(mapSettings.layers.basemaps[i].customBasemap.url, { // custom basemap
+					pane: mapSettings.layers.basemaps[i].targetPane,
+				}).addTo(map);
+		} if (mapSettings.layers.basemaps[i].customBasemap.enabled == false) {
+			if (mapSettings.layers.basemaps[i].presets == 'mapbox basemap') { // mapbox basemap
+				L.tileLayer(
+				  "https://api.mapbox.com/styles/v1/macdadmin/cl52ur84v000214picho24m4d/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q", {
+				    	pane: mapSettings.layers.basemaps[i].targetPane
+				  }
+				).addTo(map);
+			} if (mapSettings.layers.basemaps[i].presets == 'mapbox labels') { // labels basemap
+				L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q', {
+				        pane: mapSettings.layers.basemaps[i].targetPane,
+				}).addTo(map);
+			} if (mapSettings.layers.basemaps[i].presets == 'osm') { // open street map basemap
+				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					pane: mapSettings.layers.basemaps[i].targetPane,
+				  	maxZoom: 19,
+				  	attribution: '© OpenStreetMap'
+				}).addTo(map);
+			}
+		}
+	}
+}
 
 
 var basemapPane = map.createPane('texture').style.zIndex = 200;

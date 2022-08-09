@@ -87,7 +87,7 @@ collections:
                   widget: "select"
                   options: 
                     - {label: "Top", value: "top"}
-                    - {label: "Bottom", value: "bottom"}
+                    - {label: "Bottom", value: "basemap"}
 
 # Our blog posts
   - name: "stories" # Used in routes, e.g., /admin/collections/blog

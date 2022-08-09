@@ -14,15 +14,7 @@
           "url": " "
         },
         "presets": "mapbox basemap",
-        "targetPane": "bottom"
-      },
-      {
-        "customBasemap": {
-          "enabled": true,
-          "url": "https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q"
-        },
-        "presets": "custom",
-        "targetPane": "top"
+        "targetPane": "basemap"
       },
       {
         "customBasemap": {
@@ -30,7 +22,7 @@
           "url": "https://..."
         },
         "presets": "mapbox labels",
-        "targetPane": "bottom"
+        "targetPane": "top"
       }
     ]
   }

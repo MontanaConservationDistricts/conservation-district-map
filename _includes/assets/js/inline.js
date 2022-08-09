@@ -13,6 +13,8 @@ if (window.netlifyIdentity) {
 //      FETCH SITE SETTINGS FOR JS USE     //
 /////////////////////////////////////////////  
 
+console.log( {{ settingsMap | dump | safe }} );
+
 var mapSettings = {{ settingsMap | dump | safe }};
     mapSettings.center = JSON.parse(mapSettings.center);
 var generalSettings = {{ settings | dump | safe }};

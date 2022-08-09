@@ -120,7 +120,6 @@ div.leaflet-overlay-pane path:hover {
     filter: blur(2px);
 }
 
-
 .district-boundaries.active:hover {
     stroke: var(--bs-primary);
     stroke-opacity: .5;

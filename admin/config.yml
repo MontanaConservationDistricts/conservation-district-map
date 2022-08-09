@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   identity_url: "https://mt-conservation-district-map.netlify.app/.netlify/identity"
-  # gateway_url: "https://mt-conservation-district-map.netlify.app/.netlify/git/github"
+  gateway_url: "https://mt-conservation-district-map.netlify.app/.netlify/git/github"
   repo: MontanaConservationDistricts/conservation-district-map
   branch: master # Branch to update (optional; defaults to master)
   # open_authoring: true
@@ -48,6 +48,19 @@ collections:
         - {label: "Conservation District GeoJSON Data File", name: "geojson", widget: "file", media_folder: '/static/geospatial',default: "district-boundaries_simplified.geojson", multiple: false}
         - {label: "Default Map Center", name: "center", widget: "map", required: false }
         - {label: "Default Zoom", name: "zoom", widget: "number", required: false, min: 1, max: 20, default: 6.5 }
+        - {label: "Test", name: "test", widget: "number", required: false, min: 1, max: 20, default: 6.5 }
+        - label: "Layer Options"
+          name: "layers"
+          widget: "object"
+          collapsed: false
+          fields:
+            - label: "Texture Layer"
+              name: "texture"
+              widget: "object"
+              collapsed: true
+              fields:
+                - {label: "Texture Layer", name: "textureAdd", widget: "boolean", default: true}
+                - {label: "Texture File", name: "textureFile", widget: "file", media_folder: '/static/geospatial',default: "/static/geospatial/paper-1.png", multiple: false}
 
 
 # Our blog posts

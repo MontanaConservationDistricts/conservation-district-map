@@ -1,5 +1,11 @@
 {
   "geojson": "/static/geospatial/district-boundaries_simplified.geojson",
   "center": "{\"type\":\"Point\",\"coordinates\":[-109.9409893,47.0875274]}",
-  "zoom": 7
+  "zoom": 7,
+  "layers": {
+    "texture": {
+      "textureAdd" : "",
+      "textureFile" : ""
+    }
+  }
 }

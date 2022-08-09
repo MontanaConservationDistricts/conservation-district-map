@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   identity_url: "https://mt-conservation-district-map.netlify.app/.netlify/identity"
   gateway_url: "https://mt-conservation-district-map.netlify.app/.netlify/git/github"
   repo: MontanaConservationDistricts/conservation-district-map

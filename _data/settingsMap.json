@@ -10,9 +10,10 @@
     "basemaps": [
       {
         "customBasemap": {
-          "enabled": false
+          "enabled": false,
+          "url": " "
         },
-        "presets": "mapbox",
+        "presets": "mapbox basemap",
         "targetPane": "bottom"
       },
       {
@@ -20,8 +21,16 @@
           "enabled": true,
           "url": "https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q"
         },
-        "presets": "osm",
+        "presets": "custom",
         "targetPane": "top"
+      },
+      {
+        "customBasemap": {
+          "enabled": false,
+          "url": "https://..."
+        },
+        "presets": "mapbox labels",
+        "targetPane": "bottom"
       }
     ]
   }

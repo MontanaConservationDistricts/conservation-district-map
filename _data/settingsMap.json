@@ -4,7 +4,7 @@
   "zoom": 7,
   "layers": {
     "texture": {
-      "textureAdd": true,
+      "textureAdd": false,
       "textureFile": "/static/geospatial/texture-tile-1.png"
     }
   }

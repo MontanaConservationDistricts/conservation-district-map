@@ -41,20 +41,22 @@ defineViewport("0px","0px", window.innerWidth - mapHorizontalCenter + "px", wind
 
 map.setView(openingView, openingZoom);
 
+// Create custom panes for basemap layers
+var basemapPane = map.createPane('basemap').style.zIndex = 100;
+var topPane = map.createPane('top').style.zIndex = 450;
+map.getPane('top').style.pointerEvents = 'none';
+
+
 // var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //   	maxZoom: 19,
 //   	attribution: '© OpenStreetMap'
 // }).addTo(map);
 
-var basemapPane = map.createPane('basemap').style.zIndex = 100;
 var Basemap = L.tileLayer(
   "https://api.mapbox.com/styles/v1/macdadmin/cl52ur84v000214picho24m4d/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q", {
     	pane: 'basemap'
   }
 ).addTo(map);
-
-var topPane = map.createPane('top').style.zIndex = 450;
-map.getPane('top').style.pointerEvents = 'none';
 
 var topLayer = L.tileLayer('https://api.mapbox.com/styles/v1/macdadmin/cl4uystie000414pcpa31qi4o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFjZGFkbWluIiwiYSI6ImNrcnkyd3c4eTB3OHEyb3MzNHMyeXN5MDAifQ.dDNnOPePgwvhR3vD4pHt-Q', {
         //attribution: '©OpenStreetMap, ©CartoDB',
@@ -75,14 +77,16 @@ var basemapPane = map.createPane('texture').style.zIndex = 200;
 L.GridLayer.texture = L.GridLayer.extend({
     createTile: function (coords) {
         var tile = document.createElement('img');
-		tile.src ='/static/geospatial/paper-1.png';
+		tile.src = mapSettings.layers.textureFile;
         return tile;
     },
 });
 L.gridLayer.textureMap = function(opts) {
     return new L.GridLayer.texture(opts);
 };
-map.addLayer( L.gridLayer.textureMap() );
+if (mapSettings.layers.textureAdd == true) {
+	map.addLayer( L.gridLayer.textureMap() );
+}
 
 
 globalLayerState = [] // declare array for handling active/disabled layers on toggle

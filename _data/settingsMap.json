@@ -6,6 +6,15 @@
     "texture": {
       "textureAdd": false,
       "textureFile": "/static/geospatial/texture-tile-1.png"
-    }
+    },
+    "basemaps": [
+      {
+        "customBasemap": {
+          "enabled": false
+        },
+        "presets": "mapbox",
+        "targetPane": "bottom"
+      }
+    ]
   }
 }

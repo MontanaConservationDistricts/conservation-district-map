@@ -63,14 +63,17 @@ collections:
             - label: "Basemap Layers"
               name: "basemaps"
               widget: "list"
-              summary: 'Basemap - {{fields.presets}} - {{fields.targetPane}}'
+              summary: 'Layer - {{fields.presets}} - {{fields.targetPane}}'
               fields:
                 - label: "Basemap Presets"
                   name: "presets"
                   widget: "select"
                   options: 
-                    - {label: "Mapbox - Conservation Districts Basemap", value: "mapbox"}
+                    - {label: "Mapbox - Conservation Districts Basemap", value: "mapbox basemap"}
+                    - {label: "Mapbox - Conservation Districts Labels", value: "mapbox labels"}
                     - {label: "Open Street Map - Default", value: "osm"}
+                    - {label: "Custom", value: "custom"}
+
                 - label: "Custom Basemap"
                   description: "Enter the url string to add a custom basemap option. This overrides any of the preset basemaps in the option above."
                   name: "customBasemap"
@@ -78,7 +81,7 @@ collections:
                   collapsed: true
                   fields:
                     - {label: "Enable Custom Layer", name: "enabled", widget: "boolean", default: false}
-                    - {label: "URL", name: "url", widget: "string", required: false}
+                    - {label: "URL", name: "url", widget: "string", default: "https://...", required: true}
                 - label: "Target Pane"
                   name: "targetPane"
                   widget: "select"

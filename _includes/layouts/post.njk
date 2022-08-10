@@ -46,76 +46,68 @@ section: post
 
       <div class="post-content dynamic-height">
 
-        <div class="container">
+        <div class="container p-0">
 
             {% if (summary) %}
-            <div id="{{ id }}-summary" class="row">
+            <div id="{{ id }}-summary" class="ps-3 pe-3">
               <p class="lead"> {{ summary | markdown | safe }} </p>
             </div>  
             {% endif %}
 
 
-            <div class="row bg-light pt-4 pb-4 g-4">
+            <div class="row bg-light rounded-2 m-3 pt-4 pb-4 ps-3 pe-3 g-4">
 
-              {# PRIMARY CONTACT INFORMATION #}
-              {% if (contact | length) %}
-              <div id="{{ id }}-contact" class="col">
-                <div class="container p-0">
-                  <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Contact Information </h6>
-                  <dl class="row g-0">
-                    {% if contact.website %}
-                      <div class="d-flex">
-                        <dt class="meta contact-icon"><a href="{{ contact.website }}"><i class="me-2 bi bi-globe" ></i></a></dt>
-                        <dd class="meta"><a class="barba-prevent bs-link-color" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
-                      </div>
-                    {% endif %}
-                    {% if contact.primaryEmail %}
-                      <div class="d-flex">
-                        <dt class="meta contact-icon"><a class="barba-prevent" href="#"><i class="me-2 bi bi-envelope"></i></a></dt>
-                        <dd class="meta" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
-                      </div>
-                    {% endif %}
-                    {% if contact.primaryPhone %}
-                      <div class="d-flex">
-                        <dt class="meta contact-icon"><a class="barba-prevent" href="#"><i class="me-2 bi bi-telephone "></i></a></dt>
-                        <dd class="meta" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
-                      </div>
-                    {% endif %}
-                  </dl>
+              <div class="col">
+                {# PRIMARY CONTACT INFORMATION #}
+                {% if (contact | length) %}
+                <div id="{{ id }}-contact">
+                  <div class="container p-0">
+                    <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Contact Information </h6>
+                    <dl class="row g-0">
+                      {% if contact.website %}
+                        <div class="d-flex">
+                          <dt class="meta contact-icon"><a href="{{ contact.website }}"><i class="me-2 bi bi-globe" ></i></a></dt>
+                          <dd class="meta"><a class="barba-prevent bs-link-color" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
+                        </div>
+                      {% endif %}
+                      {% if contact.primaryEmail %}
+                        <div class="d-flex">
+                          <dt class="meta contact-icon"><a class="barba-prevent" href="#"><i class="me-2 bi bi-envelope"></i></a></dt>
+                          <dd class="meta" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
+                        </div>
+                      {% endif %}
+                      {% if contact.primaryPhone %}
+                        <div class="d-flex">
+                          <dt class="meta contact-icon"><a class="barba-prevent" href="#"><i class="me-2 bi bi-telephone "></i></a></dt>
+                          <dd class="meta" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
+                        </div>
+                      {% endif %}
+                    </dl>
+                  </div>
                 </div>
+                {% endif %}
+
+
+                {# SOCIAL MEDIA #}
+                {# <pre>{{ contact.social | dump('\t') }}</pre> #}
+                {% if (contact.social | length) %}
+                  <div id="{{ id }}-social">
+                      <div class="container p-0">
+                        <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Social Media </h6>
+                        {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
+                        <dl class="row g-0">
+                          {% for item in contact.social %}
+                            <div class="d-flex">
+                              <dt class="meta contact-icon"><a href="{{ item.socialItemUrl }}"><i class="{{ socialArray[item.socialItem] }} me-2 bi"></i></a></dt>
+                              <dd class="meta"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
+                            </div>
+                          {% endfor %}
+                        </dl>
+                      </div>
+                  </div>
+                {% endif %}
               </div>
-              {% endif %}
-
-
-
-
-
-
-
-
-
-
-
-
-              {# SOCIAL MEDIA #}
-              {# <pre>{{ contact.social | dump('\t') }}</pre> #}
-
-              {% if (contact.social | length) %}
-                <div id="{{ id }}-social" class="col">
-                    <div class="container p-0">
-                      <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Social Media </h6>
-                      {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
-                      <dl class="row g-0">
-                        {% for item in contact.social %}
-                          <div class="d-flex">
-                            <dt class="meta contact-icon"><a href="{{ item.socialItemUrl }}"><i class="{{ socialArray[item.socialItem] }} me-2 bi"></i></a></dt>
-                            <dd class="meta"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
-                          </div>
-                        {% endfor %}
-                      </dl>
-                    </div>
-                </div>
-              {% endif %}
+              
 
 
               {# ADDRESS #}
@@ -123,9 +115,9 @@ section: post
               <div id="{{ id }}-contact" class="col">
                 <div class="container p-0">
                   <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Locations </h6>
-                  <dl class="row g-0 text-nowrap">
+                  <dl class="row g-0">
                     {% for item in locations %}
-                      <div class="col d-flex">
+                      <div class="col mb-2 d-flex">
                         <dt class="meta contact-icon"><a><i class="bi-geo-alt-fill me-2 bi"></i></a></dt>
                         <dd class="meta">
                           {% if item.addressLabel %}
@@ -157,32 +149,31 @@ section: post
                 </div>
               </div>
               {% endif %}
-
-
-
             </div>
             
 
             {# BODY CONTENT #}
-            {{ layoutContent | safe }}
+            <div class="container p-3">
+              {{ layoutContent | safe }}
+            </div>
 
-
-            {% if tags %}
+            <div class="post-footer container p-3">
+              {% if tags %}
+                <p>
+                {% for tag in tags %}
+                  {%- if tag != "post" -%}
+                    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                    <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+                  {%- endif -%}
+                {% endfor %}
+                </p>
+              {% endif %}
               <p>
-              {% for tag in tags %}
-                {%- if tag != "post" -%}
-                  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-                  <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-                {%- endif -%}
-              {% endfor %}
+                <small>
+                  <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
+                </small>
               </p>
-            {% endif %}
-
-            <p>
-              <small>
-                <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
-              </small>
-            </p>
+            </div>
 
         </div>
       </div>

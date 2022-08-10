@@ -72,11 +72,17 @@ $display-line-height: $headings-line-height;
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;
 
-
 $font-family-sans-serif: 'Raleway', sans-serif;
 
 .scrollspy{
 	position: relative;
+}
+
+.meta {
+  font-size: .8rem;
+  line-height: 1.2;
+  margin-bottom: .2rem;
+  color: $primary;
 }
 
 

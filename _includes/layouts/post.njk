@@ -7,15 +7,17 @@ section: post
     
     <div class="overlay-inner">
 
-      <button type="button" class="btn-close" onclick="resetMap();" aria-label="Close"></button>
+      {% include "components/top-bar.njk" %}
 
       {# HEADER #}
-      <div class="post-header ">
+      <div class="post-header">
 
-          <div class="row g-5">
+          <div class="row gx-4 align-items-center">
               {% if (logo) %}
               <div class="col-4">
-                <img class="logo" src="{{ logo }}">
+                <div class="logo-container">
+                  <img class="logo" src="{{ logo }}">
+                </div>
               </div>
               {% endif %}
               <div class="{{ 'col-8' if logo else 'col-12'}}">
@@ -52,46 +54,118 @@ section: post
             </div>  
             {% endif %}
 
-           {# PRIMARY CONTACT INFORMATION #}
-            {% if (contact | length) %}
-            <div id="{{ id }}-contact" class="row">
-              <h6> Contact Information </h6>
-              <dl class="row">
-                {% if contact.website %}
-                  <dt class="col-sm-1"><a href="{{ contact.website }}"><i class="m-1 bi bi-globe" ></i></a></dt>
-                  <dd class="col-sm-11"><a class="barba-prevent bs-link-color" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
-                {% endif %}
-                {% if contact.primaryEmail %}
-                  <dt class="col-sm-1"><a href="{{ contact.primaryEmail }}"><i class="m-1 bi bi-envelope"></i></a></dt>
-                  <dd class="col-sm-11" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
-                {% endif %}
-                {% if contact.primaryPhone %}
 
-                  <dt class="col-sm-1"><a href="{{ contact.primaryPhone }}"><i class="m-1 bi bi-telephone "></i></a></dt>
-                  <dd class="col-sm-11" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
-                {% endif %}
-              </dl>
-            </div>
-            {% endif %}
+            <div class="row bg-light pt-4 pb-4 g-4">
 
-            {# SOCIAL MEDIA #}
-            {# <pre>{{ contact.social | dump('\t') }}</pre> #}
+              {# PRIMARY CONTACT INFORMATION #}
+              {% if (contact | length) %}
+              <div id="{{ id }}-contact" class="col">
+                <div class="container p-0">
+                  <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Contact Information </h6>
+                  <dl class="row g-0">
+                    {% if contact.website %}
+                      <div class="d-flex">
+                        <dt class="meta contact-icon"><a href="{{ contact.website }}"><i class="me-2 bi bi-globe" ></i></a></dt>
+                        <dd class="meta"><a class="barba-prevent bs-link-color" target="_blank" href= "{{ contact.website }}">{{ contact.website }}</a></dd>
+                      </div>
+                    {% endif %}
+                    {% if contact.primaryEmail %}
+                      <div class="d-flex">
+                        <dt class="meta contact-icon"><a class="barba-prevent" href="#"><i class="me-2 bi bi-envelope"></i></a></dt>
+                        <dd class="meta" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryEmail }}</a></dd>
+                      </div>
+                    {% endif %}
+                    {% if contact.primaryPhone %}
+                      <div class="d-flex">
+                        <dt class="meta contact-icon"><a class="barba-prevent" href="#"><i class="me-2 bi bi-telephone "></i></a></dt>
+                        <dd class="meta" ><a class="barba-prevent" href= "#" data-bs-toggle="tooltip" data-bs-placement="right" onmouseover="copy(this, 'Copied!')" >{{ contact.primaryPhone }}</a></dd>
+                      </div>
+                    {% endif %}
+                  </dl>
+                </div>
+              </div>
+              {% endif %}
 
-            {% if (contact.social | length) %}
-              <div id="{{ id }}-social" class="row">
-                  <h6> Social Media </h6>
-                  {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
-                  <dl class="row">
-                    {% for item in contact.social %}
-                      <dt class="col-sm-1"><a href="{{ item.socialItemUrl }}"><i class="{{ socialArray[item.socialItem] }} m-1 bi"></i></a></dt>
-                      <dd class="col-sm-11"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
+
+
+
+
+
+
+
+
+
+
+
+              {# SOCIAL MEDIA #}
+              {# <pre>{{ contact.social | dump('\t') }}</pre> #}
+
+              {% if (contact.social | length) %}
+                <div id="{{ id }}-social" class="col">
+                    <div class="container p-0">
+                      <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Social Media </h6>
+                      {% set socialArray = {facebook:"bi-facebook", instagram: "bi-instagram", newsletter: "bi-newspaper", twitter: "bi-twitter", other: "bi-link-45deg"} %}
+                      <dl class="row g-0">
+                        {% for item in contact.social %}
+                          <div class="d-flex">
+                            <dt class="meta contact-icon"><a href="{{ item.socialItemUrl }}"><i class="{{ socialArray[item.socialItem] }} me-2 bi"></i></a></dt>
+                            <dd class="meta"><a class="barba-prevent" target="_blank" href= "{{ item.socialItemUrl }}">{{ item.socialItem }}</a></dd>
+                          </div>
+                        {% endfor %}
+                      </dl>
+                    </div>
+                </div>
+              {% endif %}
+
+
+              {# ADDRESS #}
+              {% if (contact | length) %}
+              <div id="{{ id }}-contact" class="col">
+                <div class="container p-0">
+                  <h6 class="text-nowrap pb-1 mb-3 border-bottom border-2"> Locations </h6>
+                  <dl class="row g-0 text-nowrap">
+                    {% for item in locations %}
+                      <div class="col d-flex">
+                        <dt class="meta contact-icon"><a><i class="bi-geo-alt-fill me-2 bi"></i></a></dt>
+                        <dd class="meta">
+                          {% if item.addressLabel %}
+                            <p class="meta"> 
+                              <b>{{ item.addressLabel }}</b>
+                            </p>
+                          {% endif %}
+                          <p class="meta"> 
+                            {% if item.addressLine1 %}
+                              {{ item.addressLine1 }}<br>
+                            {% endif %}
+                            {% if item.addressLine2 %}
+                              {{ item.addressLine2 }}<br>
+                            {% endif %}
+                            {% if item.city %}{{ item.city }}, {% endif %}
+                            {% if item.state %}{{ item.state }} {% endif %}
+                            {% if item.post-code %}{{ item.post-code }}{% endif %}
+                            <br>
+                          </p>
+                          {% if item.hours %}
+                            <p class="meta">
+                              <i>{{ item.hours | safe }}<i>
+                            </p>
+                          {% endif %}
+                        </dd>
+                      </div>
                     {% endfor %}
                   </dl>
+                </div>
               </div>
-            {% endif %}
+              {% endif %}
 
 
+
+            </div>
+            
+
+            {# BODY CONTENT #}
             {{ layoutContent | safe }}
+
 
             {% if tags %}
               <p>

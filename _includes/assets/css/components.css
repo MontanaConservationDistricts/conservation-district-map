@@ -53,6 +53,65 @@ header .masthead .header-right {
     margin-left: calc( var(--site-margin) * -1 - 80px);
 }
 
+
+
+/*******************/
+/*     TOP BAR     */
+/*******************/
+
+.top-bar-container {
+    position: sticky;
+    display: flex;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2000;
+    border-bottom: solid 1px var(--bs-gray-400);
+    background-color: var(--bs-white);
+    -webkit-box-shadow: 0 8px 20px 2px rgb(0 0 0 / 25%);
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.05);
+}
+
+.top-bar-container .top-bar-cd-title{
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: var(--bs-white);
+    border-right:  solid 1px var(--bs-gray-400);
+    text-decoration: none;
+}
+
+.top-bar-container .top-bar-cd-title.active:hover{
+    background-color: var(--bs-gray-200);
+}
+
+.top-bar-container .top-bar-cd-title .title{
+    margin-bottom: 0;
+}
+
+.top-bar-container .top-bar-cd-title .logo{
+    max-width: 36px;
+    max-height: 36px;
+    margin-right: 12px;
+}
+
+
+.top-bar-container .top-bar-close{
+    padding: 16px;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    border:  0;
+    border-right: solid 1px var(--bs-gray-400);
+    border-radius: 0;
+}
+
+
+
+
 /*******************/
 /*       MAP       */
 /*******************/

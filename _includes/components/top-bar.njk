@@ -1,0 +1,21 @@
+<div class="top-bar-container">
+
+    <button type="button" class="btn btn-outline-primary top-bar-close" onclick="resetMap();" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+
+     
+        <a {% if contact.website %} class="top-bar-cd-title active"{% else %} class="top-bar-cd-title" {% endif %}
+            {% if contact.website %}
+              href="{{ contact.website }}"
+            {% endif %}>
+            {% if (logo) %}
+                <div class="">
+                    <img class="logo" src="{{ logo }}">
+                </div>
+            {% endif %}
+
+            <h6 class="title">{{ titleShort }} CD</h6>
+         </a>
+    
+
+
+</div>

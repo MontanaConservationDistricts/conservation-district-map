@@ -2,20 +2,28 @@
 
     <button type="button" class="btn btn-outline-primary top-bar-close" onclick="resetMap();" aria-label="Close"><i class="bi bi-x-lg"></i></button>
 
-     
-        <a {% if contact.website %} class="top-bar-cd-title active"{% else %} class="top-bar-cd-title" {% endif %}
-            {% if contact.website %}
-              href="{{ contact.website }}"
-            {% endif %}>
-            {% if (logo) %}
-                <div class="">
-                    <img class="logo" src="{{ logo }}">
-                </div>
-            {% endif %}
 
-            <h6 class="title">{{ titleShort }} CD</h6>
-         </a>
-    
+        {% if 'post' in tags %}
+            <a {% if contact.website %} class="top-bar-cd-title active"{% else %} class="top-bar-cd-title" {% endif %}
+                {% if contact.website %}
+                  href="{{ contact.website }}"
+                {% endif %}>
+                {% if (logo) %}
+                    <div class="">
+                        <img class="logo" src="{{ logo }}">
+                    </div>
+                {% endif %}
+
+                <h6 class="title">{{ titleShort }} CD</h6>
+            </a>
+        {% endif %}
+
+        {% if 'story' in tags %}
+            <div class="row  align-items-center ps-3 pe-3">
+               <h6 class="title m-0">{{ title }}</h6>
+            </div>
+        {% endif %}
+
 
 
 </div>

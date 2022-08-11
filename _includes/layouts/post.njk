@@ -3,6 +3,10 @@ layout: layouts/base.njk
 section: post
 ---
 
+<script>
+    
+</script>
+
 <section class="overlay post">
     
     <div class="overlay-inner">
@@ -11,6 +15,8 @@ section: post
 
       {# HEADER #}
       <div class="post-header">
+
+
 
           <div class="row gx-4 align-items-center">
               {% if (logo) %}
@@ -21,7 +27,7 @@ section: post
               </div>
               {% endif %}
               <div class="{{ 'col-8' if logo else 'col-12'}}">
-                <h3 class="display-3">{{ titleShort }}</h3>
+                <h3 class="display-4">{{ titleShort }}</h3>
                 <h4 class="heading-6">Conservation District</h4>
               </div>
           </div>

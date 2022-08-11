@@ -1,0 +1,32 @@
+---
+title: Conservation Districts
+layout: layouts/base.njk
+section: directory
+tags: page
+permalink: /directory/index.html
+---
+
+<section class="overlay page">
+    
+    <div class="overlay-inner">
+
+      {% include "components/top-bar.njk" %}
+
+      {# HEADER #}
+      	<div class="container mt-5">
+
+	        <div class="row g-5">
+								<h1 class="display-4">{{ title }}</h1>
+	        </div>
+      	
+      	</div>
+      	
+      	
+      	<div class="container mt-5">
+					{{ layoutContent | safe }}
+
+					{% set postslist = collections.post %}
+					{% include "components/postslist.njk" %}
+      	</div>
+  </div>
+</section>

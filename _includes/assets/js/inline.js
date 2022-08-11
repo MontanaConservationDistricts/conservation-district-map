@@ -9,6 +9,44 @@ if (window.netlifyIdentity) {
 }
 
 
+
+//////////////////////////////////////////////
+//             MAPPING FUNCTIONS            //
+//////////////////////////////////////////////
+
+
+var currentPageID  // global variable to hold the most up-to date page/post id
+var featureGlobal = {} //empty object populated by clicking features on the map
+
+
+function pageMapHandler(updatePageID, targetMapLayer) { // FUNCTION CALLED WHEN DISTRICTS ARE LOADED AND VIA BARBA DATA-ENTER HOOK
+
+  if (updatePageID === 'auto') { // if current PageID is set to auto, use the id property of the page/post
+      var currentPageID = ( '{{ id }}' ); 
+  } else {
+      var currentPageID = updatePageID;
+  }
+
+  console.log("running pageMapHandler with custom currentPageID: " + currentPageID);
+
+  if (featureGlobal && Object.keys(featureGlobal).length === 0) { //
+
+    var match = globalLayerState[targetMapLayer].activeLayer.eachLayer(function(layer) {
+      if (layer.feature.properties.id == currentPageID) {
+        console.log( "featureGlobal was not set. Setting to matching layer: " + layer.feature.properties.slug + "." ) 
+        featureGlobal = layer;
+        centerMap(true, featureGlobal.feature.properties.style.width, mapVerticalCenter);
+        featureGlobal._path.classList.add("selected"); 
+      }
+    })
+  } else {
+    console.log( "featureGlobal is set" );
+  }
+}
+
+
+
+
 /////////////////////////////////////////////
 //      FETCH SITE SETTINGS FOR JS USE     //
 /////////////////////////////////////////////  

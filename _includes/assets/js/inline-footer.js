@@ -2,8 +2,6 @@
 //             MAPPING FUNCTIONS            //
 //////////////////////////////////////////////
 
-var featureGlobal = {} //empty object populated by clicking features on the map
-
 
 // MAP CENTER & ACTIVE AREA
 function centerMap(selectedFeature, w, h, zoomLevel) {
@@ -107,14 +105,14 @@ barba.init({
 	    });
 	  },
 	  enter(data) {
-
+			console.log("------- DATA ENTER -------");
 	    return gsap.from(data.next.container, {
 	      opacity: 0
 	    });
 
 	  },
 	  after(data) {
-
+			console.log("------- AFTER DATA -------");
 	  }
 	}],
 

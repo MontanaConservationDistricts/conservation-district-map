@@ -14,7 +14,7 @@ renderData:
 
 <h1>{{ renderData.title | safe }}</h1>
 
-<section>
+<section class="overlay page">
 	{% for post in collections.authors[author] | reverse %}
 		<article{% if post.page.url == url %} data-current="current item"{% endif %}>
 			<h3>

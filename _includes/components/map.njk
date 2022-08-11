@@ -76,7 +76,6 @@ if (mapSettings.layers.basemaps) {
 	}
 }
 
-
 var basemapPane = map.createPane('texture').style.zIndex = 200;
 L.GridLayer.texture = L.GridLayer.extend({
     createTile: function (coords) {
@@ -221,6 +220,7 @@ globalLayerState = [] // declare array for handling active/disabled layers on to
 				});
 	         	console.log("------- ADDED -------");
 	         	loadStories();
+	         	pageMapHandler("auto", 0);
 
 	         });
 

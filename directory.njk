@@ -2,6 +2,7 @@
 title: Conservation Districts
 layout: layouts/base.njk
 section: directory
+namespace: directory
 tags: page
 permalink: /directory/index.html
 ---
@@ -21,12 +22,13 @@ permalink: /directory/index.html
       	
       	</div>
       	
-      	
       	<div class="container mt-5">
 					{{ layoutContent | safe }}
 
 					{% set postslist = collections.post %}
 					{% include "components/postslist.njk" %}
       	</div>
-  </div>
+
+  	</div>
+
 </section>

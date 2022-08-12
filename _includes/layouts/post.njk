@@ -3,11 +3,7 @@ layout: layouts/base.njk
 section: post
 ---
 
-<script>
-    
-</script>
-
-<section class="overlay post">
+<section id="overlay-{{ id }}" class="overlay post">
     
     <div class="overlay-inner">
 
@@ -15,8 +11,6 @@ section: post
 
       {# HEADER #}
       <div class="post-header">
-
-
 
           <div class="row gx-4 align-items-center">
               {% if (logo) %}

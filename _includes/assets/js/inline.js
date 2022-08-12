@@ -41,6 +41,8 @@ function pageMapHandler(updatePageID, targetMapLayer) { // FUNCTION CALLED WHEN 
     })
   } else {
     console.log( "featureGlobal is set" );
+    centerMap(true, featureGlobal.feature.properties.style.width, mapVerticalCenter);
+    featureGlobal._path.classList.add("selected"); 
   }
 }
 

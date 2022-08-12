@@ -2,7 +2,8 @@
 	{% for post in postslist | reverse %}
 		<article {% if post.url == url %} data-current="current item"{% endif %}>
 			<h5>
-				<a onclick="pageMapHandler('{{ post.data.id }}', 0)" href="{{ post.url | url }}">
+				<a onclick="pageMapHandler('{{ post.data.id }}',0)" href="{{ post.url | url }}">
+				{# <a href="{{ post.url | url }}"> #}
 					{% if post.data.titleShort %}
 						{{ post.data.titleShort }}
 					{% else %}

@@ -12,7 +12,7 @@
 
       		{% include "components/map.njk" %}
 
-			<section id="main" data-barba="container" data-barba-namespace="overlay">
+			<section id="main" data-barba="container" data-barba-namespace="{{ namespace }}">
 				{{ layoutContent | safe }}
 			</section>
 

@@ -46,6 +46,12 @@ function centerMap(selectedFeature, w, h, zoomLevel) {
 	console.log("------- CENTERED -------")
 }
 
+function clearSelected() {
+	if (document.querySelector('.selected')){ // removes any css .selected styling rules
+		document.querySelector('.selected').classList.remove('selected');
+	} 
+}
+
 function resetMap() {
 	console.log("------- RESETTING MAP ----")
 
@@ -80,6 +86,7 @@ barba.hooks.before(() => {
 // do something after the transition finishes
 barba.hooks.after(() => {
     document.querySelector('html').classList.remove('is-transitioning'); // TURNS OFF DOUBLE CLICK ON HTML DOM ELEMENT
+    //pageMapHandler('auto', 0);
 });
 
 
@@ -118,10 +125,12 @@ barba.init({
 
 	views: [{
 
-		namespace: 'overlay',
-	    enter(data) {
-	      	// overlay view functions
-	    }
+		namespace: 'directory',
+	    beforeEnter(data) {
+	    			featureGlobal = {};
+	      		clearSelected();
+	      		console.log("namespace: directory");
+	  	}
 
 	}]
 });

@@ -9,7 +9,9 @@ style:
     - label: Justify Right
       value: right
 contact:
-  social: []
+  social:
+    - socialItemUrl: https://www.facebook.com/Powder-River-Conservation-District-Broadus-MT-100526666053470/
+      socialItem: facebook
   primaryEmail: Elizabeth.Riter@mt.nacdnet.net
   primaryPhone: 406-436-2321 x111
   website: ""

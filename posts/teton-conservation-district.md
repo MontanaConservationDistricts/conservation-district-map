@@ -1,6 +1,6 @@
 ---
 title: Teton Conservation District
-titleShort: teton
+titleShort: Teton
 date: 2022-07-12T21:14:35.075Z
 author: Anonymous
 style:

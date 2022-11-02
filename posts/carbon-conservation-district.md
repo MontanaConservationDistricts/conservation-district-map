@@ -12,9 +12,9 @@ contact:
   social:
     - socialItemUrl: https://www.facebook.com/CarboinCD
       socialItem: facebook
-  primaryEmail: Mabel.Schwend@mt.nacdnet.net
+  primaryEmail: Sharon.Flemetis@mt.nacdnet.net
   primaryPhone: 406-962-3641
-  website: https://www.carboncd.org/
+  website: http://www.carboncd.org/
 locations:
   - state: MT
     addressLabel: Office Address

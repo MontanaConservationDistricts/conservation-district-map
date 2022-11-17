@@ -202,3 +202,23 @@ a[rel="tag"]:last-child {
 }
 
 
+@media (max-width: 1000px) {
+  
+    .overlay.post {
+        position: absolute;
+        margin: 12px;
+        width: 600px;
+        top: 0;
+        right: 0;
+        height: auto;
+        max-height: calc(100vh - 24px);
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: scroll;
+        -webkit-box-shadow: 0 8px 20px 2px rgb(0 0 0 / 25%);
+        box-shadow: 0 8px 20px 2px rgba(0,0,0,.25);
+    }
+
+}
+
+

@@ -4,7 +4,7 @@
 
 
         {% if 'post' in tags %}
-            <a {% if contact.website %} class="top-bar-cd-title active"{% else %} class="top-bar-cd-title" {% endif %}
+            <a {% if contact.website %} target="_blank" class="top-bar-cd-title active"{% else %} class="top-bar-cd-title" {% endif %}
                 {% if contact.website %}
                   href="{{ contact.website }}"
                 {% endif %}>
@@ -16,6 +16,12 @@
 
                 <h6 class="title">{{ titleShort }} CD</h6>
             </a>
+
+            {# <button type="button" class="btn btn-outline-primary top-bar-close" aria-label="Admin"> #}
+
+            <a class="btn btn-outline-primary top-bar-close" target="_blank" href="{{ '/admin/#/collections/blog/entries/' | url }}{{ title | slugify }}"><i class="bi bi-pencil-square"></i></a>
+
+
         {% endif %}
 
         {% if 'story' in tags %}

@@ -13,6 +13,8 @@ var map = L.map('map', {
 	scrollWheelZoom: false
 });
 
+map.attributionControl.addAttribution('Design & Development: <a target="_blank" href="https://www.macdnet.org">MACD</a>');
+
 if (settings.mapSettings.center.coordinates){
 	var openingView = [settings.mapSettings.center.coordinates[1], settings.mapSettings.center.coordinates[0]]
 } else {

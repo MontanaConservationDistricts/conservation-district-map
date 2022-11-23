@@ -4,7 +4,7 @@
   "zoom": 7,
   "layers": {
     "texture": {
-      "textureAdd": false,
+      "textureAdd": true,
       "textureFile": "/static/geospatial/texture-tile-1.png"
     },
     "basemaps": [

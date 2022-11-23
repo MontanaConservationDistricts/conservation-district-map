@@ -2,7 +2,7 @@
 title: Lake County Conservation District
 titleShort: Lake County
 date: 2022-07-06T04:54:41.441Z
-author: Anonymous
+author: Montana Association of Conservation Districts (MACD)
 summary: >-
   *Lake County Conservation District* (LCCD) is responsible for the soil and
   water conservation work within the Lake County boundaries. Lake County

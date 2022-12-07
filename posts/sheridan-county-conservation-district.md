@@ -9,6 +9,7 @@ summary: The Sheridan County Conservation District (SCCD), originally known as
   designed to help the public conserve soil, water, and other renewable
   resources.  SCCD works in partnership with the Natural Resources Conservation
   Service (NRCS) providing technical assistance to private land managers.
+logo: /static/img/pic-of-logo.jpg
 style:
   area:
     - label: Justify Right

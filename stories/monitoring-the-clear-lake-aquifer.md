@@ -21,3 +21,9 @@ Currently, the 10,000-acre/feet permitting allotment is enough to meet community
 The program not only helps ensure the water is not overused, but also provides data that informs management of wildlife habitat on the US Fish and Wildlife Service Medicine Lake Refuge. Thus, this program helps accomplish a good balance between community need for water resources and conservation of the water for wildlife habitat.
 
 ![](/static/img/image_67218177.jpg)
+
+
+
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Eh3g6fH8Dec" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

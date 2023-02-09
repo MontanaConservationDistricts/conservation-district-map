@@ -18,6 +18,7 @@ summary: >-
   * Mitigate Resource Impacts of Suburban Development in Rural Areas
 
   * Increase Public Awareness of the Conservation District’s Role and Responsibilities and the 310 Law
+logo: /static/img/download.jpg
 style:
   area:
     - label: Justify Right

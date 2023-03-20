@@ -16,7 +16,7 @@ style:
       value: right
 contact:
   social:
-    - socialItemUrl: https://www.facebook.com/profile.php?viewas=100000686899395&id=100064571324425
+    - socialItemUrl: https://www.facebook.com/profile.php?id=100064571324425
       socialItem: facebook
   website: https://sheridancountycd.com/
   primaryPhone: " 406-765-1801 ext 101"

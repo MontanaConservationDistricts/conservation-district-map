@@ -5,10 +5,10 @@ date: 2022-06-30T12:14:33.771Z
 author: Eric Rannestad
 summary: The Beaverhead Conservation District was formed in 1950 by local
   citizens to provide technical assistance to landowners in carrying out soil
-  and water conservation practices. The district works with stakeholders in
-  southwest Montana to protect natural resources through sustainable
-  agriculture, 310 permitting, and conservation. Beaverhead CD is a partner of
-  the [Beaverhead Watershed
+  and water conservation practices. The conservation district works with
+  stakeholders in southwest Montana to protect natural resources through
+  sustainable agriculture, 310 permitting, and conservation. Beaverhead CD is a
+  partner of the [Beaverhead Watershed
   Committee](https://beaverheadcd.org/category/featured/) and [Beaverhead County
   Collaborative](https://beaverheadcd.org/category/beaverhead-county-collaborative/).
 logo: /static/img/beaverhead-cd-logo-01.png

@@ -16,7 +16,7 @@ style:
       value: right
 contact:
   social: []
-  primaryEmail: jody.cutler@macdnet.org
+  primaryEmail: graniteconservation@macdnet.org
   primaryPhone: "859-3291 x101 "
   website: https://granitecd.org/
 locations:
@@ -27,6 +27,11 @@ locations:
     city: Philipsburg
     post-code: 59858-0926
     hours: "Mon–Thurs: 12 pm–6 pm"
+  - state: MT
+    addressLabel: Mailing Address
+    addressLine1: P. O. Box 926
+    city: Philipsburg
+    post-code: "59858"
 tags:
   - area-5
 id: granite

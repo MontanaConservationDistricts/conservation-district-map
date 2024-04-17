@@ -16,11 +16,11 @@ style:
       value: right
 contact:
   social:
-    - socialItemUrl: https://www.facebook.com/profile.php?id=100069000990896
+    - socialItemUrl: https://www.facebook.com/BitterrootCD
       socialItem: facebook
   website: https://bitterrootcd.org/
   primaryPhone: 406-361-6181
-  primaryEmail: bcd@qwestoffice.net
+  primaryEmail: bitterrootcd@macdnet.org
 locations:
   - state: MT
     addressLabel: Office Address

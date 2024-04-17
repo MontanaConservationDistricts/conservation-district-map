@@ -9,7 +9,7 @@ summary: The Bitterroot Conservation District is a board of seven locally
   was chartered by the Secretary of State in June, 1943. As a legal subdivision
   of the State, has been given responsibility for the wise use, development and
   conservation of soil and water within the county.
-logo: /static/img/bitterroot-cd-logo.jpg
+logo: /static/img/bitterroot-cd-logo-transparent-background.svg
 style:
   area:
     - label: Justify Right

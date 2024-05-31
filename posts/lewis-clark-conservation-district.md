@@ -4,16 +4,21 @@ titleShort: Lewis & Clark
 date: 2022-07-06T05:06:14.538Z
 author: Anonymous
 summary: >-
-  The work of *Lewis & Clark Conservation District* encompasses aspects of
-  water, plant and people resources.  Community education concerning these
-  resources, and active involvement in watershed work, noxious weed eradication
-  and control, grazing management issues and quality customer service in the
-  form of the Lewis & Clark Land Stewardship Series, the quarterly
-  newsletter *[The
-  Explorer](https://lewisandclarkcd.org/landowner-resources/newsletter/)*,
-  annual workshops and participation in the Youth Education Curriculum. Lewis
-  and Clark CD also works with state legislators to inform them of current
-  resource issues and challenges in their areas. 
+  The mission of the 'Lewis and Clark Conservation District' is to provide
+  leadership in the conservation and wise use of natural resources to the people
+  of Lewis and Clark County, Montana.
+
+
+  The work of the 'Lewis and Clark Conservation District' encompasses aspects of water, plant and people resources.  Community education and active involvement in projects and programs related to these resources.
+
+
+  The District not only implements the "310 Law" in Lewis and Clark County, doing permitting for private projects on streams and rivers, and the reservoirs on the Missouri River, but they also are actively involved in promotion of using willow soil lifts, and other bioengineering techniques to restore stream and river banks in the county. They are involved in the Lake Helena Watershed Group and the Sun River Watershed Group.
+
+
+  They value locally led conservation and rely on landowners in the county to assist in planning and project work. They also value collaboration with partners of all sorts to stretch budgets and get critical work done in the county.
+
+
+  The Conservation District has a quarterly electronic newsletter, *[The Explorer](https://lewisandclarkcd.org/landowner-resources/newsletter/)*, annual workshops, and participation in youth and adult education programs encompassing riparian grazing, stream and river health, soil health, pollinators and more. They also work with their state legislators, informing them of current resource issues and challenges in their area.
 
 
   For the [latest news](https://lewisandclarkcd.org/in-the-news/), [mission and history](https://lewisandclarkcd.org/about-us/), [landowner resources](https://lewisandclarkcd.org/landowner-resources/), and [programs](https://lewisandclarkcd.org/programs/) offered by Lewis and Clark CD, visit their website at [Lewis and Clark Conservation District website](https://lewisandclarkcd.org).
@@ -28,15 +33,15 @@ contact:
   social:
     - socialItemUrl: http://www.facebook/lewisandclarkcd
       socialItem: facebook
-    - socialItemUrl: https://twitter.com/LewisnClarkCD
-      socialItem: twitter
-    - socialItemUrl: https://www.youtube.com/channel/UCPKUwq0njIi4rLq2VKaIErQ
+    - socialItemUrl: https://www.instagram.com/lewisandclarkcd/
+      socialItem: instagram
+    - socialItemUrl: https://www.youtube.com/channel/UC9qRJf0e1Oy0LhqdGKQV-GQ
       socialItem: other
     - socialItemUrl: https://lewisandclarkcd.org/landowner-resources/newsletter/
       socialItem: newsletter
-  primaryEmail: lccd@mt.net
-  website: http://www.lewisandclarkcd.org
-  primaryPhone: 406-449-5000 x5
+  primaryEmail: chris@lewisandclarkcd.org
+  website: https://www.lewisandclarkcd.org
+  primaryPhone: 406-389-3884
 locations:
   - state: MT
     addressLabel: USDA Service Center, Helena

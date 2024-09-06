@@ -23,6 +23,6 @@ locations:
     post-code: "59501"
     hours: Tues – Fri, 8:30 am – 4 pm
 tags:
-  - area-1
+  - area-3
 id: hill-county
 ---

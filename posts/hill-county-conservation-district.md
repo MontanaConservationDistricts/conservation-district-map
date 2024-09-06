@@ -1,7 +1,7 @@
 ---
 title: Hill County Conservation District
 titleShort: Hill County
-date: 2022-07-06T03:45:04.579Z
+date: 2024-09-06T16:46:56.687Z
 author: Anonymous
 logo: /static/img/hill-county.png
 style:

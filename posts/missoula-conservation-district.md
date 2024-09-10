@@ -9,7 +9,7 @@ summary: >-
   of priority are: 
 
 
-  * Improve and Protect Water Quality, Stream Corridors, and Riparian Habitats
+  *  Improve and Protect Water Quality, Stream Corridors, and Riparian Habitats
 
   * Improve and Protect Water Availability
 

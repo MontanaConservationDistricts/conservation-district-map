@@ -6,7 +6,7 @@ author: Anonymous
 summary: >-
   Missoula Conservation District works to promote sustainable resource
   management for all natural resources in Missoula County. Our goals, in order
-  of priority are:
+  of priority are: 
 
 
   * Improve and Protect Water Quality, Stream Corridors, and Riparian Habitats

@@ -2,7 +2,7 @@
 title: Lewis & Clark Conservation District
 titleShort: Lewis & Clark
 date: 2024-10-29T15:32:54.220Z
-author: Anonymous
+author: Chris Evans, District Administrator
 summary: >-
   The mission of the 'Lewis and Clark Conservation District' is to provide
   leadership in the conservation and wise use of natural resources to the people

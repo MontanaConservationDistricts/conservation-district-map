@@ -21,8 +21,11 @@ summary: >-
   The Conservation District has a quarterly electronic newsletter, *[The Explorer](https://lewisandclarkcd.org/landowner-resources/newsletter/)*, annual workshops, and participation in youth and adult education programs encompassing riparian grazing, stream and river health, soil health, pollinators and more. They also work with their state legislators, informing them of current resource issues and challenges in their area.
 
 
+  S﻿taff work remotely for the most part, so call or email to make an appointment to meet at the office. Chris Evans, Administrator, 406-502-8591, chris@lewisandclarkcd.org, or Joe Kremer-Herman, Resource Specialist, 406-594-9823, joe@lewisandclarkcd.org.
+
+
   For the [latest news](https://lewisandclarkcd.org/in-the-news/), [mission and history](https://lewisandclarkcd.org/about-us/), [landowner resources](https://lewisandclarkcd.org/landowner-resources/), and [programs](https://lewisandclarkcd.org/programs/) offered by Lewis and Clark CD, visit their website at [Lewis and Clark Conservation District website](https://lewisandclarkcd.org).
-logo: /static/img/l-c-logo-2-01.png
+logo: /static/img/no-background-lccd-logo-white-text.png
 style:
   area:
     - label: Justify Right
@@ -39,9 +42,9 @@ contact:
       socialItem: other
     - socialItemUrl: https://lewisandclarkcd.org/landowner-resources/newsletter/
       socialItem: newsletter
-  primaryEmail: chris@lewisandclarkcd.org
+  primaryEmail: admin@lewisandclarkcd.org
   website: https://www.lewisandclarkcd.org
-  primaryPhone: 406-389-3884
+  primaryPhone: 406-502-8591
 locations:
   - state: MT
     addressLabel: USDA Service Center, Helena

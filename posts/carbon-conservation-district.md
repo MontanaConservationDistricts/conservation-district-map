@@ -14,7 +14,7 @@ contact:
       socialItem: facebook
   primaryEmail: carboncd@macdnet.org
   primaryPhone: 406-962-3641
-  website: http://www.carboncd.org/
+  website: http://www.carboncd.org
 locations:
   - state: MT
     addressLabel: Office Address

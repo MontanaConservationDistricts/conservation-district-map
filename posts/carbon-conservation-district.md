@@ -12,7 +12,7 @@ contact:
   social:
     - socialItemUrl: https://www.facebook.com/CarboinCD
       socialItem: facebook
-  primaryEmail: Sharon.Flemetis@mt.nacdnet.net
+  primaryEmail: carboncd@macdnet.org
   primaryPhone: 406-962-3641
   website: http://www.carboncd.org/
 locations:

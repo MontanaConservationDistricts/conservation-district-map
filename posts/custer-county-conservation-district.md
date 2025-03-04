@@ -8,8 +8,10 @@ style:
     - label: Justify Right
       value: right
 contact:
-  social: []
-  primaryEmail: Carol.Watts@mt.nacdnet.net
+  social:
+    - socialItemUrl: https://www.facebook.com/profile.php?id=61561185432246
+      socialItem: facebook
+  primaryEmail: custercountycd@macdnet.org
   primaryPhone: 406-232-7905 x3242
 locations:
   - state: MT

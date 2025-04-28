@@ -8,6 +8,14 @@ const svgContents = require("eleventy-plugin-svg-contents");
 
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.setBrowserSyncConfig({
+    codeSync: false
+  });
+
+  eleventyConfig.setIsVerbose(true);
+
+  eleventyConfig.addPassthroughCopy('node_modules/parse5-parser-stream');
+};
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);

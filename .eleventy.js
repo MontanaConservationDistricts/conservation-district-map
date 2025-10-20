@@ -15,7 +15,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setIsVerbose(true);
 
   eleventyConfig.addPassthroughCopy('node_modules/parse5-parser-stream');
-};
+
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);

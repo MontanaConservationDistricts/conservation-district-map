@@ -3,7 +3,7 @@ title: High Plains Conservation District
 titleShort: Cascade
 date: 2022-07-01T08:06:40.082Z
 author: Anonymous
-summary: Cascade Conservation District leads by example and works with
+summary: High Plains Conservation District leads by example and works with
   landowners, stakeholders, and partners to implement the resource conservation
   practices that we promote. We enthusiastically engage the public in the
   protection of natural resources, which makes our community a healthy and

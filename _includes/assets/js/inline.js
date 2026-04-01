@@ -1,86 +1,156 @@
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
+////////////////////////////////////////////////////
+//              LOAD CSV + GEOJSON                //
+////////////////////////////////////////////////////
+
+let csvData = [];
+
+Promise.all([
+  fetch('data/districts.csv').then(res => res.text()),
+  fetch('data/districts.geojson').then(res => res.json())
+]).then(([csvText, geojson]) => {
+
+  const parsed = Papa.parse(csvText, {
+    header: true,
+    skipEmptyLines: true
+  });
+
+  csvData = parsed.data;
+
+  const joinedGeoJSON = joinData(geojson, csvData);
+
+  buildMap(joinedGeoJSON);
+
+}).catch(err => {
+  console.error("Error loading data:", err);
+});
+
+////////////////////////////////////////////////////
+//                 DATA JOIN                      //
+////////////////////////////////////////////////////
+
+function joinData(geojson, csv) {
+
+  geojson.features.forEach(feature => {
+    const geoID = feature.properties.id;
+
+    const match = csv.find(row => row.id == geoID);
+
+    if (match) {
+      feature.properties = {
+        ...feature.properties,
+        ...match
+      };
+    }
+  });
+
+  return geojson;
+}
+
+////////////////////////////////////////////////////
+//              BUILD THE MAP                     //
+////////////////////////////////////////////////////
+
+function buildMap(geojsonData) {
+
+  // Create map
+  const map = L.map('map').setView([46.8, -110.0], 6);
+
+  // Add basemap (OpenStreetMap)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  let geoLayer;
+
+  function style(feature) {
+    return {
+      color: feature.properties.color || "#3388ff",
+      weight: 2,
+      fillOpacity: 0.5
+    };
+  }
+
+  function onEachFeature(feature, layer) {
+
+    layer.on({
+      click: function () {
+        featureGlobal = layer;
+
+        if (layer._path) {
+          layer._path.classList.add("selected");
+        }
+
+        const bounds = layer.getBounds();
+        map.fitBounds(bounds);
+      }
+    });
+
+    // Optional popup
+    if (feature.properties.name) {
+      layer.bindPopup(`<strong>${feature.properties.name}</strong>`);
+    }
+  }
+
+  geoLayer = L.geoJSON(geojsonData, {
+    style: style,
+    onEachFeature: onEachFeature
+  }).addTo(map);
+
+  // store globally if needed
+  window.globalLayerState = {
+    districts: {
+      activeLayer: geoLayer
+    }
+  };
+
+}
+
+////////////////////////////////////////////////////
+//             MAPPING FUNCTIONS                  //
+////////////////////////////////////////////////////
+
+var currentPageID = null;
+var featureGlobal = {};
+
+function pageMapHandler(updatePageID, targetMapLayer) {
+
+  if (!targetMapLayer || !window.globalLayerState) return;
+
+  currentPageID = updatePageID || null;
+
+  if (!currentPageID) return;
+
+  globalLayerState[targetMapLayer].activeLayer.eachLayer(function(layer) {
+
+    if (layer.feature.properties.id == currentPageID) {
+
+      featureGlobal = layer;
+
+      const bounds = layer.getBounds();
+      layer._map.fitBounds(bounds);
+
+      if (layer._path) {
+        layer._path.classList.add("selected");
+      }
+
     }
   });
 }
 
-
-
-//////////////////////////////////////////////
-//             MAPPING FUNCTIONS            //
-//////////////////////////////////////////////
-
-
-var currentPageID  // global variable to hold the most up-to date page/post id
-var featureGlobal = {} //empty object populated by clicking features on the map
-
-
-function pageMapHandler(updatePageID, targetMapLayer) { // FUNCTION CALLED WHEN DISTRICTS ARE LOADED AND VIA BARBA DATA-ENTER HOOK
-
-  if (updatePageID === 'auto') { // if current PageID is set to auto, use the id property of the page/post
-      var currentPageID = ( '{{ id }}' ); 
-  } else {
-      var currentPageID = updatePageID;
-  }
-
-  console.log("running pageMapHandler with custom currentPageID: " + currentPageID);
-
-  if (featureGlobal && Object.keys(featureGlobal).length === 0) { //
-
-    var match = globalLayerState[targetMapLayer].activeLayer.eachLayer(function(layer) {
-      if (layer.feature.properties.id == currentPageID) {
-        console.log( "featureGlobal was not set. Setting to matching layer: " + layer.feature.properties.slug + "." ) 
-        featureGlobal = layer;
-        centerMap(true, featureGlobal.feature.properties.style.width, mapVerticalCenter);
-        featureGlobal._path.classList.add("selected"); 
-      }
-    })
-  } else {
-    console.log( "featureGlobal is set" );
-    centerMap(true, featureGlobal.feature.properties.style.width, mapVerticalCenter);
-    featureGlobal._path.classList.add("selected"); 
-  }
-}
-
-
-
-
-/////////////////////////////////////////////
-//      FETCH SITE SETTINGS FOR JS USE     //
-/////////////////////////////////////////////  
-
-console.log( {{ settingsMap | dump | safe }} );
-
-var mapSettings = {{ settingsMap | dump | safe }};
-    mapSettings.center = JSON.parse(mapSettings.center);
-var generalSettings = {{ settings | dump | safe }};
-var settings = { mapSettings, generalSettings };
-
-console.log( settings );
-
-
-//////////////////////////////////////
-//    UPDATE CSS VARIABLE STYLES    //
-//////////////////////////////////////
+////////////////////////////////////////////////////
+//          OPTIONAL CSS OVERRIDES                //
+////////////////////////////////////////////////////
 
 let root = document.documentElement;
 
-if (generalSettings.siteStyling.primaryColorOverride) { 
-  var updatedPrimaryColor = generalSettings.siteStyling.primaryColorOverride;
-  root.style.setProperty('--bs-primary', updatedPrimaryColor);
-  root.style.setProperty('--bs-primary', updatedPrimaryColor);
-  root.style.setProperty('--bs-heading-color', updatedPrimaryColor);
-  root.style.setProperty('--bs-body-color', updatedPrimaryColor);
-};
+const primaryColor = "#2c7a7b";
+const secondaryColor = "#68d391";
 
-if (generalSettings.siteStyling.secondaryColorOverride) { 
-  var updatedSecondaryColor = generalSettings.siteStyling.secondaryColorOverride;
-  root.style.setProperty('--secondary', updatedSecondaryColor);
-  root.style.setProperty('--bs-secondary', updatedSecondaryColor);
-  root.style.setProperty('--bs-link-color', updatedSecondaryColor);
-  root.style.setProperty('--bs-link-hover-color', updatedSecondaryColor);
-}
+root.style.setProperty('--bs-primary', primaryColor);
+root.style.setProperty('--bs-heading-color', primaryColor);
+root.style.setProperty('--bs-body-color', primaryColor);
+
+root.style.setProperty('--secondary', secondaryColor);
+root.style.setProperty('--bs-secondary', secondaryColor);
+root.style.setProperty('--bs-link-color', secondaryColor);
+root.style.setProperty('--bs-link-hover-color', secondaryColor);
